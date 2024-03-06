@@ -1,5 +1,6 @@
 
 import "./App.css";
+
 import BookingPage from "./pages/BookingPage";
 import LandingPage from "./pages/LandingPage";
 import Navbar from "./components/sharedcomponents/Navbar";
