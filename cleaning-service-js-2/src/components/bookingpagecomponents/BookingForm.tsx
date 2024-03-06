@@ -1,6 +1,8 @@
 
-import { useState } from 'react'
+import { FormEventHandler, useState } from 'react'
 import { Datepicker } from 'flowbite-react';
+
+
 interface IBookingForm {
 
 }
@@ -19,8 +21,8 @@ const BookingForm: React.FC<IBookingForm> = () => {
 
     }
 
-    const handleCleanerChange = () => {
-
+    const handleCleanerChange: FormEventHandler<HTMLFieldSetElement> = (e) => {
+        e.preventDefault();
     }
 
     const handleCleaningTypeChange = () => {
@@ -45,7 +47,7 @@ const BookingForm: React.FC<IBookingForm> = () => {
                 <form onSubmit={handleSubmit}>
                     <fieldset onChange={handleCleanerChange}>
                         <legend>Välj städare</legend>
-                        <select name="cleaner" onChange={handleChange}>
+                        <select name="cleaner">
                             <option value="cleaner1">Städare 1</option>
                             <option value="cleaner2">Städare 2</option>
                             <option value="cleaner3">Städare 3</option>
