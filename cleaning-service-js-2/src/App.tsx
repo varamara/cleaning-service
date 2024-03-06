@@ -1,14 +1,13 @@
 
 import './App.css'
+import BookingPage from './pages/BookingPage'
 
 function App() {
 
 
   return (
     <>
-     <h1 className="text-3xl font-bold text-blue-500">
-      Hello world!
-    </h1>
+     <BookingPage/>
     </>
   )
 }
