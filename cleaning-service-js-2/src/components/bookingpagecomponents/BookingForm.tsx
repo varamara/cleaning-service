@@ -1,5 +1,5 @@
 
-import { FormEventHandler, useState } from 'react'
+import { useState } from 'react'
 import { Datepicker } from 'flowbite-react';
 
 
@@ -9,32 +9,38 @@ interface IBookingForm {
 
 
 const BookingForm: React.FC<IBookingForm> = () => {
-
+    // const [date, setDate] = useState(new Date());
+    
     const [formValues, setFormValues] = useState({
         cleaner: "",
         cleaningType: "",
-        date: "",
-        time: ""
+        date: new Date(),
+        time: 0
     })
+
+    const handleDateChange = (date: Date | null) => {
+        if (date) {
+            setFormValues({
+                ...formValues,
+                date: date
+            });
+        }
+    };
+    
 
     const handleSubmit = () => {
 
     }
 
-    const handleCleanerChange: FormEventHandler<HTMLFieldSetElement> = (e) => {
-        e.preventDefault();
-    }
 
-    const handleCleaningTypeChange = () => {
 
-    }
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+        const { name, value } = e.currentTarget
         setFormValues({
             ...formValues,
             [name]: value
         })
+        console.log(formValues)
     }
 
 
@@ -45,16 +51,16 @@ const BookingForm: React.FC<IBookingForm> = () => {
                 <p>en bokningssida</p>
 
                 <form onSubmit={handleSubmit}>
-                    <fieldset onChange={handleCleanerChange}>
+                    <fieldset>
                         <legend>Välj städare</legend>
-                        <select name="cleaner">
+                        <select onChange={handleChange} name="cleaner">
                             <option value="cleaner1">Städare 1</option>
                             <option value="cleaner2">Städare 2</option>
                             <option value="cleaner3">Städare 3</option>
                         </select>
                     </fieldset>
 
-                    <fieldset onChange={handleCleaningTypeChange}>
+                    <fieldset>
                         <legend>Välj städtyp</legend>
                         <input
                             type="radio"
@@ -91,8 +97,8 @@ const BookingForm: React.FC<IBookingForm> = () => {
                     </fieldset>
                     <Datepicker
                         name="date"
-                        value={formValues.date}
-                        onChange={(e) => setFormValues({ ...formValues, date: e.target.value })}
+                        value={formValues.date.toISOString()}
+                        onChange={handleDateChange}
                     />
                     <button type="submit">Skicka</button>
                 </form>
