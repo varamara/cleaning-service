@@ -43,7 +43,13 @@ const BookingForm: React.FC<IBookingForm> = () => {
     };
 
     const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault()
+        e.preventDefault();
+    
+        if (!formValues.cleaner || !formValues.cleaningType || !formValues.date) {
+            alert('Vänligen fyll i alla fält');
+            return;
+        }
+    
         const newBooking: IBookingForm = {
             id: Math.random() * 1000,
             cleaner: formValues.cleaner,
@@ -51,8 +57,8 @@ const BookingForm: React.FC<IBookingForm> = () => {
             date: formValues.date,
             time: formValues.time
         }
-
-        setBooking(prev => [...prev, newBooking])
+    
+        setBooking(prev => [...prev, newBooking]);
     }
 
     const handleRemove = (id: number) => {
