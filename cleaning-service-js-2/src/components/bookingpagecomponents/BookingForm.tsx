@@ -1,12 +1,13 @@
 
 import { useState } from 'react'
 import DatePicker from "react-datepicker";
-import TimePicker from 'react-time-picker';
+
 import "react-datepicker/dist/react-datepicker.css";
-import 'react-time-picker/dist/TimePicker.css';
+
 
 
 interface IBookingForm {
+    id: number;
     cleaner: string;
     cleaningType: string;
     date: Date;
@@ -16,8 +17,9 @@ interface IBookingForm {
 
 const BookingForm: React.FC<IBookingForm> = () => {
 
-
+    const [booking, setBooking] = useState<Array<IBookingForm>>([]);
     const [formValues, setFormValues] = useState({
+        id: "",
         cleaner: "",
         cleaningType: "",
         date: new Date(),
@@ -42,7 +44,15 @@ const BookingForm: React.FC<IBookingForm> = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-        console.log(formValues)
+       const newBooking: IBookingForm = {
+            id: Math.random() * 1000,
+            cleaner: formValues.cleaner,
+            cleaningType: formValues.cleaningType,
+            date: formValues.date,
+            time: formValues.time
+       }
+
+       setBooking ( prev => [...prev, newBooking])
     }
 
 
@@ -55,7 +65,10 @@ const BookingForm: React.FC<IBookingForm> = () => {
                 <form onSubmit={handleSubmit}>
                     <fieldset>
                         <legend>Välj städare</legend>
-                        <select onChange={handleChange} name="cleaner">
+                        <select 
+                        id={formValues.id}
+                        name="cleaner"
+                        onChange={handleChange} >
                             <option value="cleaner1">Städare 1</option>
                             <option value="cleaner2">Städare 2</option>
                             <option value="cleaner3">Städare 3</option>
@@ -65,8 +78,8 @@ const BookingForm: React.FC<IBookingForm> = () => {
                     <fieldset>
                         <legend>Välj städtyp</legend>
                         <input
+                            id={formValues.id}
                             type="radio"
-                            id="cleaningType1"
                             name="cleaningType"
                             value="cleaningType1"
                             checked={formValues.cleaningType === "cleaningType1"}
@@ -76,8 +89,8 @@ const BookingForm: React.FC<IBookingForm> = () => {
                         <label htmlFor="cleaningType1">Städtyp 1</label>
 
                         <input
+                            id={formValues.id}
                             type="radio"
-                            id="cleaningType2"
                             name="cleaningType"
                             value="cleaningType2"
                             checked={formValues.cleaningType === "cleaningType2"}
@@ -87,8 +100,8 @@ const BookingForm: React.FC<IBookingForm> = () => {
                         <label htmlFor="cleaningType2">Städtyp 2</label>
 
                         <input
+                            id={formValues.id}
                             type="radio"
-                            id="cleaningType3"
                             name="cleaningType"
                             value="cleaningType3"
                             checked={formValues.cleaningType === "cleaningType3"}
@@ -99,7 +112,7 @@ const BookingForm: React.FC<IBookingForm> = () => {
                     </fieldset>
 
                     <DatePicker
-                        id="date"
+                        id={formValues.id}
                         name="date"
                         selected={formValues.date}
                         // value={formValues.date} blir krullig vet ej varfor
@@ -108,7 +121,7 @@ const BookingForm: React.FC<IBookingForm> = () => {
                     />
 
                     <input type="time"
-                        id="time"
+                        id={formValues.id}
                         name="time"
                         onChange={handleChange}
                         value={formValues.time}
@@ -117,6 +130,21 @@ const BookingForm: React.FC<IBookingForm> = () => {
                     <button type="submit">Skicka</button>
                 </form>
             </section>
+            <section>
+                <h3>Kommande bokningar</h3>
+                    {booking.map((book) => {
+                        return (
+                            <div key={book.id}>
+                                <p>Städare: {book.cleaner}</p>
+                                <p>Städtyp: {book.cleaningType}</p>
+                                <p>Datum: {book.date.toDateString()}</p>
+                                <p>Tid: {book.time}</p>
+                            </div>
+                        )
+                    }
+                    )}      
+            </section>
+
         </>
     )
 }
