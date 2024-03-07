@@ -3,6 +3,8 @@ import { useState } from 'react'
 import DatePicker from "react-datepicker";
 import TimePicker from 'react-time-picker';
 import "react-datepicker/dist/react-datepicker.css";
+import 'react-time-picker/dist/TimePicker.css';
+
 
 interface IBookingForm {
     cleaner: string;
@@ -14,7 +16,7 @@ interface IBookingForm {
 
 const BookingForm: React.FC<IBookingForm> = () => {
 
- 
+
     const [formValues, setFormValues] = useState({
         cleaner: "",
         cleaningType: "",
@@ -33,10 +35,10 @@ const BookingForm: React.FC<IBookingForm> = () => {
 
     const handleDateChange = (date: Date | null) => {
         setFormValues((prevValues) => ({
-          ...prevValues,
-          date: date || new Date(),
+            ...prevValues,
+            date: date || new Date(),
         }));
-      };
+    };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
@@ -102,14 +104,14 @@ const BookingForm: React.FC<IBookingForm> = () => {
                         selected={formValues.date}
                         // value={formValues.date} blir krullig vet ej varfor
                         onChange={handleDateChange}
-                        
+
                     />
 
-                    <TimePicker 
-                    id="time"
-                    name="time"
-                    onChange={handleChange} 
-                    value={formValues.time} 
+                    <input type="time"
+                        id="time"
+                        name="time"
+                        onChange={handleChange}
+                        value={formValues.time}
                     />
 
                     <button type="submit">Skicka</button>
