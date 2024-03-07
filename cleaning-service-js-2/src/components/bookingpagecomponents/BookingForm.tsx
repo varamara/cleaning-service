@@ -1,38 +1,25 @@
 
 import { useState } from 'react'
-import { Datepicker } from 'flowbite-react';
-
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 interface IBookingForm {
-
+    cleaner: string;
+    cleaningType: string;
+    date: Date;
+    time: string;
 }
 
 
 const BookingForm: React.FC<IBookingForm> = () => {
-    // const [date, setDate] = useState(new Date());
-    
+
+ 
     const [formValues, setFormValues] = useState({
         cleaner: "",
         cleaningType: "",
         date: new Date(),
-        time: 0
+        time: ""
     })
-
-    const handleDateChange = (date: Date | null) => {
-        if (date) {
-            setFormValues({
-                ...formValues,
-                date: date
-            });
-        }
-    };
-    
-
-    const handleSubmit = () => {
-
-    }
-
-
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.currentTarget
@@ -40,6 +27,18 @@ const BookingForm: React.FC<IBookingForm> = () => {
             ...formValues,
             [name]: value
         })
+        console.log(formValues)
+    }
+
+    const handleDateChange = (date: Date | null) => {
+        setFormValues((prevValues) => ({
+          ...prevValues,
+          date: date || new Date(),
+        }));
+      };
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault()
         console.log(formValues)
     }
 
@@ -95,11 +94,14 @@ const BookingForm: React.FC<IBookingForm> = () => {
 
                         <label htmlFor="cleaningType3">Städtyp 3</label>
                     </fieldset>
-                    <Datepicker
+
+                    <DatePicker
+                        id="date"
                         name="date"
-                        value={formValues.date.toISOString()}
+                        selected={formValues.date}
                         onChange={handleDateChange}
                     />
+
                     <button type="submit">Skicka</button>
                 </form>
             </section>
