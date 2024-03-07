@@ -44,15 +44,15 @@ const BookingForm: React.FC<IBookingForm> = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault()
-       const newBooking: IBookingForm = {
+        const newBooking: IBookingForm = {
             id: Math.random() * 1000,
             cleaner: formValues.cleaner,
             cleaningType: formValues.cleaningType,
             date: formValues.date,
             time: formValues.time
-       }
+        }
 
-       setBooking ( prev => [...prev, newBooking])
+        setBooking(prev => [...prev, newBooking])
     }
 
 
@@ -65,10 +65,10 @@ const BookingForm: React.FC<IBookingForm> = () => {
                 <form onSubmit={handleSubmit}>
                     <fieldset>
                         <legend>Välj städare</legend>
-                        <select 
-                        id={formValues.id}
-                        name="cleaner"
-                        onChange={handleChange} >
+                        <select
+                            id={formValues.id}
+                            name="cleaner"
+                            onChange={handleChange} >
                             <option value="cleaner1">Städare 1</option>
                             <option value="cleaner2">Städare 2</option>
                             <option value="cleaner3">Städare 3</option>
@@ -131,18 +131,21 @@ const BookingForm: React.FC<IBookingForm> = () => {
                 </form>
             </section>
             <section>
-                <h3>Kommande bokningar</h3>
-                    {booking.map((book) => {
-                        return (
-                            <div key={book.id}>
-                                <p>Städare: {book.cleaner}</p>
-                                <p>Städtyp: {book.cleaningType}</p>
-                                <p>Datum: {book.date.toDateString()}</p>
-                                <p>Tid: {book.time}</p>
-                            </div>
-                        )
-                    }
-                    )}      
+                <h2 className='text-h2 text-primaryBlue ustify-center w-1/2 mx-auto mb-5'>Kommande bokningar</h2>
+                {booking.map((book) => {
+                    return (
+                        <div className=''>
+                        <ul className='bg-secondaryBlue flex justify-center w-1/2 mx-auto rounded-lg' key={book.id}>
+                            <li className="flex-grow m-3 font-semibold "> {book.cleaner} 2h</li>
+                            <li className="flex-grow m-3 ">{book.cleaningType}</li>
+                            <li className="flex-grow m-3"> {book.date.toDateString()}</li>
+                            <li className="flex-grow m-3"> {book.time}</li>
+                            <button className="m-3">Remove</button>
+                        </ul>
+                        </div>
+                    )
+                }
+                )}
             </section>
 
         </>
