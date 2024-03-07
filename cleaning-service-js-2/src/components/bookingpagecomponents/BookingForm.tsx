@@ -1,6 +1,7 @@
 
 import { useState } from 'react'
 import DatePicker from "react-datepicker";
+import TimePicker from 'react-time-picker';
 import "react-datepicker/dist/react-datepicker.css";
 
 interface IBookingForm {
@@ -99,7 +100,16 @@ const BookingForm: React.FC<IBookingForm> = () => {
                         id="date"
                         name="date"
                         selected={formValues.date}
+                        // value={formValues.date} blir krullig vet ej varfor
                         onChange={handleDateChange}
+                        
+                    />
+
+                    <TimePicker 
+                    id="time"
+                    name="time"
+                    onChange={handleChange} 
+                    value={formValues.time} 
                     />
 
                     <button type="submit">Skicka</button>
