@@ -18,6 +18,11 @@ module.exports = {
         secondaryOrange: "#fb4c1f",
         pink: "#fbc6d0",
       },
+      fontSize: {
+        h1: '48px',
+        h2: '34px',
+
+      }
     },
   },
   plugins: [require("flowbite/plugin")],

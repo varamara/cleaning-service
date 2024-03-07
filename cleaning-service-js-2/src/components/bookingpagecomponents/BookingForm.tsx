@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
 import DatePicker from "react-datepicker";
-
+import TrashBin from '../../assets/delete.png'
 import "react-datepicker/dist/react-datepicker.css";
 
 
@@ -61,6 +61,10 @@ const BookingForm: React.FC<IBookingForm> = () => {
         setBooking(prev => [...prev, newBooking]);
     }
 
+    const handleRemove = (id: number) => {
+        setBooking(prev => prev.filter(item => item.id !== id));
+    };
+
 
     return (
         <>
@@ -71,10 +75,10 @@ const BookingForm: React.FC<IBookingForm> = () => {
                 <form onSubmit={handleSubmit}>
                     <fieldset>
                         <legend>Välj städare</legend>
-                        <select 
-                        id={formValues.id}
-                        name="cleaner"
-                        onChange={handleChange} >
+                        <select
+                            id={formValues.id}
+                            name="cleaner"
+                            onChange={handleChange} >
                             <option value="cleaner1">Städare 1</option>
                             <option value="cleaner2">Städare 2</option>
                             <option value="cleaner3">Städare 3</option>
@@ -137,18 +141,26 @@ const BookingForm: React.FC<IBookingForm> = () => {
                 </form>
             </section>
             <section>
-                <h3>Kommande bokningar</h3>
-                    {booking.map((book) => {
-                        return (
-                            <div key={book.id}>
-                                <p>Städare: {book.cleaner}</p>
-                                <p>Städtyp: {book.cleaningType}</p>
-                                <p>Datum: {book.date.toDateString()}</p>
-                                <p>Tid: {book.time}</p>
-                            </div>
-                        )
-                    }
-                    )}      
+                <h2 className='text-h2 text-primaryBlue ustify-center w-1/2 mx-auto mb-5'>Kommande bokningar</h2>
+                {booking.map((book) => {
+                    return (
+                        <div className=''>
+                        <ul className='bg-secondaryBlue flex justify-center w-1/2 mx-auto rounded-lg mb-6' key={book.id}>
+                            <li className="flex-grow m-3 font-semibold "> {book.cleaner} 2h</li>
+                            <li className="flex-grow m-3 ">{book.cleaningType}</li>
+                            <li className="flex-grow m-3"> {book.date.toDateString()}</li>
+                            <li className="flex-grow m-3"> {book.time}</li>
+                            <button className="m-3" onClick={() => handleRemove(book.id)}><img className='size-5' src={TrashBin} alt="Trash bin"/></button>
+                        </ul>
+                        </div>
+                    )
+                }
+                )}
+            </section>
+
+            <section>
+                <h2 className='text-h2 text-primaryBlue ustify-center w-1/2 mx-auto mt-20 mb-5'>Utförda bokningar</h2>
+                
             </section>
 
         </>
