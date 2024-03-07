@@ -55,6 +55,10 @@ const BookingForm: React.FC<IBookingForm> = () => {
         setBooking(prev => [...prev, newBooking])
     }
 
+    const handleRemove = (id: number) => {
+        setBooking(prev => prev.filter(item => item.id !== id));
+    };
+
 
     return (
         <>
@@ -135,12 +139,12 @@ const BookingForm: React.FC<IBookingForm> = () => {
                 {booking.map((book) => {
                     return (
                         <div className=''>
-                        <ul className='bg-secondaryBlue flex justify-center w-1/2 mx-auto rounded-lg' key={book.id}>
+                        <ul className='bg-secondaryBlue flex justify-center w-1/2 mx-auto rounded-lg mb-6' key={book.id}>
                             <li className="flex-grow m-3 font-semibold "> {book.cleaner} 2h</li>
                             <li className="flex-grow m-3 ">{book.cleaningType}</li>
                             <li className="flex-grow m-3"> {book.date.toDateString()}</li>
                             <li className="flex-grow m-3"> {book.time}</li>
-                            <button className="m-3">Remove</button>
+                            <button className="m-3" onClick={() => handleRemove(book.id)}>Remove</button>
                         </ul>
                         </div>
                     )
