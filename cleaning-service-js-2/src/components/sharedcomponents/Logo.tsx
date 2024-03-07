@@ -1,11 +1,11 @@
-import LogoImg from '../../assets/logoImg.png'
+import LogoImg from '../../assets/logoImg.png';
 
 const Logo = () => {
   return (
-    <div>
-        <img src={LogoImg}/>
+    <div className="w-24 h-auto">
+      <img src={LogoImg} alt="Logo" className="w-full h-full" />
     </div>
-  )
-}
+  );
+};
 
-export default Logo
+export default Logo;

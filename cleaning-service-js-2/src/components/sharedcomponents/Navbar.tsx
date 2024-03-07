@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Logo from "./Logo";
 
 const Navbar = () => {
   return (
@@ -23,9 +24,7 @@ const Navbar = () => {
           </button>
         </div>
 
-        <div className="secondaryOrange flex justify-center flex-1">
-          Städa fint
-        </div>
+        <Logo/>
 
         <div>
           <Link to="/BookingPage">
