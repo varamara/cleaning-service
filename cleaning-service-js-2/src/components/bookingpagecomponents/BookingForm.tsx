@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
 import DatePicker from "react-datepicker";
-
+import TrashBin from '../../assets/delete.png'
 import "react-datepicker/dist/react-datepicker.css";
 
 
@@ -144,7 +144,7 @@ const BookingForm: React.FC<IBookingForm> = () => {
                             <li className="flex-grow m-3 ">{book.cleaningType}</li>
                             <li className="flex-grow m-3"> {book.date.toDateString()}</li>
                             <li className="flex-grow m-3"> {book.time}</li>
-                            <button className="m-3" onClick={() => handleRemove(book.id)}>Remove</button>
+                            <button className="m-3" onClick={() => handleRemove(book.id)}><img className='size-5' src={TrashBin} alt="Trash bin"/></button>
                         </ul>
                         </div>
                     )
