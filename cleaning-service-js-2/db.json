@@ -1,0 +1,76 @@
+{
+    "data": {
+        "customer": [
+            {
+                "id": 1,
+                "name": "Larry David",
+                "bookings": []
+            },
+            {
+                "id": 2,
+                "name": "Marty Funkhouser",
+                "bookings": []
+            },
+            {
+                "id": 3,
+                "name": "Susie Greene",
+                "bookings": []
+            }
+        ],
+        "cleaner": [
+            {
+                "id": 4,
+                "name": "Christopher Moltisanti",
+                "bookings": []
+            },
+            {
+                "id": 5,
+                "name": "Carmela Soprano",
+                "bookings": []
+            },
+            {
+                "id": 6,
+                "name": "Jackie Aprile",
+                "bookings": []
+            }
+        ],
+        "booking": [
+            {
+                "id": 7,
+                "date": "",
+                "time": "",
+                "customer": "",
+                "grade": "",
+                "cleaner": "",
+                "status": false
+            },
+            {
+                "id": 8,
+                "date": "",
+                "time": "",
+                "customer": "",
+                "grade": "",
+                "cleaner": "",
+                "status": false
+            },
+            {
+                "id": 9,
+                "date": "",
+                "time": "",
+                "customer": "",
+                "grade": "",
+                "cleaner": "",
+                "status": false
+            },
+            {
+                "id": 10,
+                "date": "",
+                "time": "",
+                "customer": "",
+                "grade": "",
+                "cleaner": "",
+                "status": false
+            }
+        ]
+    }
+}
