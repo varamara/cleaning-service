@@ -1,8 +1,5 @@
-import React from 'react'
 
-type Props = {}
-
-const BookingInfoSection = (props: Props) => {
+const BookingInfoSection = () => {
   return (
     <div>BookingInfoSection</div>
   )
