@@ -1,14 +1,34 @@
-import BookingForm from "../components/bookingpagecomponents/BookingForm"
-
+import { useState, useEffect } from "react";
+import axios from "axios";
+import BookingForm from "../components/bookingpagecomponents/BookingForm";
+import CompletedBookings from "../components/bookingpagecomponents/bookinginfosection/CompletedBookings";
+import FutureBookings from "../components/bookingpagecomponents/bookinginfosection/FutureBookings";
+import { IBooking } from "../interfaces";
 
 const BookingPage = () => {
-  
+  const [bookings, setBookings] = useState<Array<IBooking>>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000/data');
+        console.log('Data fetched successfully:', response.data);
+        setBookings(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
-    <BookingForm/>
+      <BookingForm setBooking={setBookings} />
+      <FutureBookings bookings={bookings} setBooking={setBookings} />
+      <CompletedBookings />
     </>
+  );
+};
 
-  )
-}
-
-export default BookingPage
+export default BookingPage;

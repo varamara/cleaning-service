@@ -10,20 +10,6 @@ import { useEffect } from "react";
 
 function App() {
 
-
-
-  const fetchData = useEffect(() => {
-    axios
-      .get('http://localhost:3000/data')
-      .then(res => {
-        console.log(res.data)
-      })
-      .catch(err => {
-        console.log("fetch failed", err)
-      })
-  }, []);
-
-
   return (
     <>
 
