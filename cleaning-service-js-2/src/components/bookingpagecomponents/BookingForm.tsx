@@ -1,17 +1,19 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { v4 as uuidv4 } from "uuid";
 import { IBooking, CleaningGrade } from "../../interfaces";
-import axios from "axios";
+import bookingController from "../../controllers/bookingController";
 
 interface BookingFormProps {
-  setBooking: React.Dispatch<React.SetStateAction<IBooking[]>>;
-  fetchData: () => void;
-
+  setBookings: React.Dispatch<React.SetStateAction<IBooking[]>>;
+  fetchData: () => void; // Inkludera fetchData som en prop
 }
 
-const BookingForm: React.FC<BookingFormProps> = ({ setBooking, fetchData}) => {
+const BookingForm: React.FC<BookingFormProps> = ({
+  setBookings,
+  fetchData, // Deklarera fetchData här
+}) => {
   const [formValues, setFormValues] = useState<IBooking>({
     id: "",
     cleaner: "",
@@ -39,7 +41,7 @@ const BookingForm: React.FC<BookingFormProps> = ({ setBooking, fetchData}) => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!formValues.cleaner || !formValues.grade || !formValues.date) {
@@ -56,18 +58,26 @@ const BookingForm: React.FC<BookingFormProps> = ({ setBooking, fetchData}) => {
       customer: formValues.customer,
       status: formValues.status,
     };
+
     try {
-      axios
-        .post('http://localhost:3000/data', newBooking)
-        .then((response) => {
-          fetchData();
-        })
-        .catch((error) => console.log('Error posting data:', error));
-      setBooking((prev: any) => [...prev, newBooking]);
+      const createdBooking = await bookingController.createNewBooking(
+        newBooking
+      );
+
+      if (createdBooking) {
+        setBookings((prevBookings) => [...prevBookings, createdBooking]);
+        // fetchData anropas direkt här när en ny bokning skapas
+        fetchData(); // Anropa fetchData för att hämta den senaste datan från servern
+      }
     } catch (error) {
-      console.log('Error:', error);
+      console.error("Error:", error);
     }
   };
+
+  useEffect(() => {
+    fetchData(); // Anropa fetchData när komponenten monteras
+  }, []); // Tom beroendelista för att köra endast en gång
+  
 
   return (
     <>
