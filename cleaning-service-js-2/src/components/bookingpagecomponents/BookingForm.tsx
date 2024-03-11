@@ -6,12 +6,14 @@ import { IBooking, CleaningGrade } from "../../interfaces";
 import axios from "axios";
 
 interface BookingFormProps {
-  setBooking: React.Dispatch<React.SetStateAction<IBooking[]>>;
-  fetchData: () => void;
+    bookings: IBooking[];
+  setBookings: React.Dispatch<React.SetStateAction<IBooking[]>>;
+  
+
 
 }
 
-const BookingForm: React.FC<BookingFormProps> = ({ setBooking, fetchData}) => {
+const BookingForm: React.FC<BookingFormProps> = ({ bookings, setBookings }) => {
   const [formValues, setFormValues] = useState<IBooking>({
     id: "",
     cleaner: "",

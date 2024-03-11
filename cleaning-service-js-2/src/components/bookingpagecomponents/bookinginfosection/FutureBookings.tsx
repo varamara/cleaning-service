@@ -3,7 +3,7 @@ import { IBooking } from '../../../interfaces';
 
 interface FutureBookingsProps {
   bookings: IBooking[];
-  setBooking: React.Dispatch<React.SetStateAction<IBooking[]>>;
+  setBookings: React.Dispatch<React.SetStateAction<IBooking[]>>;
 }
 
 const FutureBookings: React.FC<FutureBookingsProps> = ({ bookings, setBooking }) => {

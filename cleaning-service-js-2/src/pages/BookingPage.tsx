@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import axios, { AxiosResponse } from "axios";
 import BookingForm from "../components/bookingpagecomponents/BookingForm";
 import CompletedBookings from "../components/bookingpagecomponents/bookinginfosection/CompletedBookings";
 import FutureBookings from "../components/bookingpagecomponents/bookinginfosection/FutureBookings";
 import { IBooking } from "../interfaces";
+import bookingController from "../controllers/bookingController";
 
 const BookingPage = () => {
   const [bookings, setBookings] = useState<Array<IBooking>>([]);
@@ -12,13 +12,11 @@ const BookingPage = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
+  
   const fetchData = async () => {
     try {
-      const response: AxiosResponse<{ booking: IBooking[] }> = await axios.get('http://localhost:3000/data');
-      console.log('Data fetched successfully:', response.data.booking);
-      setBookings(response.data.booking);
-      // setIsLoading(false);
+      const bookingsData = await bookingController.getAllBookings();
+      setBookings(bookingsData);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
@@ -35,8 +33,8 @@ const BookingPage = () => {
   
   return (
     <>
-      <BookingForm setBooking={setBookings} fetchData={fetchData} />
-      <FutureBookings bookings={bookings} setBooking={setBookings} />
+      <BookingForm bookings={bookings} setBookings={setBookings} />
+      <FutureBookings bookings={bookings} setBookings={setBookings} />
       <CompletedBookings />
     </>
   );
