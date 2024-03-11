@@ -28,11 +28,14 @@ const BookingPage = () => {
   //   return <div>Loading...</div>;
   // }
 
+
+  
+
   
   
   return (
     <>
-      <BookingForm setBooking={setBookings} fetchData={fetchData}/>
+      <BookingForm setBooking={setBookings} fetchData={fetchData} />
       <FutureBookings bookings={bookings} setBooking={setBookings} />
       <CompletedBookings />
     </>
