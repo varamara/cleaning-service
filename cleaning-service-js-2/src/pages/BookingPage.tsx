@@ -35,7 +35,7 @@ const BookingPage = () => {
   
   return (
     <>
-      <BookingForm setBooking={setBookings} fetchData={fetchData} />
+      <BookingForm setBookings={setBookings} fetchData={fetchData} />
       <FutureBookings bookings={bookings} setBooking={setBookings} />
       <CompletedBookings />
     </>
