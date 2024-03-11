@@ -3,8 +3,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { v4 as uuidv4 } from "uuid";
 import { IBooking, CleaningGrade } from "../../interfaces";
+import axios from "axios";
 
-const BookingForm: React.FC<{ setBooking: Function }> = ({ setBooking }) => {
+interface BookingFormProps {
+  setBooking: React.Dispatch<React.SetStateAction<IBooking[]>>;
+  fetchData: () => void;
+}
+
+const BookingForm: React.FC<BookingFormProps> = ({ setBooking, fetchData }) => {
   const [formValues, setFormValues] = useState<IBooking>({
     id: "",
     cleaner: "",
@@ -49,8 +55,17 @@ const BookingForm: React.FC<{ setBooking: Function }> = ({ setBooking }) => {
       customer: formValues.customer,
       status: formValues.status,
     };
-
-    setBooking((prev: any) => [...prev, newBooking]);
+    try {
+      axios
+        .post('http://localhost:3000/data', newBooking)
+        .then((response) => {
+          fetchData();
+        })
+        .catch((error) => console.log('Error posting data:', error));
+      setBooking((prev: any) => [...prev, newBooking]);
+    } catch (error) {
+      console.log('Error:', error);
+    }
   };
 
   return (
