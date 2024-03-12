@@ -10,7 +10,7 @@ export interface IBooking {
   date: Date;
   time: string;
   customer: string;
-  grade: CleaningGrade | undefined;
+  grade: string;
   cleaner: string;
   status: boolean;
 }

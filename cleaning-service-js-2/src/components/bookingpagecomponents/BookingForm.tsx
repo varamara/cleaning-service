@@ -4,14 +4,13 @@ import "react-datepicker/dist/react-datepicker.css";
 import { v4 as uuidv4 } from "uuid";
 import { IBooking, CleaningGrade } from "../../interfaces";
 
-import axios from "axios";
 
 interface BookingFormProps {
   setBookings: React.Dispatch<React.SetStateAction<IBooking[]>>;
-  fetchData: () => void; // Inkludera fetchData som en prop
+  postBooking: (newBooking: IBooking) => void;
 }
 
-const BookingForm: React.FC<BookingFormProps> = ({ setBookings, fetchData }) => {
+const BookingForm: React.FC<BookingFormProps> = ({ setBookings, postBooking }) => {
   const [formValues, setFormValues] = useState<IBooking>({
     id: "",
     cleaner: "",
@@ -58,16 +57,7 @@ const BookingForm: React.FC<BookingFormProps> = ({ setBookings, fetchData }) => 
     };
 
     setBookings((prev: any) => [...prev, newBooking]);
-    try {
-      axios
-        .post('http://localhost:3000/data', newBooking)
-        .then((response) => {
-          fetchData();
-        })
-        .catch((error) => console.log('Error posting data:', error));
-    } catch (error) {
-      console.log('Error:', error);
-    }
+    postBooking(newBooking);
   };
 
 
@@ -103,7 +93,10 @@ const BookingForm: React.FC<BookingFormProps> = ({ setBookings, fetchData }) => 
             ))}
           </fieldset>
 
-          <DatePicker selected={formValues.date} onChange={handleDateChange} />
+          <DatePicker 
+          selected={formValues.date} 
+          onChange={handleDateChange}
+          />
 
           <input
             type="time"

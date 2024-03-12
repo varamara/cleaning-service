@@ -23,7 +23,7 @@ const FutureBookings: React.FC<FutureBookingsProps> = ({ bookings, setBooking })
             <ul className='bg-secondaryBlue flex justify-center w-1/2 mx-auto rounded-lg mb-6'>
               <li className="flex-grow m-3 font-semibold ">{book.cleaner} 2h</li>
               <li className="flex-grow m-3 ">{book.grade}</li>
-              <li className="flex-grow m-3">{book.date.toString()}</li>
+              <li className="flex-grow m-3">{new Date(book.date).toLocaleDateString('sv-SE')}</li>
               <li className="flex-grow m-3">{book.time}</li>
               <button className="m-3" onClick={() => handleRemove(book.id)}>
                 <img className='size-5' src={TrashBin} alt="Trash bin" />

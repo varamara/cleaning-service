@@ -7,7 +7,7 @@ import { IBooking } from "../interfaces";
 
 const BookingPage = () => {
   const [bookings, setBookings] = useState<Array<IBooking>>([]);
-  // const [isLoading, setIsLoading] = useState(true);
+
   
   useEffect(() => {
     fetchData();
@@ -15,27 +15,27 @@ const BookingPage = () => {
 
   const fetchData = async () => {
     try {
-      const response: AxiosResponse<{ booking: IBooking[] }> = await axios.get('http://localhost:3000/data');
-      console.log('Data fetched successfully:', response.data.booking);
+      const response: AxiosResponse<{ booking: IBooking[], cleaner: IBooking }> = await axios.get('http://localhost:3000/data');
       setBookings(response.data.booking);
-      // setIsLoading(false);
     } catch (error) {
       console.error('Error fetching data:', error);
     }
   };
-  
-  // if (isLoading) {
-  //   return <div>Loading...</div>;
-  // }
 
-
-  
-
+  const postBooking = async (newBooking: IBooking) => {
+    try {
+      await axios.post('http://localhost:3000/data', { booking: newBooking });
+      fetchData();
+      setBookings((prev: any) => [...prev, newBooking]);
+    } catch (error) {
+      console.log('Error posting data:', error);
+    }
+  };
   
   
   return (
     <>
-      <BookingForm setBookings={setBookings} fetchData={fetchData} />
+      <BookingForm setBookings={setBookings} postBooking={postBooking} />
       <FutureBookings bookings={bookings} setBooking={setBookings} />
       <CompletedBookings />
     </>
