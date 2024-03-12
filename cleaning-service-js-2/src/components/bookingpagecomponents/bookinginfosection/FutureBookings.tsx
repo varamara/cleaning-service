@@ -20,7 +20,7 @@ const FutureBookings: React.FC<FutureBookingsProps> = ({ bookings, setBooking })
         if (new Date(book.date) > new Date()) {
         return (
           <div className='' key={book.id}>
-            <ul className='bg-secondaryBlue flex justify-center w-1/2 mx-auto rounded-lg mb-6'>
+            <ul className='bg-secondaryBlue flex justify-center items-center mx-auto rounded-lg mb-6 text-sm md:text-base lg:text-md w-5/6 md:w-3/4 lg:w-3/6 min-h-20'>
               <li className="flex-grow m-3 font-semibold ">{book.cleaner} 2h</li>
               <li className="flex-grow m-3 ">{book.grade}</li>
               <li className="flex-grow m-3">{new Date(book.date).toLocaleDateString('sv-SE')}</li>
