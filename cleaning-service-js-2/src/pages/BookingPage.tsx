@@ -1,43 +1,39 @@
 import { useState, useEffect } from "react";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import BookingForm from "../components/bookingpagecomponents/BookingForm";
 import CompletedBookings from "../components/bookingpagecomponents/bookinginfosection/CompletedBookings";
 import FutureBookings from "../components/bookingpagecomponents/bookinginfosection/FutureBookings";
-import { IBooking, ICleanersInfo } from "../interfaces";
+import { IBooking } from "../interfaces";
 
 const BookingPage = () => {
   const [bookings, setBookings] = useState<Array<IBooking>>([]);
-  const [cleaners, setCleaners] = useState<Array<ICleanersInfo>>([]);
 
-  
   useEffect(() => {
-    fetchData();
+    fetchBookings();
   }, []);
 
-  const fetchData = async () => {
+  const fetchBookings = async () => {
     try {
-      const response: AxiosResponse<{ booking: IBooking[], cleaner: ICleanersInfo[] }> = await axios.get('http://localhost:3000/data');
-      setBookings(response.data.booking);
-      setCleaners(response.data.cleaner);
+      const response = await axios.get("http://localhost:3000/bookings");
+      setBookings(response.data);
+      console.log(response.data);
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error("Error fetching data:", error);
     }
   };
 
-  const postBooking = async (newBooking: IBooking) => {
+  const addBooking = async (newBooking: IBooking) => {
     try {
-      await axios.post('http://localhost:3000/data', { booking: newBooking });
-      fetchData();
-      setBookings((prev: any) => [...prev, newBooking]);
-    } catch (error) {
-      console.log('Error posting data:', error);
+      await axios.post("http://localhost:3000/bookings", newBooking);
+      fetchBookings();
+    } catch (err) {
+      console.log("post not ok", err);
     }
   };
-  
-  
+
   return (
     <>
-      <BookingForm setBookings={setBookings} postBooking={postBooking} cleaners={cleaners} />
+      <BookingForm setBookings={setBookings} addBooking={addBooking} />
       <FutureBookings bookings={bookings} setBooking={setBookings} />
       <CompletedBookings />
     </>
