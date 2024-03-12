@@ -11,6 +11,9 @@ module.exports = {
     },
     extend: {
       colors: {
+        white: "#ffffff",
+        black: "#000000",
+        gray: "#f5f5f5",
         primaryBeige: "#fdf7eb",
         primaryBlue: "#112e59",
         secondaryBlue: "#d0e3ff",
@@ -27,3 +30,5 @@ module.exports = {
   },
   plugins: [require("flowbite/plugin")],
 };
+
+
