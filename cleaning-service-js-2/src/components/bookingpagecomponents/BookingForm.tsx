@@ -49,11 +49,11 @@ const BookingForm: React.FC<BookingFormProps> = ({ setBookings, postBooking, cle
 
     const newBooking: IBooking = {
       id: uuidv4(),
-      cleaner: formValues.cleaner,
-      grade: formValues.grade,
       date: formValues.date,
       time: formValues.time,
       customer: formValues.customer,
+      grade: formValues.grade,
+      cleaner: formValues.cleaner,
       status: formValues.status,
     };
 

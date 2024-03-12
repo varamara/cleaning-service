@@ -28,6 +28,8 @@ export interface ICleanersInfo {
   name: string;
   bookings: string[];
   // är detta korrekt för att skriva ararayen för bookings???
+  //Om det är en array med strängar så borde det vara det, men är det verkligen det? 
+  //Det kanske är id:n för bokningarna som ska vara där?
 
 }
 
