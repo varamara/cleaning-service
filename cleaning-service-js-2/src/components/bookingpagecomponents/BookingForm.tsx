@@ -3,17 +3,15 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { v4 as uuidv4 } from "uuid";
 import { IBooking, CleaningGrade } from "../../interfaces";
-import bookingController from "../../controllers/bookingController";
+
+import axios from "axios";
 
 interface BookingFormProps {
   setBookings: React.Dispatch<React.SetStateAction<IBooking[]>>;
   fetchData: () => void; // Inkludera fetchData som en prop
 }
 
-const BookingForm: React.FC<BookingFormProps> = ({
-  setBookings,
-  fetchData, // Deklarera fetchData här
-}) => {
+const BookingForm: React.FC<BookingFormProps> = ({ setBookings, fetchData }) => {
   const [formValues, setFormValues] = useState<IBooking>({
     id: "",
     cleaner: "",
@@ -41,7 +39,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!formValues.cleaner || !formValues.grade || !formValues.date) {
@@ -59,25 +57,19 @@ const BookingForm: React.FC<BookingFormProps> = ({
       status: formValues.status,
     };
 
+    setBookings((prev: any) => [...prev, newBooking]);
     try {
-      const createdBooking = await bookingController.createNewBooking(
-        newBooking
-      );
-
-      if (createdBooking) {
-        setBookings((prevBookings) => [...prevBookings, createdBooking]);
-        // fetchData anropas direkt här när en ny bokning skapas
-        fetchData(); // Anropa fetchData för att hämta den senaste datan från servern
-      }
+      axios
+        .post('http://localhost:3000/data', newBooking)
+        .then((response) => {
+          fetchData();
+        })
+        .catch((error) => console.log('Error posting data:', error));
     } catch (error) {
-      console.error("Error:", error);
+      console.log('Error:', error);
     }
   };
 
-  useEffect(() => {
-    fetchData(); // Anropa fetchData när komponenten monteras
-  }, []); // Tom beroendelista för att köra endast en gång
-  
 
   return (
     <>
