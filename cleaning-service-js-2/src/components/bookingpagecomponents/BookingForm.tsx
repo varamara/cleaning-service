@@ -8,9 +8,10 @@ import { IBooking, CleaningGrade } from "../../interfaces";
 interface BookingFormProps {
   setBookings: React.Dispatch<React.SetStateAction<IBooking[]>>;
   postBooking: (newBooking: IBooking) => void;
+  cleaners: any;
 }
 
-const BookingForm: React.FC<BookingFormProps> = ({ setBookings, postBooking }) => {
+const BookingForm: React.FC<BookingFormProps> = ({ setBookings, postBooking, cleaners }) => {
   const [formValues, setFormValues] = useState<IBooking>({
     id: "",
     cleaner: "",
@@ -70,10 +71,11 @@ const BookingForm: React.FC<BookingFormProps> = ({ setBookings, postBooking }) =
           <fieldset>
             <legend>Select Cleaner</legend>
             <select name="cleaner" onChange={handleChange}>
-              <option value="">Select Cleaner</option>
-              <option value="cleaner1">Cleaner 1</option>
-              <option value="cleaner2">Cleaner 2</option>
-              <option value="cleaner3">Cleaner 3</option>
+              {cleaners.map((cleaner: any) => (
+                <option key={cleaner.id} value={cleaner.name}>
+                  {cleaner.name}
+                </option>
+              ))}
             </select>
           </fieldset>
 

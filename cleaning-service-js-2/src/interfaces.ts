@@ -23,6 +23,14 @@ export interface IBookingForm {
   time: string;
 }
 
+export interface ICleanersInfo {
+  id: string;
+  name: string;
+  bookings: string[];
+  // är detta korrekt för att skriva ararayen för bookings???
+
+}
+
 export interface IFutureBookings {
 
 }
