@@ -1,26 +1,30 @@
 import TrashBin from "../../../assets/delete.png";
 import { IBooking } from "../../../interfaces";
 
-interface FutureBookingsProps {
+interface IFutureBookings {
   bookings: IBooking[];
-  setBooking: React.Dispatch<React.SetStateAction<IBooking[]>>;
+  removeBooking: (id: string) => void;
 }
 
-const FutureBookings: React.FC<FutureBookingsProps> = ({
+const FutureBookings: React.FC<IFutureBookings> = ({
   bookings,
-  setBooking,
+  removeBooking,
 }) => {
-  const handleRemove = (id: string) => {
-    setBooking((prev) => prev.filter((item) => item.id !== id));
-  };
 
+  
+  const handleRemove = async (bookingId: string) => {
+    if (window.confirm("Are you sure you want to remove this booking?")) {
+      removeBooking(bookingId);
+    }
+  };
+  
   return (
     <section>
       <h2 className="text-h2 text-primaryBlue ustify-center w-1/2 mx-auto mb-5">
         Kommande bokningar
       </h2>
       {bookings.map((book) => {
-        if (new Date(book.date) > new Date()) {
+        if (book.status === false) {
           return (
             <div className="" key={book.id}>
               <ul className="bg-secondaryBlue flex justify-center items-center mx-auto rounded-lg mb-6 text-sm md:text-base lg:text-md w-5/6 md:w-3/4 lg:w-3/6 min-h-20">

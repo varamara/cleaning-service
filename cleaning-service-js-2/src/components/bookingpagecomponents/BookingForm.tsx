@@ -5,9 +5,8 @@ import { v4 as uuidv4 } from "uuid";
 import { IBooking, CleaningGrade } from "../../interfaces";
 
 interface BookingFormProps {
-  setBookings: React.Dispatch<React.SetStateAction<IBooking[]>>;
   addBooking: (newBooking: IBooking) => void;
-  cleaners: any[];
+  cleaners: { id: string, name: string }[];
 }
 
 const BookingForm: React.FC<BookingFormProps> = ({
@@ -43,7 +42,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (!formValues.grade || !formValues.date) {
+    if ( !formValues.grade || !formValues.date ) {
       alert("Please fill in all fields");
       return;
     }
@@ -59,9 +58,9 @@ const BookingForm: React.FC<BookingFormProps> = ({
     };
 
     addBooking(newBooking);
-    
+
     // bör vi ha prev här?
-    
+
   };
 
   return (
@@ -70,16 +69,18 @@ const BookingForm: React.FC<BookingFormProps> = ({
         <div className="bg-white p-8 rounded-lg shadow-lg">
           <h1 className="text-2xl font-bold mb-4">Book Cleaning</h1>
           <form onSubmit={handleSubmit} className="flex flex-col">
-          <fieldset>
-            <legend>Select Cleaner</legend>
-            <select name="cleaner" onChange={handleChange}>
-              {cleaners.map((cleaner: any) => (
-                <option key={cleaner.id} value={cleaner.name}>
-                  {cleaner.name}
-                </option>
-              ))}
-            </select>
-          </fieldset>
+            <fieldset>
+              <legend>Select Cleaner</legend>
+              <select name="cleaner" onChange={handleChange}>
+                <option value="">Select cleaner...</option>
+                {cleaners.map((cleaner) => (
+                  <option key={cleaner.id} value={cleaner.name}>
+                    {cleaner.name}
+                  </option>
+                ))}
+              </select>
+
+            </fieldset>
 
             <fieldset className="mb-4 flex">
               <legend className="mb-2">Select Cleaning Type</legend>
