@@ -41,11 +41,22 @@ const BookingPage = () => {
     }
   };
 
+  const removeBooking = async (id: string) => {
+    try {
+      await axios.delete(`http://localhost:3000/bookings/${id}`);
+      fetchBookings();
+      console.log("booking deleted", bookings)
+    } catch (err) {
+      console.log("delete not ok", err);
+    }
+  }
+
+
   return (
     <>
-      <BookingForm setBookings={setBookings} addBooking={addBooking} cleaners={cleaners} />
-      <FutureBookings bookings={bookings} setBooking={setBookings} />
-      <CompletedBookings />
+      <BookingForm addBooking={addBooking} cleaners={cleaners} />
+      <FutureBookings bookings={bookings} removeBooking={removeBooking} />
+      <CompletedBookings bookings={bookings}/>
     </>
   );
 };
