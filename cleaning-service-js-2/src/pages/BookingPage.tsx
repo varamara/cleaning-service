@@ -7,18 +7,28 @@ import { IBooking } from "../interfaces";
 
 const BookingPage = () => {
   const [bookings, setBookings] = useState<Array<IBooking>>([]);
+  const [cleaners, setCleaners] = useState([]);
 
   useEffect(() => {
     fetchBookings();
+    fetchCleaners();
   }, []);
 
   const fetchBookings = async () => {
     try {
       const response = await axios.get("http://localhost:3000/bookings");
       setBookings(response.data);
-      console.log(response.data);
     } catch (error) {
-      console.error("Error fetching data:", error);
+      console.error("Error fetching bookings:", error);
+    }
+  };
+
+  const fetchCleaners = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/cleaners");
+      setCleaners(response.data);
+    } catch (error) {
+      console.error("Error fetching cleaners:", error);
     }
   };
 
@@ -33,7 +43,7 @@ const BookingPage = () => {
 
   return (
     <>
-      <BookingForm setBookings={setBookings} addBooking={addBooking} />
+      <BookingForm setBookings={setBookings} addBooking={addBooking} cleaners={cleaners} />
       <FutureBookings bookings={bookings} setBooking={setBookings} />
       <CompletedBookings />
     </>

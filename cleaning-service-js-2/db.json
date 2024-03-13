@@ -1,12 +1,12 @@
 {
-  "customer": [
+  "customers": [
     {
       "id": "3b580f3c-0b18-4a71-a2a6-fbc1d5d0b31a",
       "name": "Richard Lewis",
       "bookings": []
     }
   ],
-  "cleaner": [
+  "cleaners": [
     {
       "id": "7369a2d3-929c-4d6a-87b7-33b02aa83e35",
       "name": "Larry David",
@@ -95,114 +95,7 @@
       "grade": "Fönstertvätt",
       "cleaner": "Susie Greene",
       "status": false
-    },
-    {
-      "id": "11d319e7-3422-45da-ab90-e02832dc3d55",
-      "date": "2024-03-29T13:34:57.000Z",
-      "time": "14:37",
-      "customer": "",
-      "grade": "Diamantstädning",
-      "cleaner": "",
-      "status": false
-    },
-    {
-      "id": "aa6fb9c8-f72c-4d06-9fe2-e8f7213bef22",
-      "date": "2024-03-07T13:36:21.000Z",
-      "time": "14:38",
-      "customer": "",
-      "grade": "Basic städning",
-      "cleaner": "",
-      "status": false
-    },
-    {
-      "id": "f801439b-3550-4015-90e4-f0493fb2e451",
-      "date": "2024-03-07T13:36:21.000Z",
-      "time": "14:38",
-      "customer": "",
-      "grade": "Basic städning",
-      "cleaner": "",
-      "status": false
-    },
-    {
-      "id": "1c481c8b-d17f-48e0-8bd8-3d8d4892d184",
-      "date": "2024-03-07T13:36:21.000Z",
-      "time": "14:38",
-      "customer": "",
-      "grade": "Basic städning",
-      "cleaner": "",
-      "status": false
-    },
-    {
-      "id": "39e99d76-997b-43dc-b46d-bce8151a3257",
-      "date": "2024-03-07T13:36:21.000Z",
-      "time": "14:38",
-      "customer": "",
-      "grade": "Basic städning",
-      "cleaner": "",
-      "status": false
-    },
-    {
-      "id": "668cba64-9fc1-4d72-bd53-781713c3c595",
-      "date": "2024-03-15T13:47:04.000Z",
-      "time": "16:51",
-      "customer": "",
-      "grade": "Basic städning",
-      "cleaner": "",
-      "status": false
-    },
-    {
-      "id": "38a614af-d3e9-41c4-afad-6f76c6c66a74",
-      "date": "2024-03-15T13:47:04.000Z",
-      "time": "16:51",
-      "customer": "",
-      "grade": "Basic städning",
-      "cleaner": "",
-      "status": false
-    },
-    {
-      "id": "848810d8-0469-4e22-9c9c-a3ee0a08d59f",
-      "date": "2024-03-15T13:47:04.000Z",
-      "time": "16:51",
-      "customer": "",
-      "grade": "Basic städning",
-      "cleaner": "",
-      "status": false
-    },
-    {
-      "id": "31ec2ef7-1986-4388-913e-8e51419722dc",
-      "date": "2024-03-15T13:47:04.000Z",
-      "time": "16:51",
-      "customer": "",
-      "grade": "Basic städning",
-      "cleaner": "",
-      "status": false
-    },
-    {
-      "id": "3bf48055-4e5f-42e6-96e7-1b91e52705c5",
-      "date": "2024-03-13T02:22:23.361Z",
-      "time": "13:24",
-      "customer": "",
-      "grade": "Toppstädning",
-      "cleaner": "",
-      "status": false
-    },
-    {
-      "id": "2f2b8b73-367f-4591-9934-4f822f8cd6fc",
-      "date": "2024-03-13T02:22:38.712Z",
-      "time": "13:27",
-      "customer": "",
-      "grade": "Basic städning",
-      "cleaner": "",
-      "status": false
-    },
-    {
-      "id": "25309f55-084f-44ec-ab53-61aca0123841",
-      "date": "2024-03-13T02:25:46.438Z",
-      "time": "13:27",
-      "customer": "",
-      "grade": "Basic städning",
-      "cleaner": "",
-      "status": false
     }
+
   ]
 }

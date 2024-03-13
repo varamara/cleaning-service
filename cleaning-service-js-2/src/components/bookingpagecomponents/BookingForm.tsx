@@ -7,10 +7,11 @@ import { IBooking, CleaningGrade } from "../../interfaces";
 interface BookingFormProps {
   setBookings: React.Dispatch<React.SetStateAction<IBooking[]>>;
   addBooking: (newBooking: IBooking) => void;
+  cleaners: any[];
 }
 
 const BookingForm: React.FC<BookingFormProps> = ({
-  addBooking,
+  addBooking, cleaners
 }) => {
   const [formValues, setFormValues] = useState<IBooking>({
     id: "",
@@ -58,6 +59,9 @@ const BookingForm: React.FC<BookingFormProps> = ({
     };
 
     addBooking(newBooking);
+    
+    // bör vi ha prev här?
+    
   };
 
   return (
@@ -66,6 +70,17 @@ const BookingForm: React.FC<BookingFormProps> = ({
         <div className="bg-white p-8 rounded-lg shadow-lg">
           <h1 className="text-2xl font-bold mb-4">Book Cleaning</h1>
           <form onSubmit={handleSubmit} className="flex flex-col">
+          <fieldset>
+            <legend>Select Cleaner</legend>
+            <select name="cleaner" onChange={handleChange}>
+              {cleaners.map((cleaner: any) => (
+                <option key={cleaner.id} value={cleaner.name}>
+                  {cleaner.name}
+                </option>
+              ))}
+            </select>
+          </fieldset>
+
             <fieldset className="mb-4 flex">
               <legend className="mb-2">Select Cleaning Type</legend>
               {Object.values(CleaningGrade).map((grade) => (
