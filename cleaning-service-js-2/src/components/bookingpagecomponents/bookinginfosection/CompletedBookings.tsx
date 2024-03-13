@@ -26,7 +26,7 @@ const CompletedBookings: React.FC<ICompleteBookings> = ({
                   {new Date(book.date).toLocaleDateString("sv-SE")}
                 </li>
                 <li className="flex-grow m-3">{book.time}</li>
-                 <input type="checkbox" className="m-3" />
+                 <input type="checkbox" className="mr-14" />
               </ul>
             </div>
           );

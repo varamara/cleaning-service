@@ -96,7 +96,16 @@
       "customer": "",
       "grade": "Diamantstädning",
       "cleaner": "Marty Funkhouser",
-      "status": false
+      "status": true
+    },
+    {
+      "id": "9b4a80cc-f224-49f1-b3ce-4d88176e99fd",
+      "date": "2024-03-04T13:19:27.000Z",
+      "time": "14:22",
+      "customer": "",
+      "grade": "Basic städning",
+      "cleaner": "Marty Funkhouser",
+      "status": true
     }
   ]
 }

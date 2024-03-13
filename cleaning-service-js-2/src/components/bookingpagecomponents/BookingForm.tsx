@@ -3,15 +3,14 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { v4 as uuidv4 } from "uuid";
 import { IBooking, CleaningGrade } from "../../interfaces";
+import PrimaryButton from "../sharedcomponents/PrimaryButton";
 
 interface BookingFormProps {
   addBooking: (newBooking: IBooking) => void;
-  cleaners: { id: string, name: string }[];
+  cleaners: { id: string; name: string }[];
 }
 
-const BookingForm: React.FC<BookingFormProps> = ({
-  addBooking, cleaners
-}) => {
+const BookingForm: React.FC<BookingFormProps> = ({ addBooking, cleaners }) => {
   const [formValues, setFormValues] = useState<IBooking>({
     id: "",
     cleaner: "",
@@ -42,7 +41,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    if ( !formValues.grade || !formValues.date ) {
+    if (!formValues.grade || !formValues.date) {
       alert("Please fill in all fields");
       return;
     }
@@ -60,7 +59,6 @@ const BookingForm: React.FC<BookingFormProps> = ({
     addBooking(newBooking);
 
     // bör vi ha prev här?
-
   };
 
   return (
@@ -79,7 +77,6 @@ const BookingForm: React.FC<BookingFormProps> = ({
                   </option>
                 ))}
               </select>
-
             </fieldset>
 
             <fieldset className="mb-4 flex">
@@ -116,12 +113,7 @@ const BookingForm: React.FC<BookingFormProps> = ({
               />
             </div>
             <div className="flex justify-center">
-              <button
-                type="submit"
-                className="bg-primaryBlue text-white py-3 rounded-full hover:bg-secondaryBlue hover:text-primaryBlue duration-200 text-sm tracking-widest w-1/3"
-              >
-                BOKA STÄDNING
-              </button>
+              <PrimaryButton buttonText={"BOKA STÄDNING"}/>
             </div>
           </form>
         </div>
