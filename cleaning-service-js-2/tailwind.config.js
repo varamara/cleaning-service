@@ -24,7 +24,12 @@ module.exports = {
       fontSize: {
         h1: '48px',
         h2: '34px',
-
+      },
+      backgroundImage: {
+        'hero-slash': "url('/src/assets/bg-cream-slash.svg')", 
+        'mob-hero-slash': "url('/src/assets/mob-hero-cream-slash.svg')", 
+        'wave': "url('/src/assets/bg-wave.svg')", 
+        'hero-vector': "url('/src/assets/hero-vector.svg')",
       }
     },
   },
