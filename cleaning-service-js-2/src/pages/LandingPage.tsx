@@ -31,7 +31,7 @@ const LandingPage = () => {
 
 
         <div className="h-full bg-wave bg-no-repeat bg-left-top bg-cover p-0 z-1 absolute top-96 right-0 left-0 flex items-center justify-center">
-          <div className="grid sm:grid-cols-4  sm:px-22 md:px-26 xl:px-48 2xl:px-96 gap-4 sm:gap-8 md:gap-12 lg:gap-16 text-primaryBlue mb-48">
+          <div className="text-primaryBlue grid sm:grid-cols-4  sm:px-22 md:px-26 xl:px-48 2xl:px-96 gap-4 sm:gap-8 md:gap-12 lg:gap-16  mb-48">
           <div className="place-content-center text-center">
               <img className="" src={cleaningProducts} alt="" />
               <h3 className="pt-5 pb-2">Lorem Ipsum</h3>
