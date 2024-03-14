@@ -14,7 +14,7 @@ const LandingPage = () => {
   return (
     <div className="flex flex-col">
       <div className="h-screen bg-mob-hero-slash md:bg-hero-slash bg-no-repeat z-0 m-0 p-0 relative">
-        <div className="mt-24 text-base flex flex-col sm:flex-row justify-center sm:columns-2 columns-1">
+        <div className="mt-24 text-base sm:flex-row justify-center sm:columns-2 grid grid-cols-2">
           <div className="p-9 sm:p-8 sm:w-full">
             <h1 className="sm:text-lg md:text-2xl py-4">Det här är en heading om städning</h1>
             <p className="text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati sapiente ducimus facere vitae incidunt deleniti nihil ipsa. Illo totam consectetur eaque quas non voluptate nam asperiores placeat exercitationem saepe nulla explicabo, eveniet enim quia, a quod excepturi quisquam voluptas magnam dignissimos dolor pariatur maxime ipsum rerum? Quam alias harum ea!</p>
@@ -31,7 +31,7 @@ const LandingPage = () => {
 
 
         <div className="h-full bg-wave bg-no-repeat bg-left-top bg-cover p-0 z-1 absolute top-96 right-0 left-0 flex items-center justify-center">
-          <div className="text-primaryBlue grid sm:grid-cols-4  sm:px-22 md:px-26 xl:px-48 2xl:px-96 gap-4 sm:gap-8 md:gap-12 lg:gap-16  mb-48">
+          <div className="text-primaryBlue grid grid-cols-2 sm:grid-cols-4 sm:px-22 md:px-26 xl:px-48 2xl:px-96 gap-4 sm:gap-8 md:gap-12 lg:gap-16  mb-48">
           <div className="place-content-center text-center">
               <img className="" src={cleaningProducts} alt="" />
               <h3 className="pt-5 pb-2">Lorem Ipsum</h3>
@@ -63,9 +63,9 @@ const LandingPage = () => {
       </div>
       <div className="flex flex-col sm:flex-row lg:h-screen relative mt-48">
         <div className="w-full bg-pink">
-          <img className="w-full h-full object-cover" src={scrubsCleaningProducts} alt="" />
+          <img className="w-full h-screen object-cover" src={scrubsCleaningProducts} alt="" />
         </div>
-        <div className="w-full bg-primaryBeige flex items-center justify-center">
+        <div className="w-full bg-primaryBeige flex items-center justify-center h-screen">
           <div className="w-2/3">
           <h2>Vårt Miljöarbete</h2>
           <p className='text-xs'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est explicabo et, consequuntur quae iste harum eum nisi modi sapiente. Omnis voluptatibus fuga minus adipisci natus! Autem explicabo consequatur exercitationem animi mollitia in quia cumque nihil. Earum totam, suscipit nulla eaque, reiciendis soluta itaque eum quibusdam necessitatibus est debitis, repellat praesentium.</p>
