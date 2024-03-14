@@ -15,49 +15,66 @@ const FutureBookings: React.FC<IFutureBookings> = ({
   setBookings,
   removeBooking,
 }) => {
-  const [checkedBookings, setCheckedBookings] = useState<string[]>([]);
+  const [checkedFutureBookings, setCheckedFutureBookings] = useState<string[]>(
+    []
+  );
 
-  const handleRemove = async (bookingId: string) => {
+  const handleRemove = (bookingId: string) => {
     if (window.confirm("Are you sure you want to remove this booking?")) {
       removeBooking(bookingId);
     }
   };
 
   const handleCheck = (bookingId: string) => {
-    if (checkedBookings.includes(bookingId)) {
-      setCheckedBookings(checkedBookings.filter((id) => id !== bookingId));
+    if (checkedFutureBookings.includes(bookingId)) {
+      setCheckedFutureBookings(
+        checkedFutureBookings.filter((id) => id !== bookingId)
+      );
     } else {
-      setCheckedBookings([...checkedBookings, bookingId]);
+      setCheckedFutureBookings([...checkedFutureBookings, bookingId]);
     }
   };
 
   const markAsCompleted = async () => {
-    for (const bookingId of checkedBookings) {
-      try {
-        const bookingToUpdate = bookings.find(
-          (booking) => booking.id === bookingId
-        );
-        if (!bookingToUpdate) {
-          console.error(`Booking with id ${bookingId} not found.`);
-          continue;
+    try {
+      const markedBookings = bookings.filter((booking) =>
+        checkedFutureBookings.includes(booking.id)
+      );
+
+      const updatePromises = markedBookings.map(async (booking) => {
+        try {
+          const updatedBooking = { ...booking, status: true };
+
+          await axios.put(
+            `http://localhost:3000/bookings/${booking.id}`,
+            updatedBooking
+          );
+
+          return updatedBooking;
+        } catch (error) {
+          console.error(`Error updating booking ${booking.id}:`, error);
+          return null;
         }
-        const updatedBooking = { ...bookingToUpdate, status: true };
+      });
 
-        await axios.put(
-          `http://localhost:3000/bookings/${bookingId}`,
-          updatedBooking
-        );
+      const updatedBookings = await Promise.all(updatePromises);
 
-        const updatedBookings = bookings.map((booking) =>
-          booking.id === bookingId ? updatedBooking : booking
-        );
-        setBookings(updatedBookings);
-      } catch (error) {
-        console.error("Error updating booking:", error);
-      }
+      const filteredUpdatedBookings = updatedBookings.filter(
+        (booking) => booking !== null
+      );
+      setBookings((prevBookings) =>
+        prevBookings.map(
+          (prevBooking) =>
+            filteredUpdatedBookings.find(
+              (booking) => booking?.id === prevBooking.id
+            ) || prevBooking
+        )
+      );
+
+      setCheckedFutureBookings([]);
+    } catch (error) {
+      console.error("Error updating bookings:", error);
     }
-
-    setCheckedBookings([]);
   };
 
   return (

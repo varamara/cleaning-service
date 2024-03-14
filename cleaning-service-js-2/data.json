@@ -1,0 +1,93 @@
+{
+    "cleaners": [
+      {
+        "id": "7369a2d3-929c-4d6a-87b7-33b02aa83e35",
+        "name": "Larry David",
+        "bookings": []
+      },
+      {
+        "id": "4b8f028e-0762-4265-9c62-83f69d4c991e",
+        "name": "Marty Funkhouser",
+        "bookings": []
+      },
+      {
+        "id": "f2ef2d7e-0ec3-4c33-b96e-cd1ab9b9b5d6",
+        "name": "Susie Greene",
+        "bookings": []
+      }
+    ],
+    "bookings": [
+      {
+        "id": "e6b4e92d-50f6-41d1-88a3-b2f2e3e52b28",
+        "date": "2024-03-08",
+        "time": "13:45",
+        "customer": "Richard Lewis",
+        "grade": "Basic städning",
+        "cleaner": "Susie Greene",
+        "status": true
+      },
+      {
+        "id": "a5e97be9-6a2f-4d94-b0fb-2bf22bf20b9a",
+        "date": "2024-04-20",
+        "time": "13:45",
+        "customer": "Richard Lewis",
+        "grade": "Toppstädning",
+        "cleaner": "Marty Funkhouser",
+        "status": true
+      },
+      {
+        "id": "a12d8651-a05c-4cbe-9eeb-c9c0b8e848a0",
+        "date": "2024-03-16T08:39:21.000Z",
+        "time": "09:43",
+        "customer": "Richard Lewis",
+        "grade": "Toppstädning",
+        "cleaner": "Susie Greene",
+        "status": true
+      },
+      {
+        "id": "5dbd4e11-3592-4aee-b242-1d0d2614ea34",
+        "date": "2024-03-16T08:39:21.000Z",
+        "time": "09:43",
+        "customer": "Richard Lewis",
+        "grade": "Toppstädning",
+        "cleaner": "Susie Greene",
+        "status": true
+      },
+      {
+        "id": "ed25b0a8-50b3-4c6c-9c51-d13915221e65",
+        "date": "2024-03-14T11:26:42.000Z",
+        "time": "15:28",
+        "customer": "Richard Lewis",
+        "grade": "Toppstädning",
+        "cleaner": "Susie Greene",
+        "status": false
+      },
+      {
+        "id": "284c7480-f93e-421d-a785-2ecdfd548bad",
+        "date": "2024-03-13T11:30:36.000Z",
+        "time": "15:31",
+        "customer": "",
+        "grade": "Toppstädning",
+        "cleaner": "Larry David",
+        "status": false
+      },
+      {
+        "id": "2e9fab8d-a8e6-4b54-a622-a6da53c9096f",
+        "date": "2024-03-22T11:34:17.000Z",
+        "time": "15:34",
+        "customer": "",
+        "grade": "Fönstertvätt",
+        "cleaner": "Marty Funkhouser",
+        "status": false
+      },
+      {
+        "id": "7971f484-11c5-42dc-81e3-947e184f762d",
+        "date": "2024-03-13T11:38:24.153Z",
+        "time": "15:38",
+        "customer": "",
+        "grade": "Toppstädning",
+        "cleaner": "Larry David",
+        "status": false
+      }
+    ]
+  }

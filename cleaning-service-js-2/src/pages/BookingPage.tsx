@@ -56,7 +56,7 @@ const BookingPage = () => {
     <>
       <BookingForm addBooking={addBooking} cleaners={cleaners} />
       <FutureBookings bookings={bookings} setBookings={setBookings} removeBooking={removeBooking} />
-      <CompletedBookings bookings={bookings}/>
+      <CompletedBookings bookings={bookings} setBookings={setBookings}/>
     </>
   );
 };

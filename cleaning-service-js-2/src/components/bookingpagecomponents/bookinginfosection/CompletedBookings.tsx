@@ -1,13 +1,54 @@
+import { useState } from "react";
 import { IBooking } from "../../../interfaces";
+import PrimaryButton from "../../sharedcomponents/PrimaryButton";
+import axios from "axios";
 
 interface ICompleteBookings {
   bookings: IBooking[];
+  setBookings: React.Dispatch<React.SetStateAction<IBooking[]>>;
 }
 
-
-const CompletedBookings: React.FC<ICompleteBookings> = ({ 
-  bookings 
+const CompletedBookings: React.FC<ICompleteBookings> = ({
+  bookings,
+  setBookings,
 }) => {
+  const [checkedCompletedBookings, setCheckedCompletedBookings] = useState<
+    string[]
+  >([]);
+
+  const handleCheck = (bookingId: string) => {
+    if (checkedCompletedBookings.includes(bookingId)) {
+      setCheckedCompletedBookings(
+        checkedCompletedBookings.filter((id) => id !== bookingId)
+      );
+    } else {
+      setCheckedCompletedBookings([...checkedCompletedBookings, bookingId]);
+    }
+  };
+
+  const removeMarkedBookings = async () => {
+    try {
+      const deletionPromises = checkedCompletedBookings.map(
+        async (bookingId) => {
+          await axios.delete(`http://localhost:3000/bookings/${bookingId}`);
+          return bookingId;
+        }
+      );
+
+      const deletedBookingIds = await Promise.all(deletionPromises);
+
+      const remainingBookings = bookings.filter(
+        (booking) => !deletedBookingIds.includes(booking.id)
+      );
+
+      setBookings(remainingBookings);
+
+      setCheckedCompletedBookings([]);
+    } catch (error) {
+      console.error("Error removing bookings:", error);
+    }
+  };
+
   return (
     <section>
       <h2 className="text-h2 text-primaryBlue ustify-center w-1/2 mx-auto mb-5">
@@ -26,14 +67,24 @@ const CompletedBookings: React.FC<ICompleteBookings> = ({
                   {new Date(book.date).toLocaleDateString("sv-SE")}
                 </li>
                 <li className="flex-grow m-3">{book.time}</li>
-                 <input type="checkbox" className="mr-14" />
+                <input
+                  type="checkbox"
+                  className="mr-14"
+                  onChange={() => handleCheck(book.id)}
+                />
               </ul>
             </div>
           );
         }
       })}
+      <div className="justify-center w-1/2 mx-auto mb-20">
+        <PrimaryButton
+          buttonText="RADERA MARKERADE"
+          onClick={removeMarkedBookings}
+        />
+      </div>
     </section>
-  )
-}
+  );
+};
 
-export default CompletedBookings
+export default CompletedBookings;
