@@ -17,7 +17,7 @@ const CompletedBookings: React.FC<ICompleteBookings> = ({
         if (book.status === true) {
           return (
             <div className="" key={book.id}>
-              <ul className="bg-secondaryBlue flex justify-center items-center mx-auto rounded-lg mb-6 text-sm md:text-base lg:text-md w-5/6 md:w-3/4 lg:w-3/6 min-h-20">
+              <ul className="bg-primaryBeige text-primaryBlue flex justify-center items-center mx-auto rounded-lg mb-6 text-sm md:text-base lg:text-md w-5/6 md:w-3/4 lg:w-3/6 min-h-20">
                 <li className="flex-grow m-3 font-semibold ">
                   {book.cleaner} 2h
                 </li>

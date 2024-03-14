@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
-import { FaArrowRight } from "react-icons/fa";
+import { HiArrowRight } from "react-icons/hi";
 
 
 const Navbar = () => {
@@ -26,12 +26,12 @@ const Navbar = () => {
           </button>
         </div>
 
-        <Logo/>
+        <Link to='/'><Logo/></Link>
 
         <div>
           <Link to="/BookingPage">
-            <button className="bg-secondaryOrange text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
-              Boka nu  <span className="pl-3"><FaArrowRight /></span>
+            <button className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
+              Boka nu  <span className="pl-1 mt-1 sm:text-xl lg:text-2xl"><HiArrowRight /></span>
 
             </button>
           </Link>

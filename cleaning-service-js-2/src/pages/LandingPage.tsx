@@ -30,8 +30,8 @@ const LandingPage = () => {
         </div>
 
 
-        <div className="h-2/3 bg-wave bg-no-repeat bg-left-top bg-cover p-0 z-1 absolute top-96 right-0 left-0 flex items-center justify-center">
-          <div className="sm:columns-4  sm:px-22 md:px-26 xl:px-48 2xl:px-96 gap-4 sm:gap-8 md:gap-12 lg:gap-16 text-primaryBlue flex">
+        <div className="h-full bg-wave bg-no-repeat bg-left-top bg-cover p-0 z-1 absolute top-96 right-0 left-0 flex items-center justify-center">
+          <div className="grid sm:grid-cols-4  sm:px-22 md:px-26 xl:px-48 2xl:px-96 gap-4 sm:gap-8 md:gap-12 lg:gap-16 text-primaryBlue mb-48">
           <div className="place-content-center text-center">
               <img className="" src={cleaningProducts} alt="" />
               <h3 className="pt-5 pb-2">Lorem Ipsum</h3>
@@ -61,9 +61,9 @@ const LandingPage = () => {
         </div>
 
       </div>
-      <div className="flex flex-col sm:flex-row lg:h-screen relative">
+      <div className="flex flex-col sm:flex-row lg:h-screen relative mt-48">
         <div className="w-full bg-pink">
-          <img className="" src={scrubsCleaningProducts} alt="" />
+          <img className="w-full h-full object-cover" src={scrubsCleaningProducts} alt="" />
         </div>
         <div className="w-full bg-primaryBeige flex items-center justify-center">
           <div className="w-2/3">
@@ -79,7 +79,7 @@ const LandingPage = () => {
       </div>
       <div className='bg-secondaryBlue h-full '>
         <div className='flex flex-col justify-center items-center'>
-      <div className='sm:column-3 gap-24 flex flex-row my-16  w-2/3 text-center'>
+      <div className='grid md:grid-cols-3  sm:gap-8 md:gap-16 lg:gap-28 flex-row my-16  w-2/3 text-center'>
       <div className='w-full'>
         <div className='bg-primaryBeige'>
         <img src={susie} alt="" />
@@ -94,9 +94,9 @@ const LandingPage = () => {
         <h3>Marty Funkhouser</h3>
         <p className='text-xs'>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
       </div>
-      <div className='w-full'>
+      <div className='w-full flex flex-col items-center'>
       <div className='bg-primaryBeige'>
-        <img src={larry} alt="" />
+        <img className="object-cover self-center" src={larry} alt="" />
         </div>
         <h3>Larry David</h3>
         <p className='text-xs'>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
