@@ -1,5 +1,5 @@
 import { createContext} from 'react';
-import { IBooking } from '../interfaces';
+import { IBooking } from '../../interfaces';
 
 interface BookingContextType {
   bookings: IBooking[];

@@ -5,20 +5,24 @@ import LandingPage from "./pages/LandingPage";
 import Navbar from "./components/sharedcomponents/Navbar";
 import Footer from "./components/sharedcomponents/Footer";
 import LoginPage from "./pages/LoginPage";
+import RegisterAccountPage from "./pages/RegisterAccountPage";
+import { RegistrationProvider } from "./contexts/registrationContext/RegistrationProvider";
 
 function App() {
-
   return (
     <>
-      <BrowserRouter>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/BookingPage" element={<BookingPage/>} />
-          <Route path="/LoginPage" element={<LoginPage />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <RegistrationProvider>
+        <BrowserRouter>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/booking" element={<BookingPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/register" element={<RegisterAccountPage />} />
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </RegistrationProvider>
     </>
   );
 }

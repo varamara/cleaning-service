@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import { HiArrowRight } from "react-icons/hi";
+import { FaUser } from "react-icons/fa";
 
 const Navbar = () => {
   return (
@@ -29,15 +30,13 @@ const Navbar = () => {
           <Logo />
         </Link>
 
-        <div className="flex">
-          <Link to="/LoginPage">
+        <div className="flex items-center">
+          <Link to="/register">
             <button className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
-              Logga in{" "}
-              <span className="pl-1 mt-1 sm:text-xl lg:text-2xl">
-              </span>
+              <FaUser />
             </button>
           </Link>
-          <Link to="/BookingPage">
+          <Link to="/booking">
             <button className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
               Boka nu{" "}
               <span className="pl-1 mt-1 sm:text-xl lg:text-2xl">

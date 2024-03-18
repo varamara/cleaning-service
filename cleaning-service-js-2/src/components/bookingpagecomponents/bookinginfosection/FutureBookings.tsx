@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import TrashBin from "../../../assets/delete.png";
 import PrimaryButton from "../../sharedcomponents/PrimaryButton";
-import { BookingContext } from "../../../context/BookingContext";
+import { BookingContext } from "../../../contexts/bookingContext/BookingContext";
 import { IBooking } from "../../../interfaces";
 
 

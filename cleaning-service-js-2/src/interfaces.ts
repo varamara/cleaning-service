@@ -29,10 +29,12 @@ export interface ICleanersInfo {
   bookings: string[];
 }
 
-export interface IFutureBookings {
-
-}
-
-export interface ICompletedBookings {
-
+export interface IUser {
+  id: string; 
+  username: string; 
+  password: string; 
+  firstName: string;
+  lastName: string; 
+  email: string;
+  // bookings: IBooking[]; 
 }

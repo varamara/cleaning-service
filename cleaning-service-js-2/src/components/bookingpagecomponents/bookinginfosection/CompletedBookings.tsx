@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { IBooking } from "../../../interfaces";
 import PrimaryButton from "../../sharedcomponents/PrimaryButton";
-import { BookingContext } from "../../../context/BookingContext";
+import { BookingContext } from "../../../contexts/bookingContext/BookingContext";
 
 const CompletedBookings: React.FC = () => {
   const { bookings, setBookings, removeBooking } = useContext(BookingContext) as {
