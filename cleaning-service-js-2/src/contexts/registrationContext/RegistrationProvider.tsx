@@ -1,4 +1,4 @@
-import { ReactNode, useEffect, useState } from "react";
+import { ReactNode, useState } from "react";
 import { RegistrationContext } from "./RegistrationContext";
 import axios from "axios";
 
@@ -9,9 +9,6 @@ export const RegistrationProvider: React.FC<{ children: ReactNode }> = ({
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null); 
 
-  useEffect(() => {
-    fetchUsers();
-  }, []);
 
   const fetchUsers = async () => {
     try {
@@ -24,7 +21,7 @@ export const RegistrationProvider: React.FC<{ children: ReactNode }> = ({
 
   const registerUser = async (newUser: any) => {
     try {
-      await axios.post("http://localhost:3000/register", newUser);
+      await axios.post("http://localhost:3000/users", newUser);
       fetchUsers();
     } catch (error) {
       console.error("Error registering user:", error);

@@ -1,4 +1,22 @@
 {
+  "users": [
+    {
+      "id": "ec7ca9cf-f999-49b5-be23-265675a67db9",
+      "username": " c",
+      "password": "VzaC4USaYi7:imP",
+      "firstName": "Mikah",
+      "lastName": " dvx",
+      "email": "julia_ssaa@hotmail.com"
+    },
+    {
+      "id": "636be35d-8f5f-4ff0-9bfa-60779385a730",
+      "username": "julia_ssaa@hotmail.com",
+      "password": "7yQ:r!tjtgXfa26",
+      "firstName": "Mikah",
+      "lastName": "few",
+      "email": "julia_ssaa@hotmail.com"
+    }
+  ],
   "cleaners": [
     {
       "id": "7369a2d3-929c-4d6a-87b7-33b02aa83e35",
