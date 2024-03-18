@@ -1,20 +1,19 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import TrashBin from "../../../assets/delete.png";
-import { IBooking } from "../../../interfaces";
 import PrimaryButton from "../../sharedcomponents/PrimaryButton";
 import axios from "axios";
+import { BookingContext } from "../../../context/BookingContext";
+import { IBooking } from "../../../interfaces";
 
-interface IFutureBookings {
-  bookings: IBooking[];
-  removeBooking: (id: string) => void;
-  setBookings: React.Dispatch<React.SetStateAction<IBooking[]>>;
-}
 
-const FutureBookings: React.FC<IFutureBookings> = ({
-  bookings,
-  setBookings,
-  removeBooking,
-}) => {
+const FutureBookings: React.FC = () => {
+  const { bookings, setBookings, removeBooking } = useContext(BookingContext) as {
+    bookings: IBooking[];
+    setBookings: (bookings: IBooking[]) => void;
+    removeBooking: (id: string) => void;
+  }
+
+
   const [checkedFutureBookings, setCheckedFutureBookings] = useState<string[]>(
     []
   );
@@ -62,14 +61,13 @@ const FutureBookings: React.FC<IFutureBookings> = ({
       const filteredUpdatedBookings = updatedBookings.filter(
         (booking) => booking !== null
       );
-      setBookings((prevBookings) =>
-        prevBookings.map(
-          (prevBooking) =>
-            filteredUpdatedBookings.find(
-              (booking) => booking?.id === prevBooking.id
-            ) || prevBooking
+      setBookings((prevBookings: IBooking[]) => (
+        prevBookings.map((prevBooking: IBooking) =>
+          filteredUpdatedBookings.find((booking: IBooking | null) => booking?.id === prevBooking.id) || prevBooking
         )
-      );
+      ));
+
+
 
       setCheckedFutureBookings([]);
     } catch (error) {

@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { v4 as uuidv4 } from "uuid";
 import { IBooking, CleaningGrade } from "../../interfaces";
 import PrimaryButton from "../sharedcomponents/PrimaryButton";
+import { BookingContext } from "../../context/BookingContext";
 
-interface BookingFormProps {
-  addBooking: (newBooking: IBooking) => void;
-  cleaners: { id: string; name: string }[];
-}
 
-const BookingForm: React.FC<BookingFormProps> = ({ addBooking, cleaners }) => {
+const BookingForm: React.FC= () => {
+  const { addBooking, cleaners } = useContext(BookingContext) as {
+    addBooking: (booking: IBooking) => void;
+    cleaners: { id: string; name: string }[];
+  };
+  
   const [formValues, setFormValues] = useState<IBooking>({
     id: "",
     cleaner: "",
