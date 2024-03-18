@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import { HiArrowRight } from "react-icons/hi";
 
-
 const Navbar = () => {
   return (
     <>
@@ -26,13 +25,24 @@ const Navbar = () => {
           </button>
         </div>
 
-        <Link to='/'><Logo/></Link>
+        <Link to="/">
+          <Logo />
+        </Link>
 
-        <div>
+        <div className="flex">
+          <Link to="/LoginPage">
+            <button className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
+              Logga in{" "}
+              <span className="pl-1 mt-1 sm:text-xl lg:text-2xl">
+              </span>
+            </button>
+          </Link>
           <Link to="/BookingPage">
             <button className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
-              Boka nu  <span className="pl-1 mt-1 sm:text-xl lg:text-2xl"><HiArrowRight /></span>
-
+              Boka nu{" "}
+              <span className="pl-1 mt-1 sm:text-xl lg:text-2xl">
+                <HiArrowRight />
+              </span>
             </button>
           </Link>
         </div>
