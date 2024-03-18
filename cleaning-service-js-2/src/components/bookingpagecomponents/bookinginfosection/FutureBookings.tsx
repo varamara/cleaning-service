@@ -40,11 +40,11 @@ const FutureBookings: React.FC = () => {
         checkedFutureBookings.includes(booking.id)
       );
 
-      const updatePromises = markedBookings.map(async (booking) => {
+      const updatePromises = markedBookings.map( (booking) => {
         try {
           const updatedBooking = { ...booking, status: true };
 
-          await updateBooking(updatedBooking);
+          updateBooking(updatedBooking);
 
           return updatedBooking;
         } catch (error) {

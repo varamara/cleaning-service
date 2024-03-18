@@ -29,19 +29,17 @@ const CompletedBookings: React.FC = () => {
     try {
       const deletionPromises = checkedCompletedBookings.map(
         async (bookingId) => {
-          await removeBooking(bookingId);
+           removeBooking(bookingId);
           return bookingId;
         }
       );
 
       const deletedBookingIds = await Promise.all(deletionPromises);
-
       const remainingBookings = bookings.filter(
         (booking) => !deletedBookingIds.includes(booking.id)
       );
 
       setBookings(remainingBookings);
-
       setCheckedCompletedBookings([]);
     } catch (error) {
       console.error("Error removing bookings:", error);
