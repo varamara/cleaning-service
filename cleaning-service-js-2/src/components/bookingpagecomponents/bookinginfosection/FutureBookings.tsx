@@ -1,16 +1,16 @@
 import { useContext, useState } from "react";
 import TrashBin from "../../../assets/delete.png";
 import PrimaryButton from "../../sharedcomponents/PrimaryButton";
-import axios from "axios";
 import { BookingContext } from "../../../context/BookingContext";
 import { IBooking } from "../../../interfaces";
 
 
 const FutureBookings: React.FC = () => {
-  const { bookings, setBookings, removeBooking } = useContext(BookingContext) as {
+  const { bookings, setBookings, removeBooking, updateBooking } = useContext(BookingContext) as {
     bookings: IBooking[];
     setBookings: (bookings: IBooking[]) => void;
     removeBooking: (id: string) => void;
+    updateBooking: (updatedBooking: IBooking) => void;
   }
 
 
@@ -44,10 +44,7 @@ const FutureBookings: React.FC = () => {
         try {
           const updatedBooking = { ...booking, status: true };
 
-          await axios.put(
-            `http://localhost:3000/bookings/${booking.id}`,
-            updatedBooking
-          );
+          await updateBooking(updatedBooking);
 
           return updatedBooking;
         } catch (error) {
@@ -61,14 +58,10 @@ const FutureBookings: React.FC = () => {
       const filteredUpdatedBookings = updatedBookings.filter(
         (booking) => booking !== null
       );
-      setBookings((prevBookings: IBooking[]) => (
-        prevBookings.map((prevBooking: IBooking) =>
-          filteredUpdatedBookings.find((booking: IBooking | null) => booking?.id === prevBooking.id) || prevBooking
-        )
-      ));
-
-
-
+      setBookings(bookings.map((prevBooking: IBooking) =>
+      filteredUpdatedBookings.find((booking: IBooking | null) => booking?.id === prevBooking.id) || prevBooking
+    ));
+      
       setCheckedFutureBookings([]);
     } catch (error) {
       console.error("Error updating bookings:", error);

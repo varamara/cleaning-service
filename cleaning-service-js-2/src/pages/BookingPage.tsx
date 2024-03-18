@@ -5,14 +5,14 @@ import { BookingProvider } from "../context/BookingProvider";
 
 const BookingPage = () => {
 
- 
+
   return (
     <BookingProvider>
-    <>
-      <BookingForm/>
-      <FutureBookings/>
-      <CompletedBookings/>
-    </>
+      <>
+        <BookingForm />
+        <FutureBookings />
+        <CompletedBookings />
+      </>
     </BookingProvider>
   );
 };

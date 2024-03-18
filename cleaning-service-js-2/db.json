@@ -51,7 +51,7 @@
       "customer": "",
       "grade": "Toppstädning",
       "cleaner": "Larry David",
-      "status": false
+      "status": true
     },
     {
       "id": "2e9fab8d-a8e6-4b54-a622-a6da53c9096f",
@@ -60,15 +60,6 @@
       "customer": "",
       "grade": "Fönstertvätt",
       "cleaner": "Marty Funkhouser",
-      "status": true
-    },
-    {
-      "id": "7971f484-11c5-42dc-81e3-947e184f762d",
-      "date": "2024-03-13T11:38:24.153Z",
-      "time": "15:38",
-      "customer": "",
-      "grade": "Toppstädning",
-      "cleaner": "Larry David",
       "status": true
     }
   ]

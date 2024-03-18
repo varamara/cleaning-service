@@ -1,17 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { IBooking } from "../../../interfaces";
 import PrimaryButton from "../../sharedcomponents/PrimaryButton";
-import axios from "axios";
+import { BookingContext } from "../../../context/BookingContext";
 
-interface ICompleteBookings {
-  bookings: IBooking[];
-  setBookings: React.Dispatch<React.SetStateAction<IBooking[]>>;
-}
+const CompletedBookings: React.FC = () => {
+  const { bookings, setBookings, removeBooking } = useContext(BookingContext) as {
+    bookings: IBooking[];
+    setBookings: React.Dispatch<React.SetStateAction<IBooking[]>>;
+    removeBooking: (id: string) => void;
+  };
 
-const CompletedBookings: React.FC<ICompleteBookings> = ({
-  bookings,
-  setBookings,
-}) => {
+
   const [checkedCompletedBookings, setCheckedCompletedBookings] = useState<
     string[]
   >([]);
@@ -30,7 +29,7 @@ const CompletedBookings: React.FC<ICompleteBookings> = ({
     try {
       const deletionPromises = checkedCompletedBookings.map(
         async (bookingId) => {
-          await axios.delete(`http://localhost:3000/bookings/${bookingId}`);
+          await removeBooking(bookingId);
           return bookingId;
         }
       );
