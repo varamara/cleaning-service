@@ -10,7 +10,6 @@ const CompletedBookings: React.FC = () => {
     removeBooking: (id: string) => void;
   };
 
-
   const [checkedCompletedBookings, setCheckedCompletedBookings] = useState<
     string[]
   >([]);

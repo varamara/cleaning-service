@@ -5,7 +5,6 @@ import { BookingProvider } from "../context/BookingProvider";
 
 const BookingPage = () => {
 
-
   return (
     <BookingProvider>
       <>

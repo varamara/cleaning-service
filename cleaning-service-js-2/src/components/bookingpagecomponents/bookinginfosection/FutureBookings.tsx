@@ -13,7 +13,6 @@ const FutureBookings: React.FC = () => {
     updateBooking: (updatedBooking: IBooking) => void;
   }
 
-
   const [checkedFutureBookings, setCheckedFutureBookings] = useState<string[]>(
     []
   );

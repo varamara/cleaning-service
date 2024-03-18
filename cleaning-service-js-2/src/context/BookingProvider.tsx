@@ -13,6 +13,7 @@ export const BookingProvider: React.FC<{ children: ReactNode }> = ({ children })
         fetchCleaners();
     }, []);
 
+
     const fetchBookings = async () => {
         try {
             const response = await axios.get("http://localhost:3000/bookings");

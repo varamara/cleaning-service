@@ -6,7 +6,6 @@ import { IBooking, CleaningGrade } from "../../interfaces";
 import PrimaryButton from "../sharedcomponents/PrimaryButton";
 import { BookingContext } from "../../context/BookingContext";
 
-
 const BookingForm: React.FC= () => {
   const { addBooking, cleaners } = useContext(BookingContext) as {
     addBooking: (booking: IBooking) => void;
@@ -59,8 +58,6 @@ const BookingForm: React.FC= () => {
     };
 
     addBooking(newBooking);
-
-    // bör vi ha prev här?
   };
 
   return (

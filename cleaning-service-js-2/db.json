@@ -52,6 +52,15 @@
       "grade": "Toppstädning",
       "cleaner": "Larry David",
       "status": true
+    },
+    {
+      "id": "54616186-3195-451a-b6b4-3c7295dbcdb1",
+      "date": "2024-03-18T14:36:44.970Z",
+      "time": "17:36",
+      "customer": "",
+      "grade": "Diamantstädning",
+      "cleaner": "Marty Funkhouser",
+      "status": true
     }
   ]
 }
