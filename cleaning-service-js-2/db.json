@@ -18,24 +18,6 @@
   ],
   "bookings": [
     {
-      "id": "e6b4e92d-50f6-41d1-88a3-b2f2e3e52b28",
-      "date": "2024-03-08",
-      "time": "13:45",
-      "customer": "Richard Lewis",
-      "grade": "Basic städning",
-      "cleaner": "Susie Greene",
-      "status": true
-    },
-    {
-      "id": "a5e97be9-6a2f-4d94-b0fb-2bf22bf20b9a",
-      "date": "2024-04-20",
-      "time": "13:45",
-      "customer": "Richard Lewis",
-      "grade": "Toppstädning",
-      "cleaner": "Marty Funkhouser",
-      "status": true
-    },
-    {
       "id": "a12d8651-a05c-4cbe-9eeb-c9c0b8e848a0",
       "date": "2024-03-16T08:39:21.000Z",
       "time": "09:43",
@@ -78,7 +60,7 @@
       "customer": "",
       "grade": "Fönstertvätt",
       "cleaner": "Marty Funkhouser",
-      "status": false
+      "status": true
     },
     {
       "id": "7971f484-11c5-42dc-81e3-947e184f762d",
@@ -87,24 +69,6 @@
       "customer": "",
       "grade": "Toppstädning",
       "cleaner": "Larry David",
-      "status": false
-    },
-    {
-      "id": "aa2dd979-8c6e-454d-8e3c-95c6dd5d1c5e",
-      "date": "2024-03-07T11:40:48.000Z",
-      "time": "15:40",
-      "customer": "",
-      "grade": "Diamantstädning",
-      "cleaner": "Marty Funkhouser",
-      "status": true
-    },
-    {
-      "id": "9b4a80cc-f224-49f1-b3ce-4d88176e99fd",
-      "date": "2024-03-04T13:19:27.000Z",
-      "time": "14:22",
-      "customer": "",
-      "grade": "Basic städning",
-      "cleaner": "Marty Funkhouser",
       "status": true
     }
   ]
