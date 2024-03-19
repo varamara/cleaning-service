@@ -1,6 +1,13 @@
 {
   "users": [
-    
+    {
+      "id": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
+      "username": "Tanja",
+      "password": "hej",
+      "firstName": "hej",
+      "lastName": "hej",
+      "email": "hej@hej"
+    }
   ],
   "cleaners": [
     {
@@ -55,6 +62,24 @@
       "grade": "Diamantstädning",
       "cleaner": "Marty Funkhouser",
       "status": true
+    },
+    {
+      "id": "430dccbb-f5e7-4c18-8f98-e2d02a6b52ea",
+      "date": "2024-03-18T21:43:29.936Z",
+      "time": "08:45",
+      "customer": "",
+      "grade": "Basic städning",
+      "cleaner": "",
+      "status": false
+    },
+    {
+      "id": "b8ade16e-488f-4d57-a1b2-45e25fd61ec5",
+      "date": "2024-03-18T21:43:29.936Z",
+      "time": "08:45",
+      "customer": "",
+      "grade": "Basic städning",
+      "cleaner": "Marty Funkhouser",
+      "status": false
     }
   ]
 }
