@@ -23,17 +23,25 @@ export const RegistrationProvider: React.FC<{ children: ReactNode }> = ({
     try {
       await axios.post("http://localhost:3000/users", newUser);
       fetchUsers();
+      console.log("this is en new user: ", newUser);
     } catch (error) {
       console.error("Error registering user:", error);
     }
   }
 
-  const loginUser = async (credentials: any) => {
+
+  const loginUser = async (username: any, password: string) => {
     try {
-
-      const response = await axios.post("http://localhost:3000/login", credentials);
-
-      setCurrentUser(response.data);
+      const response = await axios.post(`http://localhost:3000/users`, {username, password});
+      console.log("Login response:", response.data);
+      const user = response.data;
+  
+      if (user && user.username === username && user.password === password) {
+        setCurrentUser(user);
+        console.log('Logged in user:', user);
+      } else {
+        console.log("LOGIN FAILED: User not found or invalid credentials");
+      }
     } catch (error) {
       console.error("Error logging in:", error);
     }

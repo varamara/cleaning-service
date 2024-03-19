@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import RegisterAccountPage from "./pages/RegisterAccountPage";
 import { RegistrationProvider } from "./contexts/registrationContext/RegistrationProvider";
 
+
 function App() {
   return (
     <>

@@ -1,6 +1,157 @@
 {
   "users": [
-    
+    {
+      "id": "0c872b32-a4b2-4aba-a0e6-14496b02928e",
+      "username": "tanjaspolander@gmail.com",
+      "password": "db f",
+      "firstName": "Tanja Madelene",
+      "lastName": "Spolander",
+      "email": "tanjaspolander@gmail.com"
+    },
+    {
+      "id": "0ede4a3f-6ecd-422c-bd81-ceb640d4eab6",
+      "username": "tanjaspolander@gmail.com",
+      "password": "hej",
+      "firstName": "Tanja Madelene",
+      "lastName": "Spolander",
+      "email": "tanjaspolander@gmail.com"
+    },
+    {
+      "id": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
+      "username": "hej",
+      "password": "hej",
+      "firstName": "hej",
+      "lastName": "hej",
+      "email": "hej@hej"
+    },
+    {
+      "id": "cee0cbd6-2a41-4eba-99c3-dcb1efceaa0d",
+      "username": "dp",
+      "password": "dp",
+      "firstName": "dp",
+      "lastName": "dp",
+      "email": "dp@dp"
+    },
+    {
+      "id": "57e0fc87-a9c0-4d2e-82b3-203ab9b6dc9e",
+      "username": "as",
+      "password": "as",
+      "firstName": "as",
+      "lastName": "as",
+      "email": "as@as"
+    },
+    {
+      "id": "87f3",
+      "credentials": "as"
+    },
+    {
+      "id": "d81e",
+      "credentials": "as"
+    },
+    {
+      "id": "67c5",
+      "credentials": "as"
+    },
+    {
+      "id": "439d"
+    },
+    {
+      "id": "f9cb"
+    },
+    {
+      "id": "0266",
+      "credentials": "as"
+    },
+    {
+      "id": "b161",
+      "credentials": "as"
+    },
+    {
+      "id": "a098",
+      "username": "as"
+    },
+    {
+      "id": "a034",
+      "username": "as"
+    },
+    {
+      "id": "0121",
+      "username": "as"
+    },
+    {
+      "id": "1842",
+      "username": "bajsskslaemf"
+    },
+    {
+      "id": "fc2e",
+      "username": "ewgvwr"
+    },
+    {
+      "id": "aac4",
+      "username": "ascds"
+    },
+    {
+      "id": "8ed0",
+      "username": "ewgvfr"
+    },
+    {
+      "id": "df03",
+      "username": "edv"
+    },
+    {
+      "id": "964a",
+      "username": "hej"
+    },
+    {
+      "id": "69ec",
+      "username": "as",
+      "password": "as"
+    },
+    {
+      "id": "b46d",
+      "username": "baj",
+      "password": "baj"
+    },
+    {
+      "id": "11ff",
+      "username": "as",
+      "password": "as"
+    },
+    {
+      "id": "4263",
+      "username": "asdsfvg",
+      "password": "baj"
+    },
+    {
+      "id": "9afd",
+      "username": "baj",
+      "password": "baj"
+    },
+    {
+      "id": "091c",
+      "username": "as",
+      "password": "as"
+    },
+    {
+      "0": "as",
+      "1": "as",
+      "id": "c3e7"
+    },
+    {
+      "id": "e98f",
+      "username": "as",
+      "password": "as"
+    },
+    {
+      "id": "e0af",
+      "username": "as",
+      "password": "as"
+    },
+    {
+      "id": "2d18",
+      "username": "sdfc",
+      "password": "as"
+    }
   ],
   "cleaners": [
     {
@@ -55,6 +206,24 @@
       "grade": "Diamantstädning",
       "cleaner": "Marty Funkhouser",
       "status": true
+    },
+    {
+      "id": "430dccbb-f5e7-4c18-8f98-e2d02a6b52ea",
+      "date": "2024-03-18T21:43:29.936Z",
+      "time": "08:45",
+      "customer": "",
+      "grade": "Basic städning",
+      "cleaner": "",
+      "status": false
+    },
+    {
+      "id": "b8ade16e-488f-4d57-a1b2-45e25fd61ec5",
+      "date": "2024-03-18T21:43:29.936Z",
+      "time": "08:45",
+      "customer": "",
+      "grade": "Basic städning",
+      "cleaner": "Marty Funkhouser",
+      "status": false
     }
   ]
 }

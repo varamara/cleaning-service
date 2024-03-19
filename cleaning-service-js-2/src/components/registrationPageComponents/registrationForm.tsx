@@ -42,6 +42,8 @@ const registrationForm: React.FC = () => {
     console.log(formData);
     registerUser(newUser);
     alert("Inloggning lyckades!");
+
+    
     setFormData({
       username: "",
       password: "",
