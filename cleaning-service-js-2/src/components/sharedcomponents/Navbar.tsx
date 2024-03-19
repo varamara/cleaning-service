@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
-import { HiArrowRight } from "react-icons/hi";
-import { FaUser } from "react-icons/fa";
+import { FaRegUser } from "react-icons/fa";
+import { FiLogIn } from "react-icons/fi";
+import { MdOutlineCleaningServices } from "react-icons/md";
 
 const Navbar = () => {
   return (
@@ -31,17 +32,19 @@ const Navbar = () => {
         </Link>
 
         <div className="flex items-center">
+          <Link to="/mina-sidor">
+            <button className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
+              <FaRegUser />
+            </button>
+          </Link>
           <Link to="/register">
             <button className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
-              <FaUser />
+              <FiLogIn />
             </button>
           </Link>
           <Link to="/booking">
             <button className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
-              Boka nu{" "}
-              <span className="pl-1 mt-1 sm:text-xl lg:text-2xl">
-                <HiArrowRight />
-              </span>
+              <MdOutlineCleaningServices />
             </button>
           </Link>
         </div>

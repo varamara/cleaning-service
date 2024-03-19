@@ -7,6 +7,7 @@ import Footer from "./components/sharedcomponents/Footer";
 import LoginPage from "./pages/LoginPage";
 import RegisterAccountPage from "./pages/RegisterAccountPage";
 import { RegistrationProvider } from "./contexts/registrationContext/RegistrationProvider";
+import UserPage from "./pages/UserPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/booking" element={<BookingPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterAccountPage />} />
+            <Route path="/mina-sidor" element={<UserPage />} />
           </Routes>
           <Footer />
         </BrowserRouter>
