@@ -10,6 +10,7 @@ import { RegistrationProvider } from "./contexts/registrationContext/Registratio
 import UserPage from "./pages/UserPage";
 import { BookingProvider } from "./contexts/bookingContext/BookingProvider";
 
+
 function App() {
   return (
     <>
