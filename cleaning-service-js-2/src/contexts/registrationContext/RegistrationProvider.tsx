@@ -9,7 +9,6 @@ export const RegistrationProvider: React.FC<{ children: ReactNode }> = ({
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState(null); 
 
-
   const fetchUsers = async () => {
     try {
       const response = await axios.get("http://localhost:3000/users");
@@ -38,11 +37,21 @@ export const RegistrationProvider: React.FC<{ children: ReactNode }> = ({
         if (user) {
           setCurrentUser(user);
           console.log('Successful login! Användare som loggat in:', user);
+          alert(`Välkommen ${user.username}!`);
         } else {
           console.log('LOGIN FAILED: Ogiltligt användarnamn eller lösenord');
         }
       }  catch (error) {
       console.error('Error logging in:', error);
+    }
+  };
+
+  const logoutUser = () => {
+    try {
+      setCurrentUser(null);
+      console.log('Logout successful!');
+    } catch (error) {
+      console.error('Error logging out:', error);
     }
   };
 
@@ -53,6 +62,7 @@ export const RegistrationProvider: React.FC<{ children: ReactNode }> = ({
        setUsers,
        registerUser,
        loginUser,
+       logoutUser,
        currentUser
       }}
     >

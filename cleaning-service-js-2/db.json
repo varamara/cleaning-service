@@ -7,6 +7,14 @@
       "firstName": "hej",
       "lastName": "hej",
       "email": "hej@hej"
+    },
+    {
+      "id": "6511e950-945c-4c43-bc30-9f20e9895b8f",
+      "username": "a",
+      "password": "a",
+      "firstName": "a",
+      "lastName": "a",
+      "email": "a@a.a"
     }
   ],
   "cleaners": [
