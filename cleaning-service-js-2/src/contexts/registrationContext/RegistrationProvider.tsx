@@ -29,23 +29,25 @@ export const RegistrationProvider: React.FC<{ children: ReactNode }> = ({
     }
   }
 
-
-  const loginUser = async (username: any, password: string) => {
+  const loginUser = async (username: string, password: string) => {
     try {
-      const response = await axios.post(`http://localhost:3000/users`, {username, password});
-      console.log("Login response:", response.data);
-      const user = response.data;
+      const response = await axios.get('http://localhost:3000/users');
+      const users = response.data;
+
   
-      if (user && user.username === username && user.password === password) {
-        setCurrentUser(user);
-        console.log('Logged in user:', user);
-      } else {
-        console.log("LOGIN FAILED: User not found or invalid credentials");
-      }
-    } catch (error) {
-      console.error("Error logging in:", error);
+     
+        const user = users.find((registeredUser: any) => registeredUser.username === username && registeredUser.password === password);
+  
+        if (user) {
+          setCurrentUser(user);
+          console.log('Successful login! Användare som loggat in:', user);
+        } else {
+          console.log('LOGIN FAILED: Ogiltligt användarnamn eller lösenord');
+        }
+      }  catch (error) {
+      console.error('Error logging in:', error);
     }
-  }
+  };
 
   return (
     <RegistrationContext.Provider
