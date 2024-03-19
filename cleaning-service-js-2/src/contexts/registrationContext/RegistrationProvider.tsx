@@ -33,11 +33,8 @@ export const RegistrationProvider: React.FC<{ children: ReactNode }> = ({
     try {
       const response = await axios.get('http://localhost:3000/users');
       const users = response.data;
+      const user = users.find((registeredUser: any) => registeredUser.username === username && registeredUser.password === password);
 
-  
-     
-        const user = users.find((registeredUser: any) => registeredUser.username === username && registeredUser.password === password);
-  
         if (user) {
           setCurrentUser(user);
           console.log('Successful login! Användare som loggat in:', user);

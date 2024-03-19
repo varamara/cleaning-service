@@ -19,20 +19,17 @@ const LoginForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // add validation 
-
+    // lägg till validering 
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match");
       return;
     }
-
     try{
     loginUser(formData.username, formData.password);
     console.log("Logged in user", formData);
     } catch (error) {
       console.error("Error logging in:", error);
     } 
-
     setFormData({
       username: "",
       password: "",
