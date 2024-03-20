@@ -3,7 +3,7 @@ import { v4 as uuidv4 } from "uuid";
 import { IUser } from "../../interfaces";
 import { RegistrationContext } from "../../contexts/registrationContext/RegistrationContext";
 
-const registrationForm: React.FC = () => {
+const RegistrationForm: React.FC = () => {
   const { registerUser } = useContext(RegistrationContext) as unknown as {
     registerUser: (newUser: IUser) => void;
   };
@@ -204,4 +204,4 @@ const registrationForm: React.FC = () => {
   );
 };
 
-export default registrationForm;
+export default RegistrationForm;
