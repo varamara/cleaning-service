@@ -2,7 +2,7 @@ import { createContext } from "react";
 import { IUser } from "../../interfaces";
 
 interface registrationContextType {
-  registerUser: (username: string, email: string, password: string) => void;
+  registerUser: (newUser: IUser) => void;
   loginUser: (username: string, password: string) => void ;
   logoutUser: () => void;
   setUsers: (users: IUser[]) => void;

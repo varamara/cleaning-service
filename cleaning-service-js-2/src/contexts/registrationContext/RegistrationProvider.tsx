@@ -1,13 +1,14 @@
 import { ReactNode, useState } from "react";
 import { RegistrationContext } from "./RegistrationContext";
 import axios from "axios";
+import { IUser } from "../../interfaces";
 
 export const RegistrationProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
     
-  const [users, setUsers] = useState([]);
-  const [currentUser, setCurrentUser] = useState(null); 
+  const [users, setUsers] = useState<IUser[]>([]);
+  const [currentUser, setCurrentUser] = useState<IUser | null>(null);
 
   const fetchUsers = async () => {
     try {
@@ -18,7 +19,7 @@ export const RegistrationProvider: React.FC<{ children: ReactNode }> = ({
     }
   }
 
-  const registerUser = async (newUser: any) => {
+  const registerUser = async (newUser: IUser) => {
     try {
       await axios.post("http://localhost:3000/users", newUser);
       fetchUsers();
@@ -32,7 +33,7 @@ export const RegistrationProvider: React.FC<{ children: ReactNode }> = ({
     try {
       const response = await axios.get('http://localhost:3000/users');
       const users = response.data;
-      const user = users.find((registeredUser: any) => registeredUser.username === username && registeredUser.password === password);
+      const user = users.find((registeredUser: IUser) => registeredUser.username === username && registeredUser.password === password);
 
         if (user) {
           setCurrentUser(user);
