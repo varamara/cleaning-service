@@ -5,7 +5,7 @@ interface registrationContextType {
   registerUser: (username: string, email: string, password: string) => void;
   loginUser: (username: string, password: string) => void ;
   logoutUser: () => void;
-  setUsers: (users: any) => void;
+  setUsers: (users: IUser[]) => void;
   users: IUser[];
   currentUser: IUser | null;
 }
