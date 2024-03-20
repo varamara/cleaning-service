@@ -10,11 +10,15 @@ interface registrationContextType {
   currentUser: IUser | null;
 }
 
-export const RegistrationContext = createContext<registrationContextType>({
-  registerUser: () => {},
-  loginUser: () => {},
-  logoutUser: () => {},
-  setUsers: () => {},
-  users: [],
-  currentUser: null,
-});
+export const RegistrationContext = createContext<registrationContextType| undefined>(undefined);
+  
+  
+  
+//   {
+//   registerUser: () => {},
+//   loginUser: () => {},
+//   logoutUser: () => {},
+//   setUsers: () => {},
+//   users: [],
+//   currentUser: null,
+// });
