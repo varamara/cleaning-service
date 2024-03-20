@@ -3,6 +3,7 @@ import { RegistrationContext } from "../../contexts/registrationContext/Registra
 
 const LoginForm = () => {
   const { loginUser } = useContext(RegistrationContext);
+
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -19,24 +20,22 @@ const LoginForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // lägg till validering 
+    // lägg till validering
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match");
       return;
     }
-    try{
-    loginUser(formData.username, formData.password);
-    console.log("Logged in user", formData);
+    try {
+      loginUser(formData.username, formData.password);
+      console.log("Logged in user", formData);
     } catch (error) {
       console.error("Error logging in:", error);
-    } 
+    }
     setFormData({
       username: "",
       password: "",
       confirmPassword: "",
-    
-    })
-    
+    });
   };
 
   return (
