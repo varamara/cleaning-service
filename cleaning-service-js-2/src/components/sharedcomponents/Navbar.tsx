@@ -1,17 +1,20 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
-import { FaRegUser } from "react-icons/fa";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
 import { MdOutlineCleaningServices } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { RegistrationContext } from "../../contexts/registrationContext/RegistrationContext";
-
+import { FaRegUser } from "react-icons/fa";
+import { IUser } from "../../interfaces";
 
 const Navbar = () => {
-
-  const { currentUser, logoutUser } = useContext(RegistrationContext);
-
+  const { currentUser, logoutUser } = useContext(
+    RegistrationContext
+  ) as unknown as {
+    currentUser: IUser | null;
+    logoutUser: () => void;
+  };
   const handleLogout = () => {
     logoutUser();
   };
@@ -30,16 +33,20 @@ const Navbar = () => {
         </Link>
 
         <div className="flex items-center">
-          <Link to="/mina-sidor">
-            <button className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
-              <FaRegUser /> {currentUser && (
+          {currentUser && (
+            <Link to="/mina-sidor">
+              <button className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
+                <FaRegUser />{" "}
                 <span className="ml-2">{currentUser.username}</span>
-              )}
-            </button>
-          </Link>
+              </button>
+            </Link>
+          )}
           <div className="flex items-center">
-            {currentUser ? ( 
-              <button onClick={handleLogout} className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
+            {currentUser ? (
+              <button
+                onClick={handleLogout}
+                className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center"
+              >
                 <FiLogOut />
               </button>
             ) : (
