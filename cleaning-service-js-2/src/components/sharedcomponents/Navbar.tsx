@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
@@ -19,9 +19,34 @@ const Navbar = () => {
     logoutUser();
   };
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const offset = window.scrollY;
+      const navbarHeight = document.getElementById("navbar")?.offsetHeight || 0;
+      if (offset > navbarHeight / 2) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <>
-      <nav className="flex items-center justify-between bg-transparent py-4 px-6 fixed top-0 left-0 w-full z-10">
+      <nav
+        id="navbar"
+        className={`flex items-center justify-between py-2 px-6 fixed top-0 left-0 w-full z-10 transition-all duration-500 ease-in-out ${
+          scrolled ? "bg-primaryBeige" : "bg-transparent"
+        }`}
+      >
         <div className="flex items-center">
           <button className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
             <GiHamburgerMenu />
