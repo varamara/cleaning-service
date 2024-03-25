@@ -20,6 +20,7 @@ function PrivateRoute({ element }: any) {
   );
 }
 
+
 function App() {
   return (
     <>

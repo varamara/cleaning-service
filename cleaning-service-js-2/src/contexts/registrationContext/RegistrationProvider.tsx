@@ -26,19 +26,9 @@ export const RegistrationProvider: React.FC<{ children: ReactNode }> = ({
   const [users, setUsers] = useState<IUser[]>([]);
   const [currentUser, setCurrentUser] = useState<IUser | null>(null);
 
-  const fetchUsers = async () => {
-    try {
-      const response = await axios.get("http://localhost:3000/users");
-      setUsers(response.data);
-    } catch (error) {
-      console.error("Error fetching users:", error);
-    }
-  };
-
   const registerUser = async (newUser: IUser) => {
     try {
       await axios.post("http://localhost:3000/users", newUser);
-      fetchUsers();
       console.log("this is en new user: ", newUser);
     } catch (error) {
       console.error("Error registering user:", error);

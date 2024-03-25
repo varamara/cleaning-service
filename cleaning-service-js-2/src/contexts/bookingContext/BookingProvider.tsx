@@ -2,6 +2,13 @@ import React, { ReactNode, useState, useEffect, createContext } from "react";
 import { IBooking } from "../../interfaces";
 import axios from "axios";
 
+// Fixa funktionalitetr så bokningen som görs i gränssnittet kopplas till currentUser
+// Ska inte gå att dubbelboka
+// Tydlig validering på login, registering och bokningsformulär
+// Finlir med CSS, landingpage och bookingpage
+// Fixa så man kommer till mina sidor via url mina-sidor när man är inloggad
+
+
 interface BookingContextType {
   bookings: IBooking[];
   cleaners: { id: string; name: string }[];
