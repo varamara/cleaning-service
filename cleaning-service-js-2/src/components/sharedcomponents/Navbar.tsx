@@ -4,17 +4,12 @@ import Logo from "./Logo";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
 import { MdOutlineCleaningServices } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { RegistrationContext } from "../../contexts/registrationContext/RegistrationContext";
 import { FaRegUser } from "react-icons/fa";
-import { IUser } from "../../interfaces";
+import { RegistrationContext } from "../../contexts/registrationContext/RegistrationProvider";
 
 const Navbar = () => {
   const { currentUser, logoutUser } = useContext(
-    RegistrationContext
-  ) as unknown as {
-    currentUser: IUser | null;
-    logoutUser: () => void;
-  };
+    RegistrationContext);
   const handleLogout = () => {
     logoutUser();
   };

@@ -6,13 +6,13 @@ import Navbar from "./components/sharedcomponents/Navbar";
 import Footer from "./components/sharedcomponents/Footer";
 import LoginPage from "./pages/LoginPage";
 import RegisterAccountPage from "./pages/RegisterAccountPage";
-import { RegistrationProvider } from "./contexts/registrationContext/RegistrationProvider";
+import { RegistrationContext, RegistrationProvider } from "./contexts/registrationContext/RegistrationProvider";
 import UserPage from "./pages/UserPage";
 import { BookingProvider } from "./contexts/bookingContext/BookingProvider";
-import { useRegistrationContext } from "./contexts/registrationContext/useRegistrationContext";
+import { useContext } from "react";
 
 function PrivateRoute({ element }: any) {
-  const { currentUser } = useRegistrationContext();
+  const { currentUser } = useContext(RegistrationContext);
   return currentUser ? (
     element
   ) : (

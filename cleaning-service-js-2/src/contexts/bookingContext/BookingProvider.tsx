@@ -1,12 +1,28 @@
-import React, { ReactNode, useState, useEffect } from "react";
+import React, { ReactNode, useState, useEffect, createContext } from "react";
 import { IBooking } from "../../interfaces";
-import { BookingContext } from "./BookingContext";
 import axios from "axios";
+
+interface BookingContextType {
+  bookings: IBooking[];
+  cleaners: { id: string; name: string }[];
+  setBookings: (bookings: IBooking[]) => void;
+  addBooking: (booking: IBooking) => void;
+  removeBooking: (id: string) => void;
+  updateBooking: (updatedBooking: IBooking) => void;
+}
+
+export const BookingContext = createContext<BookingContextType>({
+  bookings: [],
+  cleaners: [],
+  setBookings: () => {},
+  addBooking: () => {},
+  removeBooking: () => {},
+  updateBooking: () => {},
+});
 
 export const BookingProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-    
   const [bookings, setBookings] = useState<Array<IBooking>>([]);
   const [cleaners, setCleaners] = useState([]);
 

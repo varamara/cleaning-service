@@ -1,10 +1,10 @@
 import { useContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { IUser } from "../../interfaces";
-import { RegistrationContext } from "../../contexts/registrationContext/RegistrationContext";
+import { RegistrationContext } from "../../contexts/registrationContext/RegistrationProvider";
 
 const RegistrationForm: React.FC = () => {
-  const { registerUser } = useContext(RegistrationContext) as unknown as {
+  const { registerUser } = useContext(RegistrationContext) as {
     registerUser: (newUser: IUser) => void;
   };
 

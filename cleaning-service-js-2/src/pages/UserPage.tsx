@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { BookingContext } from "../contexts/bookingContext/BookingContext";
+import { BookingContext } from "../contexts/bookingContext/BookingProvider";
 import { IBooking } from "../interfaces";
 
 const UserPage: React.FC = () => {

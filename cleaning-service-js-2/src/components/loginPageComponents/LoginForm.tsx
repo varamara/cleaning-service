@@ -1,8 +1,9 @@
 import React, { useState, useContext } from "react";
-import { RegistrationContext } from "../../contexts/registrationContext/RegistrationContext";
+import { RegistrationContext } from "../../contexts/registrationContext/RegistrationProvider";
 
 const LoginForm = () => {
-  const { loginUser } = useContext(RegistrationContext) as unknown as {
+  
+  const { loginUser } = useContext(RegistrationContext) as {
     loginUser: (username: string, password: string) => void;
   };
 

@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { v4 as uuidv4 } from "uuid";
 import { IBooking, CleaningGrade } from "../../interfaces";
 import PrimaryButton from "../sharedcomponents/PrimaryButton";
-import { BookingContext } from "../../contexts/bookingContext/BookingContext";
+import { BookingContext } from "../../contexts/bookingContext/BookingProvider";
 
 const BookingForm: React.FC= () => {
   const { addBooking, cleaners } = useContext(BookingContext) as {
