@@ -68,7 +68,7 @@ const FutureBookings: React.FC = () => {
   };
 
   return (
-    <section className="mb-20">
+    <section className="mt-36 mb-20">
       <h2 className="text-h2 text-primaryBlue justify-center w-1/2 mx-auto mb-5">
         Kommande bokningar
       </h2>
@@ -98,7 +98,7 @@ const FutureBookings: React.FC = () => {
           );
         }
       })}
-      <div className="justify-center w-1/2 mx-auto mb-5">
+      <div className="flex justify-center mx-auto mt-10">
         <PrimaryButton
           buttonText="MARKERA SOM UTFÖRDA"
           onClick={markAsCompleted}

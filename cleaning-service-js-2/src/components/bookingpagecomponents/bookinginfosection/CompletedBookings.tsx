@@ -73,7 +73,7 @@ const CompletedBookings: React.FC = () => {
           );
         }
       })}
-      <div className="justify-center w-1/2 mx-auto mb-20">
+      <div className="flex justify-center mx-auto mt-10 mb-20">
         <PrimaryButton
           buttonText="RADERA MARKERADE"
           onClick={removeMarkedBookings}
