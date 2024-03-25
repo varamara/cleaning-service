@@ -6,7 +6,7 @@ import SustainabilityInfo from '../components/landingpagecomponents/Sustainabili
 const LandingPage = () => {
 
   return (
-    <div className="flex flex-col h-s">
+    <div className="flex flex-col">
       <HeroSection/> 
       <SustainabilityInfo/>
       <AboutUs/>

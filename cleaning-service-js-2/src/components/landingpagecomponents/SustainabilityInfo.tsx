@@ -2,7 +2,7 @@ import scrubsCleaningProducts from "../../assets/cleaning-products-lg.svg";
 const SustainabilityInfo: React.FC = () => {
   return (
     <>
-      <div className="flex flex-col sm:flex-row lg:h-screen relative mt-10">
+      <div className="mt-0 flex flex-col sm:flex-row lg:h-screen">
         <div className="w-full bg-pink">
           <img
             className="w-full h-screen object-cover"
