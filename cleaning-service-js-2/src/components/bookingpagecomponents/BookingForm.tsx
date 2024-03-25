@@ -7,8 +7,9 @@ import PrimaryButton from "../sharedcomponents/PrimaryButton";
 import { BookingContext } from "../../contexts/bookingContext/BookingProvider";
 
 const BookingForm: React.FC= () => {
-  const { addBooking, cleaners } = useContext(BookingContext) as {
+  const { addBooking, cleaners, bookings } = useContext(BookingContext) as {
     addBooking: (booking: IBooking) => void;
+    bookings: IBooking[];
     cleaners: { id: string; name: string }[];
   };
   
@@ -41,12 +42,24 @@ const BookingForm: React.FC= () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    if (!formValues.grade || !formValues.date) {
+    
+    if (!formValues.cleaner || !formValues.grade || !formValues.date || !formValues.time) {
       alert("Please fill in all fields");
       return;
     }
-
+  
+    const isAlreadyBooked = bookings.some(
+      booking =>
+        booking.cleaner === formValues.cleaner &&
+        new Date(booking.date).getTime() === formValues.date.getTime() && 
+        booking.time === formValues.time 
+    );
+    
+    if (isAlreadyBooked) {
+      alert("Selected cleaner is already booked at the chosen date and time");
+      return;
+    }
+    
     const newBooking: IBooking = {
       id: uuidv4(),
       date: formValues.date,
@@ -56,7 +69,7 @@ const BookingForm: React.FC= () => {
       cleaner: formValues.cleaner,
       status: formValues.status,
     };
-
+    
     addBooking(newBooking);
   };
 

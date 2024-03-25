@@ -78,6 +78,42 @@
       "grade": "Basic städning",
       "cleaner": "",
       "status": true
+    },
+    {
+      "id": "94479eef-459b-4a56-8660-c7f53dea5438",
+      "date": "2024-03-25T12:40:35.739Z",
+      "time": "23:40",
+      "customer": "",
+      "grade": "Basic städning",
+      "cleaner": "Marty Funkhouser",
+      "status": false
+    },
+    {
+      "id": "e0754da6-ca3b-4fb7-b56c-d76a54456b4b",
+      "date": "2024-03-25T12:44:45.485Z",
+      "time": "23:44",
+      "customer": "",
+      "grade": "Diamantstädning",
+      "cleaner": "Larry David",
+      "status": true
+    },
+    {
+      "id": "9819cb9f-b182-4125-9505-32a7d6714460",
+      "date": "2024-03-25T12:46:16.369Z",
+      "time": "23:44",
+      "customer": "",
+      "grade": "Diamantstädning",
+      "cleaner": "Larry David",
+      "status": true
+    },
+    {
+      "id": "95be7dad-30fb-42db-bb4c-86624e2f5fa1",
+      "date": "2024-03-25T12:46:16.369Z",
+      "time": "23:44",
+      "customer": "",
+      "grade": "Toppstädning",
+      "cleaner": "Larry David",
+      "status": true
     }
   ]
 }

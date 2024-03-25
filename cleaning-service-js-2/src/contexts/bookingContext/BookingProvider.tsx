@@ -3,10 +3,11 @@ import { IBooking } from "../../interfaces";
 import axios from "axios";
 
 // Fixa funktionalitetr så bokningen som görs i gränssnittet kopplas till currentUser
-// Ska inte gå att dubbelboka
-// Tydlig validering på login, registering och bokningsformulär
+// Ska inte gå att dubbelboka -----GJORD
+// Tydlig validering på login, registering och bokningsformulär --- Sebastian
 // Finlir med CSS, landingpage och bookingpage
-// Fixa så man kommer till mina sidor via url mina-sidor när man är inloggad
+// Fixa så man kommer till mina sidor via url mina-sidor när man är inloggad --- Mikah
+// fixa så att man bara kan välja halvtimmar inte minuter i bokningsformuläret
 
 
 interface BookingContextType {
@@ -63,6 +64,7 @@ export const BookingProvider: React.FC<{ children: ReactNode }> = ({
     } catch (error) {
       console.error("Error adding booking:", error);
     }
+
   };
 
   const removeBooking = async (id: string) => {
