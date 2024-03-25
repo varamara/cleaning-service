@@ -2,12 +2,13 @@ import React, { ReactNode, useState, useEffect, createContext } from "react";
 import { IBooking } from "../../interfaces";
 import axios from "axios";
 
-// Fixa funktionalitetr så bokningen som görs i gränssnittet kopplas till currentUser
-// Ska inte gå att dubbelboka -----GJORD
-// Tydlig validering på login, registering och bokningsformulär --- Sebastian
-// Finlir med CSS, landingpage och bookingpage
-// Fixa så man kommer till mina sidor via url mina-sidor när man är inloggad --- Mikah
-// fixa så att man bara kan välja halvtimmar inte minuter i bokningsformuläret
+// TODO funktionalitetr så bokningen som görs i gränssnittet kopplas till currentUser
+// TODO Ska inte gå att dubbelboka -----GJORD
+// TODO validering på login, registering och bokningsformulär --- Sebastian
+// TODO med CSS, landingpage och bookingpage -- Fixat startsidan så det ser bättre ut, utveckla senare om det finns tid
+// TODO så man kommer till mina sidor via url mina-sidor när man är inloggad --- Mikah
+// TODO så att man bara kan välja halvtimmar inte minuter i bokningsformuläret
+
 
 
 interface BookingContextType {

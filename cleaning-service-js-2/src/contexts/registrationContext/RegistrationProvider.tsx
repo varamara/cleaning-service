@@ -1,6 +1,7 @@
 import { ReactNode, createContext, useState } from "react";
 import axios from "axios";
 import { IUser } from "../../interfaces";
+import { useNavigate } from "react-router-dom";
 
 interface registrationContextType {
   registerUser: (newUser: IUser) => void;
@@ -25,6 +26,7 @@ export const RegistrationProvider: React.FC<{ children: ReactNode }> = ({
 }) => {
   const [users, setUsers] = useState<IUser[]>([]);
   const [currentUser, setCurrentUser] = useState<IUser | null>(null);
+  const navigate = useNavigate();
 
   const registerUser = async (newUser: IUser) => {
     try {
@@ -49,6 +51,7 @@ export const RegistrationProvider: React.FC<{ children: ReactNode }> = ({
         setCurrentUser(user);
         console.log("Successful login! Användare som loggat in:", user);
         alert(`Välkommen ${user.username}!`);
+        navigate("/mina-sidor");
       } else {
         console.log("LOGIN FAILED: Ogiltligt användarnamn eller lösenord");
       }

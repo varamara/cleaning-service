@@ -3,7 +3,9 @@ import LoginForm from "../components/loginPageComponents/LoginForm";
 const LoginPage = () => {
   return (
     <>
-      <LoginForm />
+      <div className="bg-mob-hero-slash bg-no-repeat">
+        <LoginForm />
+      </div>
     </>
   );
 };
