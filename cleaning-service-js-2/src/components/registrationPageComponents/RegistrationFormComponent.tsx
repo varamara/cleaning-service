@@ -30,6 +30,15 @@ const RegistrationFormComponent: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,24}$/;
+    if(!passwordRegex.test(formData.password)){
+      alert("Password must be at least 8 characters long and include both upper and lowercase letters and a number.");
+      return;
+    }  else if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match.");
+      return;
+    }
+
     const newUser: IUser = {
       id: uuidv4(),
       bookings: [],
