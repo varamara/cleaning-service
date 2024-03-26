@@ -1,11 +1,12 @@
-import RegistrationForm from "../components/registrationPageComponents/RegistrationForm";
+import RegistrationFormComponent from "../components/registrationPageComponents/RegistrationFormComponent";
+
 
 
 const RegisterAccountPage = () => {
   return (
     <>
       <div className="bg-mob-hero-slash bg-no-repeat">
-        <RegistrationForm />
+       <RegistrationFormComponent />
       </div>
     </>
   );
