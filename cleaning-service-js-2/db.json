@@ -78,6 +78,15 @@
       "grade": "Fönstertvätt",
       "cleaner": "Susie",
       "status": true
+    },
+    {
+      "id": "4edaa515-2a21-4009-9c0d-31f20cd576ed",
+      "date": "2024-03-26T04:35:29.954Z",
+      "time": "03:35",
+      "customer": "",
+      "grade": "Toppstädning",
+      "cleaner": "Marty",
+      "status": false
     }
   ]
 }

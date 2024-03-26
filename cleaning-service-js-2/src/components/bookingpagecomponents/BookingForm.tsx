@@ -77,15 +77,15 @@ const BookingForm: React.FC= () => {
     <>
       <section className="flex flex-wrap items-center justify-center h-full text-primaryBlue mx-10 mb-16 mt-44">
         <div className="bg-primaryBeige p-8 rounded-lg shadow-lg">
-          <h1 className="text-3xl font-bold mb-8 text-center">Book Cleaning</h1>
+          <h1 className="text-3xl font-bold mb-8 text-center">Boka Städning</h1>
           <form onSubmit={handleSubmit} className="flex flex-col">
             <fieldset className="border-b border-primaryBlue mb-3">
-              <legend className="text-xs">1. Select Cleaner</legend>
+              <legend className="text-xs">1. Välj städare</legend>
               <select 
               className="border p-2 rounded-md my-4 mb-6 text-sm md:text-base"
               name="cleaner" 
               onChange={handleChange}>
-                <option value="">Select cleaner...</option>
+                <option value="">Välj Städare...</option>
                 {cleaners.map((cleaner) => (
                   <option key={cleaner.id} value={cleaner.name}>
                     {cleaner.name}
@@ -95,7 +95,7 @@ const BookingForm: React.FC= () => {
             </fieldset>
 
             <fieldset className="pb-6 mb-3 grid grid-cols-2 lg:grid-cols-4 border-b border-primaryBlue ">
-              <legend className="mb-2 text-xs">2. Select Cleaning Type</legend>
+              <legend className="mb-2 text-xs">2. Välj tjänst</legend>
               {Object.values(CleaningGrade).map((grade) => (
                 <label
                   key={grade}
@@ -113,7 +113,7 @@ const BookingForm: React.FC= () => {
                 </label>
               ))}
             </fieldset>
-            <legend className="mb-2 text-xs">3. Select Date and Time</legend>
+            <legend className="mb-2 text-xs">3. Välj datum och tid</legend>
             <div className="flex justify-center">
               <DatePicker
                 selected={formValues.date}
