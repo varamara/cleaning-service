@@ -8,6 +8,7 @@ import axios from "axios";
 // TODO med CSS, landingpage och bookingpage -- Fixat startsidan så det ser bättre ut, utveckla senare om det finns tid
 // TODO så man kommer till mina sidor via url mina-sidor när man är inloggad --- Mikah
 // TODO så att man bara kan välja halvtimmar inte minuter i bokningsformuläret
+// Hur gör man så att bokningen som görs kopplas till currentUser
 
 
 
