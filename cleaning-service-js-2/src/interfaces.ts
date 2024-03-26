@@ -7,6 +7,7 @@ export enum CleaningGrade {
 
 export interface IBooking {
   id: string;
+  userId: string;
   date: Date;
   time: string;
   customer: string;
@@ -36,5 +37,5 @@ export interface IUser {
   firstName: string;
   lastName: string; 
   email: string;
-  // bookings: IBooking[]; 
+ bookings: IBooking[]; 
 }

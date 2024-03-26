@@ -6,7 +6,19 @@
       "password": "hej",
       "firstName": "hej",
       "lastName": "hej",
-      "email": "hej@hej"
+      "email": "hej@hej",
+      "bookings": [
+        {
+          "id": "725e89ca-f8ba-4782-89da-e365407c277d",
+          "userId": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
+          "date": "2024-03-27T23:59:50.000Z",
+          "time": "11:00",
+          "customer": "Tanja",
+          "grade": "Diamantstädning",
+          "cleaner": "Larry",
+          "status": false
+        }
+      ]
     },
     {
       "id": "6511e950-945c-4c43-bc30-9f20e9895b8f",
@@ -14,7 +26,8 @@
       "password": "a",
       "firstName": "a",
       "lastName": "a",
-      "email": "a@a.a"
+      "email": "a@a.a",
+      "bookings": []
     },
     {
       "id": "af1acc5d-7323-4a73-b20b-8b9265200bf0",
@@ -22,7 +35,8 @@
       "password": "b",
       "firstName": "b",
       "lastName": "b",
-      "email": "b@b.com"
+      "email": "b@b.com",
+      "bookings": []
     }
   ],
   "cleaners": [
@@ -50,7 +64,7 @@
       "customer": "",
       "grade": "Diamantstädning",
       "cleaner": "Larry",
-      "status": false
+      "status": true
     },
     {
       "id": "6acd2449-11a0-4131-8c05-a32a03f99e89",
@@ -85,6 +99,36 @@
       "time": "03:35",
       "customer": "",
       "grade": "Toppstädning",
+      "cleaner": "Marty",
+      "status": false
+    },
+    {
+      "id": "e2f83696-1591-484a-8947-d2ca0b0ed3ab",
+      "userId": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
+      "customer": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
+      "date": "2024-03-27T08:37:36.000Z",
+      "time": "19:39",
+      "grade": "Diamantstädning",
+      "cleaner": "Marty",
+      "status": false
+    },
+    {
+      "id": "faf284dd-63a3-4859-93db-642405ad7206",
+      "userId": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
+      "customer": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
+      "date": "2024-03-26T08:46:59.310Z",
+      "time": "19:53",
+      "grade": "Diamantstädning",
+      "cleaner": "Marty",
+      "status": false
+    },
+    {
+      "id": "74444817-a7e6-4b96-abd9-213af9321f36",
+      "userId": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
+      "customer": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
+      "date": "2024-03-28T08:46:59.000Z",
+      "time": "19:53",
+      "grade": "Diamantstädning",
       "cleaner": "Marty",
       "status": false
     }

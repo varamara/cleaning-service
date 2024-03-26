@@ -32,6 +32,7 @@ const RegistrationForm: React.FC = () => {
 
     const newUser: IUser = {
       id: uuidv4(),
+      bookings: [],
       username: formData.username,
       password: formData.password,
       firstName: formData.firstName,

@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import { IBooking, CleaningGrade } from "../../interfaces";
 import PrimaryButton from "../sharedcomponents/PrimaryButton";
 import { BookingContext } from "../../contexts/bookingContext/BookingProvider";
+import { RegistrationContext } from "../../contexts/registrationContext/RegistrationProvider";
 
 const BookingForm: React.FC= () => {
   const { addBooking, cleaners, bookings } = useContext(BookingContext) as {
@@ -12,9 +13,15 @@ const BookingForm: React.FC= () => {
     bookings: IBooking[];
     cleaners: { id: string; name: string }[];
   };
+  const { currentUser } = useContext(RegistrationContext) as {
+    currentUser: { 
+      id: string; 
+      bookings: IBooking[]};
+  }
   
   const [formValues, setFormValues] = useState<IBooking>({
     id: "",
+    userId: "",
     cleaner: "",
     grade: CleaningGrade.Basic,
     date: new Date(),
@@ -62,9 +69,10 @@ const BookingForm: React.FC= () => {
     
     const newBooking: IBooking = {
       id: uuidv4(),
+      userId: currentUser.id,
+      customer: currentUser.id,
       date: formValues.date,
       time: formValues.time,
-      customer: formValues.customer,
       grade: formValues.grade,
       cleaner: formValues.cleaner,
       status: formValues.status,

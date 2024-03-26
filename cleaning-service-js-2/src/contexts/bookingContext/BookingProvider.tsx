@@ -61,6 +61,7 @@ export const BookingProvider: React.FC<{ children: ReactNode }> = ({
   const addBooking = async (newBooking: IBooking) => {
     try {
       await axios.post("http://localhost:3000/bookings", newBooking);
+      
       fetchBookings();
     } catch (error) {
       console.error("Error adding booking:", error);

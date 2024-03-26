@@ -3,6 +3,8 @@ import TrashBin from "../../../assets/delete.png";
 import PrimaryButton from "../../sharedcomponents/PrimaryButton";
 import { IBooking } from "../../../interfaces";
 import { BookingContext } from "../../../contexts/bookingContext/BookingProvider";
+import { RegistrationContext } from "../../../contexts/registrationContext/RegistrationProvider";
+
 
 
 const FutureBookings: React.FC = () => {
@@ -11,6 +13,12 @@ const FutureBookings: React.FC = () => {
     setBookings: (bookings: IBooking[]) => void;
     removeBooking: (id: string) => void;
     updateBooking: (updatedBooking: IBooking) => void;
+  }
+  const { currentUser } = useContext(RegistrationContext) as {
+    currentUser: {
+      id: string;
+      bookings: IBooking[];
+    };
   }
 
   const [checkedFutureBookings, setCheckedFutureBookings] = useState<string[]>(
@@ -39,7 +47,7 @@ const FutureBookings: React.FC = () => {
         checkedFutureBookings.includes(booking.id)
       );
 
-      const updatePromises = markedBookings.map( (booking) => {
+      const updatePromises = markedBookings.map((booking) => {
         try {
           const updatedBooking = { ...booking, status: true };
 
@@ -58,9 +66,9 @@ const FutureBookings: React.FC = () => {
         (booking) => booking !== null
       );
       setBookings(bookings.map((prevBooking: IBooking) =>
-      filteredUpdatedBookings.find((booking: IBooking | null) => booking?.id === prevBooking.id) || prevBooking
-    ));
-      
+        filteredUpdatedBookings.find((booking: IBooking | null) => booking?.id === prevBooking.id) || prevBooking
+      ));
+
       setCheckedFutureBookings([]);
     } catch (error) {
       console.error("Error updating bookings:", error);
@@ -72,32 +80,40 @@ const FutureBookings: React.FC = () => {
       <h2 className="text-2xl text-primaryBlue justify-center w-1/2 mx-auto mb-5">
         Kommande bokningar
       </h2>
-      {bookings.map((book) => {
-        if (book.status === false) {
-          return (
-            <div className="" key={book.id}>
-              <ul className="bg-secondaryBlue flex justify-center items-center mx-auto rounded-lg mb-6 text-xs md:text-base lg:text-md w-5/6 md:w-3/4 lg:w-3/6 min-h-20">
-                <li className="flex-grow m-3 font-semibold ">
-                  {book.cleaner} 2h
-                </li>
-                <li className="flex-grow m-3 ">{book.grade}</li>
-                <li className="flex-grow m-3">
-                  {new Date(book.date).toLocaleDateString("sv-SE")}
-                </li>
-                <li className="flex-grow m-3">{book.time}</li>
-                <input
-                  type="checkbox"
-                  className="m-3"
-                  onChange={() => handleCheck(book.id)}
-                />
-                <button className="m-3" onClick={() => handleRemove(book.id)}>
-                  <img className="size-5" src={TrashBin} alt="Trash bin" />
-                </button>
-              </ul>
-            </div>
-          );
-        }
-      })}
+      {currentUser ? (
+        currentUser.bookings.map((book) => {
+          if (book.status === false) {
+            return (
+              <div className="" key={book.id}>
+                <ul className="bg-secondaryBlue flex justify-center items-center mx-auto rounded-lg mb-6 text-xs md:text-base lg:text-md w-5/6 md:w-3/4 lg:w-3/6 min-h-20">
+                  <li className="flex-grow m-3 font-semibold ">
+                    {book.cleaner} 2h
+                  </li>
+                  <li className="flex-grow m-3 ">{book.grade}</li>
+                  <li className="flex-grow m-3">
+                    {new Date(book.date).toLocaleDateString("sv-SE")}
+                  </li>
+                  <li className="flex-grow m-3">{book.time}</li>
+                  <input
+                    type="checkbox"
+                    className="m-3"
+                    onChange={() => handleCheck(book.id)}
+                  />
+                  <button className="m-3" onClick={() => handleRemove(book.id)}>
+                    <img className="size-5" src={TrashBin} alt="Trash bin" />
+                  </button>
+                </ul>
+              </div>
+            );
+          } else {
+            return (
+              <p key={book.id}>Inga bokningar...</p>
+            );
+          }
+        })
+      ) : (
+        <p>No bookings found</p>
+      )}
       <div className="flex justify-center mx-auto mt-10">
         <PrimaryButton
           buttonText="MARKERA SOM UTFÖRDA"
