@@ -80,10 +80,9 @@ const FutureBookings: React.FC = () => {
       <h2 className="text-2xl text-primaryBlue justify-center w-1/2 mx-auto mb-5">
         Kommande bokningar
       </h2>
-      {currentUser ? (
-        currentUser.bookings.map((book) => {
-          if (book.status === false) {
-            return (
+      {bookings.map((book) => {
+        if (book.status === false) {
+          return (
               <div className="" key={book.id}>
                 <ul className="bg-secondaryBlue flex justify-center items-center mx-auto rounded-lg mb-6 text-xs md:text-base lg:text-md w-5/6 md:w-3/4 lg:w-3/6 min-h-20">
                   <li className="flex-grow m-3 font-semibold ">
@@ -105,15 +104,8 @@ const FutureBookings: React.FC = () => {
                 </ul>
               </div>
             );
-          } else {
-            return (
-              <p key={book.id}>Inga bokningar...</p>
-            );
           }
-        })
-      ) : (
-        <p>No bookings found</p>
-      )}
+        })}
       <div className="flex justify-center mx-auto mt-10">
         <PrimaryButton
           buttonText="MARKERA SOM UTFÖRDA"

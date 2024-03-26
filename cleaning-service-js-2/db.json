@@ -131,6 +131,16 @@
       "grade": "Diamantstädning",
       "cleaner": "Marty",
       "status": false
+    },
+    {
+      "id": "e21e2a8b-c290-4231-923f-2c9c90c795c3",
+      "userId": "6511e950-945c-4c43-bc30-9f20e9895b8f",
+      "customer": "6511e950-945c-4c43-bc30-9f20e9895b8f",
+      "date": "2024-03-30T10:37:08.000Z",
+      "time": "14:37",
+      "grade": "Toppstädning",
+      "cleaner": "Susie",
+      "status": true
     }
   ]
 }
