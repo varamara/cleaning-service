@@ -22,7 +22,7 @@ const SustainabilityInfo: React.FC = () => {
               Earum totam, suscipit nulla eaque, reiciendis soluta itaque eum
               quibusdam necessitatibus est debitis, repellat praesentium.
             </p>
-            <button className="btn border-2 border-primaryBlue px-4 py-1 text-sm rounded-full my-4">
+            <button className="btn border-2 border-primaryBlue px-4 py-1 text-sm rounded-full my-4 hover:bg-primaryBlue hover:text-white transition duration-200">
               Boka städning
             </button>
           </div>

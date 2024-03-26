@@ -47,14 +47,14 @@ const CompletedBookings: React.FC = () => {
 
   return (
     <section>
-      <h2 className="text-h2 text-primaryBlue ustify-center w-1/2 mx-auto mb-5">
+      <h2 className="text-2xl text-primaryBlue ustify-center w-1/2 mx-auto mb-5">
         Utförda Bokningar
       </h2>
       {bookings.map((book) => {
         if (book.status === true) {
           return (
             <div className="" key={book.id}>
-              <ul className="bg-primaryBeige text-primaryBlue flex justify-center items-center mx-auto rounded-lg mb-6 text-sm md:text-base lg:text-md w-5/6 md:w-3/4 lg:w-3/6 min-h-20">
+              <ul className="bg-primaryBeige text-primaryBlue flex justify-center items-center mx-auto rounded-lg mb-6 text-xs md:text-base lg:text-md w-5/6 md:w-3/4 lg:w-3/6 min-h-20">
                 <li className="flex-grow m-3 font-semibold ">
                   {book.cleaner} 2h
                 </li>

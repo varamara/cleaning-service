@@ -69,14 +69,14 @@ const FutureBookings: React.FC = () => {
 
   return (
     <section className="mt-36 mb-20">
-      <h2 className="text-h2 text-primaryBlue justify-center w-1/2 mx-auto mb-5">
+      <h2 className="text-2xl text-primaryBlue justify-center w-1/2 mx-auto mb-5">
         Kommande bokningar
       </h2>
       {bookings.map((book) => {
         if (book.status === false) {
           return (
             <div className="" key={book.id}>
-              <ul className="bg-secondaryBlue flex justify-center items-center mx-auto rounded-lg mb-6 text-sm md:text-base lg:text-md w-5/6 md:w-3/4 lg:w-3/6 min-h-20">
+              <ul className="bg-secondaryBlue flex justify-center items-center mx-auto rounded-lg mb-6 text-xs md:text-base lg:text-md w-5/6 md:w-3/4 lg:w-3/6 min-h-20">
                 <li className="flex-grow m-3 font-semibold ">
                   {book.cleaner} 2h
                 </li>

@@ -38,21 +38,21 @@ const Navbar = () => {
     <>
       <nav
         id="navbar"
-        className={`flex items-center justify-between py-2 px-6 fixed top-0 left-0 w-full z-10 transition-all duration-500 ease-in-out ${
+        className={`grid grid-cols-3 items-center justify-between py-2 px-6 fixed top-0 left-0 w-full z-10 transition-all duration-500 ease-in-out ${
           scrolled ? "bg-primaryBeige" : "bg-transparent"
         }`}
       >
-        <div className="flex items-center">
+        <div className="flex items-center justify-start">
           <button className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
             <GiHamburgerMenu />
           </button>
         </div>
-
-        <Link className="ml-40" to="/">
+        <div>
+        <Link className="flex items-center justify-center" to="/">
           <Logo />
         </Link>
-
-        <div className="flex items-center">
+        </div>
+        <div className="flex items-center justify-end">
           {currentUser && (
             <Link to="/mina-sidor">
               <button className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
@@ -61,11 +61,11 @@ const Navbar = () => {
               </button>
             </Link>
           )}
-          <div className="flex items-center">
+          <div className="">
             {currentUser ? (
               <button
                 onClick={handleLogout}
-                className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center"
+                className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline "
               >
                 <FiLogOut />
               </button>

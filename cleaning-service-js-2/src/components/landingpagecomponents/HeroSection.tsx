@@ -7,7 +7,7 @@ const HeroSection: React.FC = () => {
       <div className="bg-mob-hero-slash bg-no-repeat">
         <div className="mt-24 text-base sm:flex-row justify-center sm:columns-2 grid grid-cols-2">
           <div className="p-9 sm:p-8 sm:w-full flex flex-col justify-center  ">
-            <h1 className="sm:text-lg md:text-4xl  text-primaryBlue">
+            <h1 className="sm:text-lg md:text-4xl  text-primaryBlue mb-4">
               Det här är en heading om städning
             </h1>
             <p className="text-sm text-primaryBlue">
@@ -18,7 +18,7 @@ const HeroSection: React.FC = () => {
               enim quia, a quod excepturi quisquam voluptas magnam dignissimos
               dolor pariatur maxime ipsum rerum? Quam alias harum ea!
             </p>
-            <button className="btn border-2 border-primaryBlue px-4 py-1 text-sm rounded-full my-4 inline-block w-64">
+            <button className="btn border-2 border-primaryBlue px-4 py-1 text-sm rounded-full my-4 inline-block w-64 hover:bg-primaryBlue hover:text-white transition duration-200">
               Boka städning
             </button>
           </div>
