@@ -38,9 +38,8 @@ const Navbar = () => {
     <>
       <nav
         id="navbar"
-        className={`grid grid-cols-3 items-center justify-between py-2 px-6 fixed top-0 left-0 w-full z-10 transition-all duration-500 ease-in-out ${
-          scrolled ? "bg-primaryBeige" : "bg-transparent"
-        }`}
+        className={`grid grid-cols-3 items-center justify-between py-2 px-6 fixed top-0 left-0 w-full z-10 transition-all duration-500 ease-in-out ${scrolled ? "bg-primaryBeige" : "bg-transparent"
+          }`}
       >
         <div className="flex items-center justify-start">
           <button className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
@@ -48,35 +47,35 @@ const Navbar = () => {
           </button>
         </div>
         <div>
-        <Link className="flex items-center justify-center" to="/">
-          <Logo />
-        </Link>
+          <Link className="flex items-center justify-center" to="/">
+            <Logo />
+          </Link>
         </div>
         <div className="flex items-center justify-end">
-          {currentUser && (
-            <Link to="/mina-sidor">
-              <button className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
-                <FaRegUser />{" "}
-                <span className="ml-2">{currentUser.username}</span>
-              </button>
-            </Link>
-          )}
-                    <Link to="/booking">
-            <button className="text-white bg-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded-md focus:outline-none focus:shadow-outline flex flex-row items-center">
+          <Link to="/booking">
+            <button className="text-white bg-secondaryOrange sm:text-xl lg:text-2xl tracking-wide rounded-lg py-2 px-8 mr-4 focus:outline-none focus:shadow-outline flex flex-row items-center hover:bg-primaryOrange transition duration-200">
               <MdOutlineCleaningServices /> <span className="text-base pl-3">Boka Städning</span>
             </button>
           </Link>
+          {currentUser && (
+            <Link to="/mina-sidor">
+              <button className="text-secondaryOrange sm:text-xl lg:text-1xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
+                <FaRegUser />{" "}
+                <span className="ml-2 text-base">{currentUser.username}</span>
+              </button>
+            </Link>
+          )}
           <div className="">
             {currentUser ? (
               <button
                 onClick={handleLogout}
-                className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline "
+                className="text-secondaryOrange sm:text-xl lg:text-1xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline "
               >
                 <FiLogOut />
               </button>
             ) : (
               <Link to="/register">
-                <button className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
+                <button className="text-secondaryOrange sm:text-xl lg:text-1xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
                   <FiLogIn />
                 </button>
               </Link>

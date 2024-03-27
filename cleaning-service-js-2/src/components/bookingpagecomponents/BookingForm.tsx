@@ -57,7 +57,7 @@ const BookingForm: React.FC = () => {
     setIsSubmitted(true)
 
     if (!formValues.cleaner || !formValues.grade || !formValues.date || !formValues.time) {
-      alert("Fyll i alla fält för att boka städning");
+      alert("Vänligen fyll i alla fält för att boka städning.");
       return;
     }
 
@@ -69,7 +69,7 @@ const BookingForm: React.FC = () => {
     );
 
     if (isAlreadyBooked) {
-      alert("Selected cleaner is already booked at the chosen date and time");
+      alert("Städaren är redan bokad vid vald tid. Vänligen välj en annan tid.");
       return;
     }
 
