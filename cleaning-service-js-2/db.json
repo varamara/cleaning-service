@@ -37,6 +37,24 @@
       "lastName": "b",
       "email": "b@b.com",
       "bookings": []
+    },
+    {
+      "id": "bd833c97-e11c-46a0-b749-280e80a77f5c",
+      "bookings": [],
+      "username": "Billy",
+      "password": "Billy123!",
+      "firstName": "Billy",
+      "lastName": "Button",
+      "email": "billy@billy"
+    },
+    {
+      "id": "275eaeb1-f276-4a27-a955-2f2047d01135",
+      "bookings": [],
+      "username": "hej",
+      "password": "Hejsan123!",
+      "firstName": "hej",
+      "lastName": "hej",
+      "email": "hej@hejsan"
     }
   ],
   "cleaners": [

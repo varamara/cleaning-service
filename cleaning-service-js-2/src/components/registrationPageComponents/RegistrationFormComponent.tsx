@@ -27,8 +27,13 @@ const RegistrationFormComponent: React.FC = () => {
     }));
   };
 
+  
+  const [isSubmitted, setIsSubmitted ] = useState<boolean>(false)
+
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitted(true);
 
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,24}$/;
     if(!passwordRegex.test(formData.password)){
@@ -51,7 +56,7 @@ const RegistrationFormComponent: React.FC = () => {
 
     console.log(formData);
     registerUser(newUser);
-    alert("Inloggning lyckades!");
+    alert("Du är nu registrerad! Vänligen logga in.");
 
     
     setFormData({
@@ -89,8 +94,7 @@ const RegistrationFormComponent: React.FC = () => {
                     name="firstName"
                     type="text"
                     autoComplete="given-name"
-                    required
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm  ${isSubmitted && !formData.firstName ? "border-red-700" : ""}  `}
                     value={formData.firstName}
                     onChange={handleChange}
                   />
@@ -110,8 +114,7 @@ const RegistrationFormComponent: React.FC = () => {
                     name="lastName"
                     type="text"
                     autoComplete="family-name"
-                    required
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${isSubmitted && !formData.lastName ? "border-red-700" : ""}`}
                     value={formData.lastName}
                     onChange={handleChange}
                   />
@@ -130,8 +133,7 @@ const RegistrationFormComponent: React.FC = () => {
                     name="username"
                     type="text"
                     autoComplete="username"
-                    required
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${isSubmitted && !formData.username ? "border-red-700" : ""}`}
                     value={formData.username}
                     onChange={handleChange}
                   />
@@ -150,8 +152,7 @@ const RegistrationFormComponent: React.FC = () => {
                     name="email"
                     type="email"
                     autoComplete="email"
-                    required
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${isSubmitted && !formData.email ? "border-red-700" : ""}`}
                     value={formData.email}
                     onChange={handleChange}
                   />
@@ -170,8 +171,7 @@ const RegistrationFormComponent: React.FC = () => {
                     name="password"
                     type="password"
                     autoComplete="new-password"
-                    required
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${isSubmitted && !formData.password ? "border-red-700" : ""}`}
                     value={formData.password}
                     onChange={handleChange}
                   />
@@ -190,8 +190,7 @@ const RegistrationFormComponent: React.FC = () => {
                     name="confirmPassword"
                     type="password"
                     autoComplete="new-password"
-                    required
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${isSubmitted && !formData.confirmPassword ? "border-red-700" : ""}`}
                     value={formData.confirmPassword}
                     onChange={handleChange}
                   />
@@ -200,11 +199,11 @@ const RegistrationFormComponent: React.FC = () => {
               <div>
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white  bg-primaryOrange hover:bg-secondaryOrange focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white  bg-secondaryOrange hover:bg-primaryOrange focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-200"
                 >
                   Register
                 </button>
-                <p className="mt-6 text-sm text-center">Har du redan en användare? <a className="font-medium text-primaryOrange hover:text-indigo-500" href="/login">Logga in</a></p>
+                <p className="mt-6 text-sm text-center">Har du redan en användare? <a className="font-medium text-secondaryOrange hover:underline hover:underline-offset-4" href="/login">Logga in</a></p>
               </div>
             </form>
           </div>

@@ -61,6 +61,11 @@ const Navbar = () => {
               </button>
             </Link>
           )}
+                    <Link to="/booking">
+            <button className="text-white bg-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded-md focus:outline-none focus:shadow-outline flex flex-row items-center">
+              <MdOutlineCleaningServices /> <span className="text-base pl-3">Boka Städning</span>
+            </button>
+          </Link>
           <div className="">
             {currentUser ? (
               <button
@@ -77,11 +82,7 @@ const Navbar = () => {
               </Link>
             )}
           </div>
-          <Link to="/booking">
-            <button className="text-secondaryOrange sm:text-xl lg:text-2xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
-              <MdOutlineCleaningServices />
-            </button>
-          </Link>
+
         </div>
       </nav>
     </>
