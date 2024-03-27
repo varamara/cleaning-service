@@ -13,7 +13,7 @@ const UserPage: React.FC = () => {
         <h1 className="mb-20 text-h1 font-bold text-secondaryOrange text-center">
           Mina Sidor
         </h1>
-        <h2 className="text-h2 text-primaryBlue Justify-center w-1/2 mx-auto mb-5">
+        <h2 className="text-2xl text-primaryBlue Justify-center w-1/2 mx-auto mb-5">
           Utförda Bokningar
         </h2>
         {bookings.map((book) => {
@@ -37,7 +37,7 @@ const UserPage: React.FC = () => {
       </section>
 
       <section className="future-bookings mt-20 mb-40">
-        <h2 className="text-h2 text-primaryBlue justify-center w-1/2 mx-auto mb-5">
+        <h2 className="text-2xl text-primaryBlue justify-center w-1/2 mx-auto mb-5">
           Kommande bokningar
         </h2>
         {bookings.map((book) => {
