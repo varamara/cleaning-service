@@ -10,15 +10,15 @@ const UserPage: React.FC = () => {
 
   return (
     <>
-      <h1 className="mt-20 text-h1 font-bold text-secondaryOrange text-center">
+      <h1 className="mt-40 text-h1 font-bold text-secondaryOrange text-center">
         Mina Sidor
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div>
+      <div className=" mt-20 grid grid-cols-1 md:grid-cols-2">
+        <div className="ml-40">
           <UserInfo />
         </div>
-        <div>
-          <section className="completed-bookings mt-40">
+        <div className="mr-40">
+          <section className="completed-bookings">
             <h2 className="text-2xl text-primaryBlue Justify-center w-1/2 mx-auto mb-5">
               Utförda Bokningar
             </h2>
@@ -26,7 +26,7 @@ const UserPage: React.FC = () => {
               if (book.status === true) {
                 return (
                   <div className="" key={book.id}>
-                    <ul className="bg-primaryBeige text-primaryBlue flex justify-center items-center mx-auto rounded-lg mb-6 text-sm md:text-base lg:text-md w-5/6 md:w-3/4 lg:w-3/6 min-h-20">
+                    <ul className="bg-primaryBeige text-primaryBlue flex justify-center items-center mx-auto rounded-lg mb-6 text-sm md:text-base lg:text-md w-5/6 md:w-3/4 lg:w-3/6 min-h-20 min-w-full">
                       <li className="flex-grow m-3 font-semibold ">
                         {book.cleaner} 2h
                       </li>
@@ -50,7 +50,7 @@ const UserPage: React.FC = () => {
               if (book.status === false) {
                 return (
                   <div className="" key={book.id}>
-                    <ul className="bg-secondaryBlue flex justify-center items-center mx-auto rounded-lg mb-6 text-sm md:text-base lg:text-md w-5/6 md:w-3/4 lg:w-3/6 min-h-20">
+                    <ul className="bg-secondaryBlue flex justify-center items-center mx-auto rounded-lg mb-6 text-sm md:text-base lg:text-md w-5/6 md:w-3/4 lg:w-3/6 min-h-20 min-w-full">
                       <li className="flex-grow m-3 font-semibold ">
                         {book.cleaner} 2h
                       </li>
