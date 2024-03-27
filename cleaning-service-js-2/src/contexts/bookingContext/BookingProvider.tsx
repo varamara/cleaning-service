@@ -58,7 +58,7 @@ export const BookingProvider: React.FC<{ children: ReactNode }> = ({
       console.error("Error fetching cleaners:", error);
     }
   };
-
+//"/users/${id}/bookings, newBooking
   const addBooking = async (newBooking: IBooking) => {
     try {
       await axios.post("http://localhost:3000/bookings", newBooking);

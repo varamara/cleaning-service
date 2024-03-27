@@ -53,15 +53,15 @@ const Navbar = () => {
         </div>
         <div className="flex items-center justify-end">
           <Link to="/booking">
-            <button className="text-white bg-secondaryOrange sm:text-base lg:text-md tracking-wider rounded-lg py-2 px-8 smÖmr-4 focus:outline-none focus:shadow-outline flex flex-row items-center hover:bg-primaryOrange transition duration-200">
-              <span className="hidden sm:block"><MdOutlineCleaningServices /> </span> <span className="text-xs sm:text-sm sm:pl-3">Boka Städning</span>
+            <button className="text-white bg-secondaryOrange sm:text-base lg:text-base tracking-wider rounded-lg py-2 px-4 sm:mr-4 focus:outline-none focus:shadow-outline flex flex-row items-center hover:bg-primaryOrange transition duration-200">
+              <span className=" sm:hidden">Boka </span> <span className=" hidden sm:flex text-xs sm:text-sm">Boka Städning</span>
             </button>
           </Link>
           {currentUser && (
             <Link to="/mina-sidor">
               <button className="text-secondaryOrange sm:text-xl lg:text-1xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
                 <FaRegUser />{" "}
-                <span className="ml-2 text-base">{currentUser.username}</span>
+                <span className="ml-2 text-base hidden sm:flex">{currentUser.username}</span>
               </button>
             </Link>
           )}

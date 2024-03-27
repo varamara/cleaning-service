@@ -85,15 +85,6 @@
       "status": true
     },
     {
-      "id": "6acd2449-11a0-4131-8c05-a32a03f99e89",
-      "date": "2024-03-27T23:59:50.000Z",
-      "time": "00:00",
-      "customer": "",
-      "grade": "Toppstädning",
-      "cleaner": "Marty",
-      "status": false
-    },
-    {
       "id": "d1f7d4b9-b7e6-4a87-a8f3-c4864acc8f7c",
       "date": "2024-03-12T23:59:50.000Z",
       "time": "00:00",
@@ -103,41 +94,13 @@
       "status": true
     },
     {
-      "id": "c1699990-259c-4805-bfd9-81ebaae1dc10",
-      "date": "2024-03-12T23:59:50.000Z",
-      "time": "14:00",
-      "customer": "",
-      "grade": "Fönstertvätt",
-      "cleaner": "Susie",
-      "status": true
-    },
-    {
-      "id": "4edaa515-2a21-4009-9c0d-31f20cd576ed",
-      "date": "2024-03-26T04:35:29.954Z",
-      "time": "03:35",
-      "customer": "",
-      "grade": "Toppstädning",
-      "cleaner": "Marty",
-      "status": false
-    },
-    {
-      "id": "0038cef0-a785-48b9-b125-4e18ba45067f",
+      "id": "13ac622a-ef48-425d-8686-631110a2455a",
       "userId": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
       "customer": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
-      "date": "2024-03-28T02:52:17.000Z",
-      "time": "13:55",
-      "grade": "Basic städning",
+      "date": "2024-03-30T07:24:11.000Z",
+      "time": "18:26",
+      "grade": "Diamantstädning",
       "cleaner": "Marty",
-      "status": false
-    },
-    {
-      "id": "f2389d61-eee3-49a6-b456-6fd462f76f5a",
-      "userId": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
-      "customer": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
-      "date": "2024-03-28T02:52:17.000Z",
-      "time": "13:55",
-      "grade": "Basic städning",
-      "cleaner": "Susie",
       "status": false
     }
   ]
