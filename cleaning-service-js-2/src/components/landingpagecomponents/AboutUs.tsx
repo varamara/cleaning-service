@@ -46,7 +46,7 @@ const AboutUs: React.FC = () => {
               adipisci et voluptate totam magnam odit possimus non dolore esse
               eaque, aliquam nam dolorem.
             </p>
-            <button className="btn border-2 border-primaryBlue px-4 py-1 text-sm rounded-full mt-8 self-center hover:bg-primaryBlue hover:text-white transition duration-200">
+            <button className="btn border-2 border-primaryBlue px-8 py-2 text-sm rounded-full mt-8 self-center hover:bg-primaryBlue hover:text-white transition duration-200 tracking-wider">
               Boka städning
             </button>
           </div>

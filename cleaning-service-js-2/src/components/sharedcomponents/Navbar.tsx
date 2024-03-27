@@ -53,7 +53,7 @@ const Navbar = () => {
         </div>
         <div className="flex items-center justify-end">
           <Link to="/booking">
-            <button className="text-white bg-secondaryOrange sm:text-xl lg:text-2xl tracking-wide rounded-lg py-2 px-8 mr-4 focus:outline-none focus:shadow-outline flex flex-row items-center hover:bg-primaryOrange transition duration-200">
+            <button className="text-white bg-secondaryOrange sm:text-xl lg:text-2xl tracking-wider rounded-lg py-2 px-8 mr-4 focus:outline-none focus:shadow-outline flex flex-row items-center hover:bg-primaryOrange transition duration-200">
               <MdOutlineCleaningServices /> <span className="text-base pl-3">Boka Städning</span>
             </button>
           </Link>

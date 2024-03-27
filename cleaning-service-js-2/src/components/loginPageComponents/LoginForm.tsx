@@ -57,7 +57,7 @@ const LoginForm = () => {
                   htmlFor="username"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Username
+                  Användarnamn
                 </label>
                 <div className="mt-1">
                   <input
@@ -77,7 +77,7 @@ const LoginForm = () => {
                   htmlFor="password"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Password
+                  Lösenord
                 </label>
                 <div className="mt-1">
                   <input
@@ -97,7 +97,7 @@ const LoginForm = () => {
                   htmlFor="confirmPassword"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Confirm Password
+                  Bekräfta lösenord
                 </label>
                 <div className="mt-1">
                   <input
@@ -115,9 +115,9 @@ const LoginForm = () => {
               <div>
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white bg-secondaryOrange hover:bg-primaryOrange focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-200"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-full tracking-wider shadow-sm text-sm font-medium text-white bg-secondaryOrange hover:bg-primaryOrange focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-200"
                 >
-                  Log in
+                  Logga in
                 </button>
               </div>
             </form>

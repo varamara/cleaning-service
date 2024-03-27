@@ -13,7 +13,7 @@ const SustainabilityInfo: React.FC = () => {
 
         <div className="w-full bg-primaryBeige flex items-center justify-center h-screen">
           <div className="w-2/3">
-            <h2>Vårt Miljöarbete</h2>
+            <h2 className="text-lg pb-2">Vårt Miljöarbete</h2>
             <p className="text-xs">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Est
               explicabo et, consequuntur quae iste harum eum nisi modi sapiente.
@@ -22,7 +22,7 @@ const SustainabilityInfo: React.FC = () => {
               Earum totam, suscipit nulla eaque, reiciendis soluta itaque eum
               quibusdam necessitatibus est debitis, repellat praesentium.
             </p>
-            <button className="btn border-2 border-primaryBlue px-4 py-1 text-sm rounded-full my-4 hover:bg-primaryBlue hover:text-white transition duration-200">
+            <button className="btn border-2 border-primaryBlue px-8 py-2 text-sm rounded-full my-4 hover:bg-primaryBlue hover:text-white transition duration-200 tracking-wider">
               Boka städning
             </button>
           </div>

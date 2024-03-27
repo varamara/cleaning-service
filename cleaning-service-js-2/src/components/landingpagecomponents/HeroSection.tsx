@@ -18,7 +18,7 @@ const HeroSection: React.FC = () => {
               enim quia, a quod excepturi quisquam voluptas magnam dignissimos
               dolor pariatur maxime ipsum rerum? Quam alias harum ea!
             </p>
-            <button className="btn border-2 border-primaryBlue px-4 py-1 text-sm rounded-full my-4 inline-block w-64 hover:bg-primaryBlue hover:text-white transition duration-200">
+            <button className="btn border-2 border-primaryBlue px-4 py-2 text-sm rounded-full my-4 inline-block w-64 hover:bg-primaryBlue hover:text-white transition duration-200 tracking-wider">
               Boka städning
             </button>
           </div>

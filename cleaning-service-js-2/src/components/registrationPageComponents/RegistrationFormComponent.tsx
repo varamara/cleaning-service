@@ -75,7 +75,7 @@ const RegistrationFormComponent: React.FC = () => {
       <div className="min-h-screen m-20 bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h2 className="text-center text-3xl font-bold text-primaryBlue">
-            Register an Account
+            Registrera konto
           </h2>
         </div>
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
@@ -86,7 +86,7 @@ const RegistrationFormComponent: React.FC = () => {
                   htmlFor="firstName"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  First Name
+                  Förnamn
                 </label>
                 <div className="mt-1">
                   <input
@@ -106,7 +106,7 @@ const RegistrationFormComponent: React.FC = () => {
                   htmlFor="lastName"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Last Name
+                  Efternamn
                 </label>
                 <div className="mt-1">
                   <input
@@ -125,7 +125,7 @@ const RegistrationFormComponent: React.FC = () => {
                   htmlFor="username"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Username
+                  Användarnamn
                 </label>
                 <div className="mt-1">
                   <input
@@ -144,7 +144,7 @@ const RegistrationFormComponent: React.FC = () => {
                   htmlFor="email"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Email address
+                  E-mail
                 </label>
                 <div className="mt-1">
                   <input
@@ -163,7 +163,7 @@ const RegistrationFormComponent: React.FC = () => {
                   htmlFor="password"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Password
+                  Lösenord
                 </label>
                 <div className="mt-1">
                   <input
@@ -182,7 +182,7 @@ const RegistrationFormComponent: React.FC = () => {
                   htmlFor="confirmPassword"
                   className="block text-sm font-medium text-gray-700"
                 >
-                  Confirm Password
+                  Bekräfta lösenord
                 </label>
                 <div className="mt-1">
                   <input
@@ -199,9 +199,9 @@ const RegistrationFormComponent: React.FC = () => {
               <div>
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white  bg-secondaryOrange hover:bg-primaryOrange focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-200"
+                  className="w-full flex justify-center py-2 px-4 border border-transparent rounded-full shadow-sm text-sm font-medium text-white  bg-secondaryOrange hover:bg-primaryOrange focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition duration-200 tracking-wider"
                 >
-                  Register
+                  Skapa konto
                 </button>
                 <p className="mt-6 text-sm text-center">Har du redan en användare? <a className="font-medium text-secondaryOrange hover:underline hover:underline-offset-4" href="/login">Logga in</a></p>
               </div>
