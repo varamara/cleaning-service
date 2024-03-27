@@ -7,28 +7,30 @@ import PrimaryButton from "../sharedcomponents/PrimaryButton";
 import { BookingContext } from "../../contexts/bookingContext/BookingProvider";
 import { RegistrationContext } from "../../contexts/registrationContext/RegistrationProvider";
 
-const BookingForm: React.FC= () => {
+const BookingForm: React.FC = () => {
   const { addBooking, cleaners, bookings } = useContext(BookingContext) as {
     addBooking: (booking: IBooking) => void;
     bookings: IBooking[];
     cleaners: { id: string; name: string }[];
   };
   const { currentUser } = useContext(RegistrationContext) as {
-    currentUser: { 
-      id: string; 
-      bookings: IBooking[]};
+    currentUser: {
+      id: string;
+      bookings: IBooking[]
+    };
   }
-  
+
   const [formValues, setFormValues] = useState<IBooking>({
     id: "",
     userId: "",
     cleaner: "",
-    grade: CleaningGrade.Basic,
+    grade: "",
     date: new Date(),
     time: "",
     customer: "",
     status: false,
   });
+
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -47,26 +49,30 @@ const BookingForm: React.FC= () => {
     }));
   };
 
+
+  const [isSubmitted, setIsSubmitted ] = useState<boolean>(false)
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+    setIsSubmitted(true)
+
     if (!formValues.cleaner || !formValues.grade || !formValues.date || !formValues.time) {
-      alert("Please fill in all fields");
+      alert("Fyll i alla fält för att boka städning");
       return;
     }
-  
+
     const isAlreadyBooked = bookings.some(
       booking =>
         booking.cleaner === formValues.cleaner &&
-        new Date(booking.date).getTime() === formValues.date.getTime() && 
-        booking.time === formValues.time 
+        new Date(booking.date).getTime() === formValues.date.getTime() &&
+        booking.time === formValues.time
     );
-    
+
     if (isAlreadyBooked) {
       alert("Selected cleaner is already booked at the chosen date and time");
       return;
     }
-    
+
     const newBooking: IBooking = {
       id: uuidv4(),
       userId: currentUser.id,
@@ -77,7 +83,7 @@ const BookingForm: React.FC= () => {
       cleaner: formValues.cleaner,
       status: formValues.status,
     };
-    
+
     addBooking(newBooking);
   };
 
@@ -89,10 +95,10 @@ const BookingForm: React.FC= () => {
           <form onSubmit={handleSubmit} className="flex flex-col">
             <fieldset className="border-b border-primaryBlue mb-3">
               <legend className="text-xs">1. Välj städare</legend>
-              <select 
-              className="border p-2 rounded-md my-4 mb-6 text-sm md:text-base"
-              name="cleaner" 
-              onChange={handleChange}>
+              <select
+                className={`border p-2 rounded-md my border-primaryOrange-4 mb-6 text-sm md:text-base ${isSubmitted && !formValues.cleaner ? "border-red-700" : ""}`}
+                name="cleaner"
+                onChange={handleChange}>
                 <option value="">Välj Städare...</option>
                 {cleaners.map((cleaner) => (
                   <option key={cleaner.id} value={cleaner.name}>
@@ -115,7 +121,7 @@ const BookingForm: React.FC= () => {
                     value={grade}
                     checked={formValues.grade === grade}
                     onChange={handleChange}
-                    className="appearance-none checked:bg-blue-900"
+                    className={`appearance-none checked:bg-blue-900 ${isSubmitted && !formValues.grade ? "border-2 border-red-700" : ""}`}
                   />
                   <span className="ml-4">{grade}</span>
                 </label>
@@ -133,11 +139,11 @@ const BookingForm: React.FC= () => {
                 name="time"
                 onChange={handleChange}
                 value={formValues.time}
-                className="border p-2 rounded-md my-4 mx-2 text-sm md:text-base"
+                className={`border p-2 rounded-md my-4 mx-2 text-sm md:text-base ${isSubmitted && !formValues.time ? "border-red-700" : ""} `}
               />
             </div>
             <div className="flex justify-center mt-5">
-              <PrimaryButton buttonText={"BOKA STÄDNING"}/>
+              <PrimaryButton buttonText={"BOKA STÄDNING"} />
             </div>
           </form>
         </div>

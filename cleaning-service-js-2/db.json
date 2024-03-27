@@ -103,44 +103,24 @@
       "status": false
     },
     {
-      "id": "e2f83696-1591-484a-8947-d2ca0b0ed3ab",
+      "id": "0038cef0-a785-48b9-b125-4e18ba45067f",
       "userId": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
       "customer": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
-      "date": "2024-03-27T08:37:36.000Z",
-      "time": "19:39",
-      "grade": "Diamantstädning",
+      "date": "2024-03-28T02:52:17.000Z",
+      "time": "13:55",
+      "grade": "Basic städning",
       "cleaner": "Marty",
       "status": false
     },
     {
-      "id": "faf284dd-63a3-4859-93db-642405ad7206",
+      "id": "f2389d61-eee3-49a6-b456-6fd462f76f5a",
       "userId": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
       "customer": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
-      "date": "2024-03-26T08:46:59.310Z",
-      "time": "19:53",
-      "grade": "Diamantstädning",
-      "cleaner": "Marty",
-      "status": false
-    },
-    {
-      "id": "74444817-a7e6-4b96-abd9-213af9321f36",
-      "userId": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
-      "customer": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
-      "date": "2024-03-28T08:46:59.000Z",
-      "time": "19:53",
-      "grade": "Diamantstädning",
-      "cleaner": "Marty",
-      "status": false
-    },
-    {
-      "id": "e21e2a8b-c290-4231-923f-2c9c90c795c3",
-      "userId": "6511e950-945c-4c43-bc30-9f20e9895b8f",
-      "customer": "6511e950-945c-4c43-bc30-9f20e9895b8f",
-      "date": "2024-03-30T10:37:08.000Z",
-      "time": "14:37",
-      "grade": "Toppstädning",
+      "date": "2024-03-28T02:52:17.000Z",
+      "time": "13:55",
+      "grade": "Basic städning",
       "cleaner": "Susie",
-      "status": true
+      "status": false
     }
   ]
 }

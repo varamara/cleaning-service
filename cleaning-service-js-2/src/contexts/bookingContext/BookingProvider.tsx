@@ -5,7 +5,7 @@ import axios from "axios";
 // TODO funktionalitetr så bokningen som görs i gränssnittet kopplas till currentUser
 // TODO Ska inte gå att dubbelboka -----GJORD
 // TODO validering på login, registering och bokningsformulär --- Sebastian
-// TODO med CSS, landingpage och bookingpage -- Fixat startsidan så det ser bättre ut, utveckla senare om det finns tid
+// TODO med CSS, landingpage och bookingpage -- Fixat startsidan så det ser bättre ut, utveckla senare om det finns tid - fixat bookingpage. inte perfekt i liten mobilview.
 // TODO så man kommer till mina sidor via url mina-sidor när man är inloggad --- Mikah
 // TODO så att man bara kan välja halvtimmar inte minuter i bokningsformuläret
 // Hur gör man så att bokningen som görs kopplas till currentUser
