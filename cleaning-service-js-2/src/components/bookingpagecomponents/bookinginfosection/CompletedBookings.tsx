@@ -50,7 +50,9 @@ const CompletedBookings: React.FC = () => {
       <h2 className="text-2xl text-primaryBlue ustify-center w-1/2 mx-auto mb-5">
         Utförda Bokningar
       </h2>
-      {bookings.map((book) => {
+      {bookings
+      .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+      .map((book) => {
         if (book.status === true) {
           return (
             <div className="" key={book.id}>
