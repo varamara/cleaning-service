@@ -65,6 +65,7 @@ const FutureBookings: React.FC = () => {
       const filteredUpdatedBookings = updatedBookings.filter(
         (booking) => booking !== null
       );
+
       setBookings(bookings.map((prevBooking: IBooking) =>
         filteredUpdatedBookings.find((booking: IBooking | null) => booking?.id === prevBooking.id) || prevBooking
       ));
@@ -80,7 +81,9 @@ const FutureBookings: React.FC = () => {
       <h2 className="text-2xl text-primaryBlue justify-center w-1/2 mx-auto mb-5">
         Kommande bokningar
       </h2>
-      {bookings.map((book) => {
+      {bookings
+        .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
+        .map((book) => {
         if (book.status === false) {
           return (
               <div className="" key={book.id}>
