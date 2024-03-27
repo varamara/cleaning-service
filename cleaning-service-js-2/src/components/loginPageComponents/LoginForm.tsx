@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { RegistrationContext } from "../../contexts/registrationContext/RegistrationProvider";
 
 const LoginForm = () => {
-  
   const { loginUser } = useContext(RegistrationContext) as {
     loginUser: (username: string, password: string) => void;
   };
@@ -23,7 +22,6 @@ const LoginForm = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // lägg till validering
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match");
       return;
@@ -119,6 +117,7 @@ const LoginForm = () => {
                 >
                   Logga in
                 </button>
+                <p className="mt-6 text-sm text-center">Har du inget konto? <a className="font-medium text-secondaryOrange hover:underline hover:underline-offset-4" href="/register">Registrera dig</a></p>
               </div>
             </form>
           </div>

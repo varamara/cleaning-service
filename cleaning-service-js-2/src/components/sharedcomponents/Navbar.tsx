@@ -2,7 +2,6 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
 import { FiLogIn, FiLogOut } from "react-icons/fi";
-import { MdOutlineCleaningServices } from "react-icons/md";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { FaRegUser } from "react-icons/fa";
 import { RegistrationContext } from "../../contexts/registrationContext/RegistrationProvider";
@@ -74,7 +73,7 @@ const Navbar = () => {
                 <FiLogOut />
               </button>
             ) : (
-              <Link to="/register">
+              <Link to="/login">
                 <button className="text-secondaryOrange sm:text-xl lg:text-1xl tracking-wide py-2 px-4 rounded focus:outline-none focus:shadow-outline flex flex-row items-center">
                   <FiLogIn />
                 </button>

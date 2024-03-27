@@ -3,8 +3,6 @@ import TrashBin from "../../../assets/delete.png";
 import PrimaryButton from "../../sharedcomponents/PrimaryButton";
 import { IBooking } from "../../../interfaces";
 import { BookingContext } from "../../../contexts/bookingContext/BookingProvider";
-import { RegistrationContext } from "../../../contexts/registrationContext/RegistrationProvider";
-
 
 
 const FutureBookings: React.FC = () => {
@@ -14,13 +12,7 @@ const FutureBookings: React.FC = () => {
     removeBooking: (id: string) => void;
     updateBooking: (updatedBooking: IBooking) => void;
   }
-  const { currentUser } = useContext(RegistrationContext) as {
-    currentUser: {
-      id: string;
-      bookings: IBooking[];
-    };
-  }
-
+ 
   const [checkedFutureBookings, setCheckedFutureBookings] = useState<string[]>(
     []
   );
