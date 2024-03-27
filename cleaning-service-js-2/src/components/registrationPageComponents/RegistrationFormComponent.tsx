@@ -34,40 +34,50 @@ const RegistrationFormComponent: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitted(true);
-
+  
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,24}$/;
-    if(!passwordRegex.test(formData.password)){
-      alert("Password must be at least 8 characters long and include both upper and lowercase letters and a number.");
+  
+    if (
+      !formData.username ||
+      !formData.password ||
+      !formData.firstName ||
+      !formData.lastName ||
+      !formData.email
+    ) {
+      alert("Vänligen fyll i alla fält för att boka städning.");
+    } else if (!passwordRegex.test(formData.password)) {
+      alert("Lösenordet måste vara minst 8 tecken långt och innehålla både stora och små bokstäver samt en siffra.");
       return;
-    }  else if (formData.password !== formData.confirmPassword) {
-      alert("Passwords do not match.");
+    } else if (formData.password !== formData.confirmPassword) {
+      alert("Lösenorden matchar inte.");
       return;
+    } else {
+      alert("Du är nu registrerad! Vänligen logga in.");
+  
+      const newUser: IUser = {
+        id: uuidv4(),
+        bookings: [],
+        username: formData.username,
+        password: formData.password,
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.email,
+      };
+  
+      console.log(formData);
+      registerUser(newUser);
+  
+      setFormData({
+        username: "",
+        password: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        confirmPassword: "",
+      });
     }
-
-    const newUser: IUser = {
-      id: uuidv4(),
-      bookings: [],
-      username: formData.username,
-      password: formData.password,
-      firstName: formData.firstName,
-      lastName: formData.lastName,
-      email: formData.email,
-    };
-
-    console.log(formData);
-    registerUser(newUser);
-    alert("Du är nu registrerad! Vänligen logga in.");
-
-    
-    setFormData({
-      username: "",
-      password: "",
-      firstName: "",
-      lastName: "",
-      email: "",
-      confirmPassword: "",
-    });
   };
+  
 
   return (
     <>
@@ -97,6 +107,7 @@ const RegistrationFormComponent: React.FC = () => {
                     className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm  ${isSubmitted && !formData.firstName ? "border-red-700" : ""}  `}
                     value={formData.firstName}
                     onChange={handleChange}
+                  
                   />
                 </div>
               </div>
@@ -117,6 +128,7 @@ const RegistrationFormComponent: React.FC = () => {
                     className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${isSubmitted && !formData.lastName ? "border-red-700" : ""}`}
                     value={formData.lastName}
                     onChange={handleChange}
+                    
                   />
                 </div>
               </div>
@@ -136,6 +148,7 @@ const RegistrationFormComponent: React.FC = () => {
                     className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${isSubmitted && !formData.username ? "border-red-700" : ""}`}
                     value={formData.username}
                     onChange={handleChange}
+                    
                   />
                 </div>
               </div>
@@ -155,6 +168,7 @@ const RegistrationFormComponent: React.FC = () => {
                     className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${isSubmitted && !formData.email ? "border-red-700" : ""}`}
                     value={formData.email}
                     onChange={handleChange}
+                    
                   />
                 </div>
               </div>
@@ -174,6 +188,7 @@ const RegistrationFormComponent: React.FC = () => {
                     className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${isSubmitted && !formData.password ? "border-red-700" : ""}`}
                     value={formData.password}
                     onChange={handleChange}
+                    
                   />
                 </div>
               </div>
@@ -193,6 +208,7 @@ const RegistrationFormComponent: React.FC = () => {
                     className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${isSubmitted && !formData.confirmPassword ? "border-red-700" : ""}`}
                     value={formData.confirmPassword}
                     onChange={handleChange}
+                    
                   />
                 </div>
               </div>
