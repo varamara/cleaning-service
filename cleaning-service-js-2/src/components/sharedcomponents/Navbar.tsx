@@ -53,8 +53,8 @@ const Navbar = () => {
         </div>
         <div className="flex items-center justify-end">
           <Link to="/booking">
-            <button className="text-white bg-secondaryOrange sm:text-xl lg:text-2xl tracking-wider rounded-lg py-2 px-8 mr-4 focus:outline-none focus:shadow-outline flex flex-row items-center hover:bg-primaryOrange transition duration-200">
-              <MdOutlineCleaningServices /> <span className="text-base pl-3">Boka Städning</span>
+            <button className="text-white bg-secondaryOrange sm:text-xl lg:text-2xl tracking-wider rounded-lg py-2 px-8 smÖmr-4 focus:outline-none focus:shadow-outline flex flex-row items-center hover:bg-primaryOrange transition duration-200">
+              <span className="hidden sm:block"><MdOutlineCleaningServices /> </span> <span className="text-xs sm:text-base sm:pl-3">Boka Städning</span>
             </button>
           </Link>
           {currentUser && (

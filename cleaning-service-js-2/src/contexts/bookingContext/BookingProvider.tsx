@@ -7,7 +7,7 @@ import axios from "axios";
 // TODO validering på login, registering och bokningsformulär --- Sebastian
 // TODO med CSS, landingpage och bookingpage -- Fixat startsidan så det ser bättre ut, utveckla senare om det finns tid - fixat bookingpage. inte perfekt i liten mobilview.
 // TODO så man kommer till mina sidor via url mina-sidor när man är inloggad --- Mikah
-// TODO så att man bara kan välja halvtimmar inte minuter i bokningsformuläret
+// TODO så att man bara kan välja halvtimmar inte minuter i bokningsformuläret - step="1800" funkar ej i chrome. behöver en egen funktion om detta ska göras
 // Hur gör man så att bokningen som görs kopplas till currentUser
 
 
