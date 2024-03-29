@@ -35,7 +35,7 @@ export const RegistrationProvider: React.FC<{ children: ReactNode }> = ({
     } catch (error) {
       console.error("Error registering user:", error);
     }
-    navigate("/login")
+    navigate("/login");
   };
 
   const loginUser = async (username: string, password: string) => {

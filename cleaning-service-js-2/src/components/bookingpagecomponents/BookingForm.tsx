@@ -97,7 +97,6 @@ const BookingForm: React.FC = () => {
 
     addBooking(newBooking);
 
-
     setFormValues({
       id: "",
       userId: "",
@@ -107,7 +106,7 @@ const BookingForm: React.FC = () => {
       time: "",
       customer: "",
       status: false,
-    })
+    });
 
     alert("Bokning genomförd. Tack för ditt bokning.");
   };

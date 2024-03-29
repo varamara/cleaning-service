@@ -27,16 +27,14 @@ const RegistrationFormComponent: React.FC = () => {
     }));
   };
 
-  
-  const [isSubmitted, setIsSubmitted ] = useState<boolean>(false)
-
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitted(true);
-  
+
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,24}$/;
-  
+
     if (
       !formData.username ||
       !formData.password ||
@@ -46,14 +44,16 @@ const RegistrationFormComponent: React.FC = () => {
     ) {
       alert("Vänligen fyll i alla fält för att boka städning.");
     } else if (!passwordRegex.test(formData.password)) {
-      alert("Lösenordet måste vara minst 8 tecken långt och innehålla både stora och små bokstäver samt en siffra.");
+      alert(
+        "Lösenordet måste vara minst 8 tecken långt och innehålla både stora och små bokstäver samt en siffra."
+      );
       return;
     } else if (formData.password !== formData.confirmPassword) {
       alert("Lösenorden matchar inte.");
       return;
     } else {
       alert("Du är nu registrerad! Vänligen logga in.");
-  
+
       const newUser: IUser = {
         id: uuidv4(),
         bookings: [],
@@ -63,10 +63,10 @@ const RegistrationFormComponent: React.FC = () => {
         lastName: formData.lastName,
         email: formData.email,
       };
-  
+
       console.log(formData);
       registerUser(newUser);
-  
+
       setFormData({
         username: "",
         password: "",
@@ -77,11 +77,9 @@ const RegistrationFormComponent: React.FC = () => {
       });
     }
   };
-  
 
   return (
     <>
-   
       <div className="min-h-screen m-20 bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h2 className="text-center text-3xl font-bold text-primaryBlue">
@@ -104,10 +102,11 @@ const RegistrationFormComponent: React.FC = () => {
                     name="firstName"
                     type="text"
                     autoComplete="given-name"
-                    className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm  ${isSubmitted && !formData.firstName ? "border-red-700" : ""}  `}
+                    className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm  ${
+                      isSubmitted && !formData.firstName ? "border-red-700" : ""
+                    }  `}
                     value={formData.firstName}
                     onChange={handleChange}
-                  
                   />
                 </div>
               </div>
@@ -125,10 +124,11 @@ const RegistrationFormComponent: React.FC = () => {
                     name="lastName"
                     type="text"
                     autoComplete="family-name"
-                    className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${isSubmitted && !formData.lastName ? "border-red-700" : ""}`}
+                    className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
+                      isSubmitted && !formData.lastName ? "border-red-700" : ""
+                    }`}
                     value={formData.lastName}
                     onChange={handleChange}
-                    
                   />
                 </div>
               </div>
@@ -145,10 +145,11 @@ const RegistrationFormComponent: React.FC = () => {
                     name="username"
                     type="text"
                     autoComplete="username"
-                    className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${isSubmitted && !formData.username ? "border-red-700" : ""}`}
+                    className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
+                      isSubmitted && !formData.username ? "border-red-700" : ""
+                    }`}
                     value={formData.username}
                     onChange={handleChange}
-                    
                   />
                 </div>
               </div>
@@ -165,10 +166,11 @@ const RegistrationFormComponent: React.FC = () => {
                     name="email"
                     type="email"
                     autoComplete="email"
-                    className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${isSubmitted && !formData.email ? "border-red-700" : ""}`}
+                    className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
+                      isSubmitted && !formData.email ? "border-red-700" : ""
+                    }`}
                     value={formData.email}
                     onChange={handleChange}
-                    
                   />
                 </div>
               </div>
@@ -185,10 +187,11 @@ const RegistrationFormComponent: React.FC = () => {
                     name="password"
                     type="password"
                     autoComplete="new-password"
-                    className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${isSubmitted && !formData.password ? "border-red-700" : ""}`}
+                    className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
+                      isSubmitted && !formData.password ? "border-red-700" : ""
+                    }`}
                     value={formData.password}
                     onChange={handleChange}
-                    
                   />
                 </div>
               </div>
@@ -205,10 +208,13 @@ const RegistrationFormComponent: React.FC = () => {
                     name="confirmPassword"
                     type="password"
                     autoComplete="new-password"
-                    className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${isSubmitted && !formData.confirmPassword ? "border-red-700" : ""}`}
+                    className={`appearance-none block w-full px-3 py-2 border border-gray-300 rounded-full shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm ${
+                      isSubmitted && !formData.confirmPassword
+                        ? "border-red-700"
+                        : ""
+                    }`}
                     value={formData.confirmPassword}
                     onChange={handleChange}
-                    
                   />
                 </div>
               </div>
@@ -219,7 +225,15 @@ const RegistrationFormComponent: React.FC = () => {
                 >
                   Skapa konto
                 </button>
-                <p className="mt-6 text-sm text-center">Har du redan en användare? <a className="font-medium text-secondaryOrange hover:underline hover:underline-offset-4" href="/login">Logga in</a></p>
+                <p className="mt-6 text-sm text-center">
+                  Har du redan en användare?{" "}
+                  <a
+                    className="font-medium text-secondaryOrange hover:underline hover:underline-offset-4"
+                    href="/login"
+                  >
+                    Logga in
+                  </a>
+                </p>
               </div>
             </form>
           </div>

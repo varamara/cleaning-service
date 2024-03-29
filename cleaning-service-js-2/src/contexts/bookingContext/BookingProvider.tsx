@@ -10,8 +10,6 @@ import axios from "axios";
 // TODO så att man bara kan välja halvtimmar inte minuter i bokningsformuläret - step="1800" funkar ej i chrome. behöver en egen funktion om detta ska göras
 // Hur gör man så att bokningen som görs kopplas till currentUser
 
-
-
 interface BookingContextType {
   bookings: IBooking[];
   cleaners: { id: string; name: string }[];
@@ -58,16 +56,14 @@ export const BookingProvider: React.FC<{ children: ReactNode }> = ({
       console.error("Error fetching cleaners:", error);
     }
   };
-//"/users/${id}/bookings, newBooking
   const addBooking = async (newBooking: IBooking) => {
     try {
       await axios.post("http://localhost:3000/bookings", newBooking);
-      
+
       fetchBookings();
     } catch (error) {
       console.error("Error adding booking:", error);
     }
-
   };
 
   const removeBooking = async (id: string) => {

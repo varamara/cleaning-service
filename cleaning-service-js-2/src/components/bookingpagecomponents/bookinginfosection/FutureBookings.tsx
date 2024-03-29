@@ -4,15 +4,16 @@ import PrimaryButton from "../../sharedcomponents/PrimaryButton";
 import { IBooking } from "../../../interfaces";
 import { BookingContext } from "../../../contexts/bookingContext/BookingProvider";
 
-
 const FutureBookings: React.FC = () => {
-  const { bookings, setBookings, removeBooking, updateBooking } = useContext(BookingContext) as {
+  const { bookings, setBookings, removeBooking, updateBooking } = useContext(
+    BookingContext
+  ) as {
     bookings: IBooking[];
     setBookings: (bookings: IBooking[]) => void;
     removeBooking: (id: string) => void;
     updateBooking: (updatedBooking: IBooking) => void;
-  }
- 
+  };
+
   const [checkedFutureBookings, setCheckedFutureBookings] = useState<string[]>(
     []
   );
@@ -58,9 +59,14 @@ const FutureBookings: React.FC = () => {
         (booking) => booking !== null
       );
 
-      setBookings(bookings.map((prevBooking: IBooking) =>
-        filteredUpdatedBookings.find((booking: IBooking | null) => booking?.id === prevBooking.id) || prevBooking
-      ));
+      setBookings(
+        bookings.map(
+          (prevBooking: IBooking) =>
+            filteredUpdatedBookings.find(
+              (booking: IBooking | null) => booking?.id === prevBooking.id
+            ) || prevBooking
+        )
+      );
 
       setCheckedFutureBookings([]);
     } catch (error) {
@@ -76,8 +82,8 @@ const FutureBookings: React.FC = () => {
       {bookings
         .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime())
         .map((book) => {
-        if (book.status === false) {
-          return (
+          if (book.status === false) {
+            return (
               <div className="" key={book.id}>
                 <ul className="bg-secondaryBlue flex justify-center items-center mx-auto rounded-lg mb-6 text-xs md:text-base lg:text-md w-5/6 md:w-3/4 lg:w-3/6 min-h-20">
                   <li className="flex-grow m-3 font-semibold ">

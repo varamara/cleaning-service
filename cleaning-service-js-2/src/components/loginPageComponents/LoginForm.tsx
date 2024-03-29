@@ -117,7 +117,15 @@ const LoginForm = () => {
                 >
                   Logga in
                 </button>
-                <p className="mt-6 text-sm text-center">Har du inget konto? <a className="font-medium text-secondaryOrange hover:underline hover:underline-offset-4" href="/register">Registrera dig</a></p>
+                <p className="mt-6 text-sm text-center">
+                  Har du inget konto?{" "}
+                  <a
+                    className="font-medium text-secondaryOrange hover:underline hover:underline-offset-4"
+                    href="/register"
+                  >
+                    Registrera dig
+                  </a>
+                </p>
               </div>
             </form>
           </div>

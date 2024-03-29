@@ -1,6 +1,6 @@
-import larry from '../../assets/larry.svg'
-import susie from '../../assets/susie.svg'
-import marty from '../../assets/marty.svg'
+import larry from "../../assets/larry.svg";
+import susie from "../../assets/susie.svg";
+import marty from "../../assets/marty.svg";
 
 const AboutUs: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const AboutUs: React.FC = () => {
               <div className="bg-primaryBeige">
                 <img src={susie} alt="" />
               </div>
-              <h3 className='mt-2'>Susie Green</h3>
+              <h3 className="mt-2">Susie Green</h3>
               <p className="text-xs mb-10">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               </p>
@@ -21,7 +21,7 @@ const AboutUs: React.FC = () => {
               <div className="bg-primaryBeige">
                 <img src={marty} alt="" />
               </div>
-              <h3 className='mt-2'>Marty Funkhouser</h3>
+              <h3 className="mt-2">Marty Funkhouser</h3>
               <p className="text-xs mb-10">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               </p>
@@ -30,7 +30,7 @@ const AboutUs: React.FC = () => {
               <div className="bg-primaryBeige">
                 <img className="object-cover self-center" src={larry} alt="" />
               </div>
-              <h3 className='mt-2'>Larry David</h3>
+              <h3 className="mt-2">Larry David</h3>
               <p className="text-xs mb-10">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit.
               </p>

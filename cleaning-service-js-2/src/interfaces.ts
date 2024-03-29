@@ -31,11 +31,11 @@ export interface ICleanersInfo {
 }
 
 export interface IUser {
-  id: string; 
-  username: string; 
-  password: string; 
+  id: string;
+  username: string;
+  password: string;
   firstName: string;
-  lastName: string; 
+  lastName: string;
   email: string;
- bookings: IBooking[]; 
+  bookings: IBooking[];
 }

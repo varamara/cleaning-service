@@ -2,11 +2,7 @@ import { RegistrationContext } from "../../contexts/registrationContext/Registra
 import { useContext } from "react";
 import susieImg from "../../assets/susie.svg";
 
-interface Props {
-  // Define your interface properties here
-}
-
-const UserInfo: React.FC<Props> = () => {
+const UserInfo: React.FC = () => {
   const { currentUser } = useContext(RegistrationContext);
 
   return (
@@ -23,11 +19,14 @@ const UserInfo: React.FC<Props> = () => {
         <h2 className="text-xl font-semibold">
           Efternamn: {currentUser?.lastName}
         </h2>
-        <p className="text-xl text-gray-500 mb-10">Email: {currentUser?.email}</p>
-      
+        <p className="text-xl text-gray-500 mb-10">
+          Email: {currentUser?.email}
+        </p>
 
-      <div className="p-4 border-t mx-8 mt-2 border-primaryOrange"></div>
-      <a href="#" className="color-primaryOrange text-sm">Byt lösenord?</a>
+        <div className="p-4 border-t mx-8 mt-2 border-primaryOrange"></div>
+        <a href="#" className="color-primaryOrange text-sm">
+          Byt lösenord?
+        </a>
       </div>
     </div>
   );
