@@ -16,9 +16,9 @@ const BookingForm: React.FC = () => {
   const { currentUser } = useContext(RegistrationContext) as {
     currentUser: {
       id: string;
-      bookings: IBooking[]
+      bookings: IBooking[];
     };
-  }
+  };
 
   const [formValues, setFormValues] = useState<IBooking>({
     id: "",
@@ -30,7 +30,6 @@ const BookingForm: React.FC = () => {
     customer: "",
     status: false,
   });
-
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
@@ -49,27 +48,39 @@ const BookingForm: React.FC = () => {
     }));
   };
 
-
-  const [isSubmitted, setIsSubmitted ] = useState<boolean>(false)
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!currentUser);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitted(true)
+    setIsSubmitted(true);
 
-    if (!formValues.cleaner || !formValues.grade || !formValues.date || !formValues.time) {
+    if (!isLoggedIn) {
+      alert("Vänligen logga in för att boka stängning.");
+      return;
+    }
+
+    if (
+      !formValues.cleaner ||
+      !formValues.grade ||
+      !formValues.date ||
+      !formValues.time
+    ) {
       alert("Vänligen fyll i alla fält för att boka städning.");
       return;
     }
 
     const isAlreadyBooked = bookings.some(
-      booking =>
+      (booking) =>
         booking.cleaner === formValues.cleaner &&
         new Date(booking.date).getTime() === formValues.date.getTime() &&
         booking.time === formValues.time
     );
 
     if (isAlreadyBooked) {
-      alert("Städaren är redan bokad vid vald tid. Vänligen välj en annan tid.");
+      alert(
+        "Städaren är redan bokad vid vald tid. Vänligen välj en annan tid."
+      );
       return;
     }
 
@@ -85,6 +96,20 @@ const BookingForm: React.FC = () => {
     };
 
     addBooking(newBooking);
+
+
+    setFormValues({
+      id: "",
+      userId: "",
+      cleaner: "",
+      grade: "",
+      date: new Date(),
+      time: "",
+      customer: "",
+      status: false,
+    })
+
+    alert("Bokning genomförd. Tack för ditt bokning.");
   };
 
   return (
@@ -96,9 +121,12 @@ const BookingForm: React.FC = () => {
             <fieldset className="border-b border-primaryBlue mb-3">
               <legend className="text-xs">1. Välj städare</legend>
               <select
-                className={`border p-2 rounded-md my border-primaryOrange-4 mb-6 text-sm md:text-base ${isSubmitted && !formValues.cleaner ? "border-red-700" : ""}`}
+                className={`border p-2 rounded-md my border-primaryOrange-4 mb-6 text-sm md:text-base ${
+                  isSubmitted && !formValues.cleaner ? "border-red-700" : ""
+                }`}
                 name="cleaner"
-                onChange={handleChange}>
+                onChange={handleChange}
+              >
                 <option value="">Välj Städare...</option>
                 {cleaners.map((cleaner) => (
                   <option key={cleaner.id} value={cleaner.name}>
@@ -121,7 +149,11 @@ const BookingForm: React.FC = () => {
                     value={grade}
                     checked={formValues.grade === grade}
                     onChange={handleChange}
-                    className={`appearance-none checked:bg-blue-900 ${isSubmitted && !formValues.grade ? "border-2 border-red-700" : ""}`}
+                    className={`appearance-none checked:bg-blue-900 ${
+                      isSubmitted && !formValues.grade
+                        ? "border-2 border-red-700"
+                        : ""
+                    }`}
                   />
                   <span className="ml-4">{grade}</span>
                 </label>
@@ -139,7 +171,9 @@ const BookingForm: React.FC = () => {
                 name="time"
                 onChange={handleChange}
                 value={formValues.time}
-                className={`border p-2 rounded-md my-4 mx-2 text-sm md:text-base ${isSubmitted && !formValues.time ? "border-red-700" : ""} `}
+                className={`border p-2 rounded-md my-4 mx-2 text-sm md:text-base ${
+                  isSubmitted && !formValues.time ? "border-red-700" : ""
+                } `}
               />
             </div>
             <div className="flex justify-center mt-5">
