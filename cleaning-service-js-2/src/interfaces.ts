@@ -16,19 +16,19 @@ export interface IBooking {
   status: boolean;
 }
 
-export interface IBookingForm {
-  id: string;
-  cleaner: string;
-  cleaningType: string;
-  date: Date;
-  time: string;
-}
+// export interface IBookingForm {
+//   id: string;
+//   cleaner: string;
+//   cleaningType: string;
+//   date: Date;
+//   time: string;
+// }
 
-export interface ICleanersInfo {
-  id: string;
-  name: string;
-  bookings: string[];
-}
+// export interface ICleanersInfo {
+//   id: string;
+//   name: string;
+//   bookings: string[];
+// }
 
 export interface IUser {
   id: string;

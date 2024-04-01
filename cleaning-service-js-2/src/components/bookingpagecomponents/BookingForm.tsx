@@ -102,6 +102,9 @@ const BookingForm: React.FC = () => {
 
     addBooking(newBooking);
 
+
+    // nu blir alla inputfält röda när vi tömmer dem... 
+    
     setFormValues({
       id: "",
       userId: "",
