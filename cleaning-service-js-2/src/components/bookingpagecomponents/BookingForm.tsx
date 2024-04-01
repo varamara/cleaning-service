@@ -55,6 +55,11 @@ const BookingForm: React.FC = () => {
     e.preventDefault();
     setIsSubmitted(true);
 
+    if (!currentUser) {
+      alert("Vänligen logga in för att boka stängning.");
+      return;
+    }
+
     if (!isLoggedIn) {
       alert("Vänligen logga in för att boka stängning.");
       return;
