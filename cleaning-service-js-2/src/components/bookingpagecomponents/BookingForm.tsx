@@ -105,16 +105,16 @@ const BookingForm: React.FC = () => {
 
     // nu blir alla inputfält röda när vi tömmer dem... 
     
-    setFormValues({
-      id: "",
-      userId: "",
-      cleaner: "",
-      grade: "",
-      date: new Date(),
-      time: "",
-      customer: "",
-      status: false,
-    });
+    // setFormValues({
+    //   id: "",
+    //   userId: "",
+    //   cleaner: "",
+    //   grade: "",
+    //   date: new Date(),
+    //   time: "",
+    //   customer: "",
+    //   status: false,
+    // });
 
     alert("Bokning genomförd. Tack för ditt bokning.");
   };
