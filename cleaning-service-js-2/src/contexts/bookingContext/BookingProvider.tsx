@@ -1,14 +1,8 @@
 import React, { ReactNode, useState, useEffect, createContext } from "react";
 import { IBooking } from "../../interfaces";
 import axios from "axios";
+import { ICleanersInfo } from "../../interfaces";
 
-// TODO funktionalitetr så bokningen som görs i gränssnittet kopplas till currentUser
-// TODO Ska inte gå att dubbelboka -----GJORD
-// TODO validering på login, registering och bokningsformulär --- Sebastian
-// TODO med CSS, landingpage och bookingpage -- Fixat startsidan så det ser bättre ut, utveckla senare om det finns tid - fixat bookingpage. inte perfekt i liten mobilview.
-// TODO så man kommer till mina sidor via url mina-sidor när man är inloggad --- Mikah
-// TODO så att man bara kan välja halvtimmar inte minuter i bokningsformuläret - step="1800" funkar ej i chrome. behöver en egen funktion om detta ska göras
-// Hur gör man så att bokningen som görs kopplas till currentUser
 
 interface BookingContextType {
   bookings: IBooking[];
@@ -31,8 +25,8 @@ export const BookingContext = createContext<BookingContextType>({
 export const BookingProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [bookings, setBookings] = useState<Array<IBooking>>([]);
-  const [cleaners, setCleaners] = useState([]);
+  const [bookings, setBookings] = useState<IBooking[]>([]);
+  const [cleaners, setCleaners] = useState<ICleanersInfo[]>([]);
 
   useEffect(() => {
     fetchBookings();

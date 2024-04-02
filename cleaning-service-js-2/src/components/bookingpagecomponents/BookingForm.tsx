@@ -19,12 +19,15 @@ const BookingForm: React.FC = () => {
       bookings: IBooking[];
     };
   };
+  
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!currentUser);
 
   const [formValues, setFormValues] = useState<IBooking>({
     id: "",
     userId: "",
     cleaner: "",
-    grade: "",
+    grade: CleaningGrade.Basic,
     date: new Date(),
     time: "",
     customer: "",
@@ -48,8 +51,6 @@ const BookingForm: React.FC = () => {
     }));
   };
 
-  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
-  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(!!currentUser);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -103,7 +104,6 @@ const BookingForm: React.FC = () => {
     addBooking(newBooking);
 
 
-    // nu blir alla inputfält röda när vi tömmer dem... 
     
     // setFormValues({
     //   id: "",

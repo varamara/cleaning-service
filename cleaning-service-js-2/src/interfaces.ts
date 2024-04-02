@@ -11,7 +11,7 @@ export interface IBooking {
   date: Date;
   time: string;
   customer: string;
-  grade: string;
+  grade: CleaningGrade;
   cleaner: string;
   status: boolean;
 }
@@ -24,11 +24,10 @@ export interface IBooking {
 //   time: string;
 // }
 
-// export interface ICleanersInfo {
-//   id: string;
-//   name: string;
-//   bookings: string[];
-// }
+export interface ICleanersInfo {
+  id: string;
+  name: string;
+}
 
 export interface IUser {
   id: string;

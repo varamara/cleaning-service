@@ -152,6 +152,16 @@
       "grade": "Toppstädning",
       "cleaner": "Susie",
       "status": true
+    },
+    {
+      "id": "24d24a0e-f621-4cf2-9658-8a16720d51e9",
+      "userId": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
+      "customer": "8a125f4d-1d47-44c1-a227-ccb52c982c42",
+      "date": "2024-04-02T08:15:38.360Z",
+      "time": "19:18",
+      "grade": "Basic städning",
+      "cleaner": "Marty",
+      "status": false
     }
   ]
 }
